@@ -14,20 +14,20 @@ Traditionally, we have a hundred things to think about just to get started. Let'
 CIM ia a massive abstraction, we need to get rid of the technology noise. The tech is still there, it's just sent to the background so we can focus on the information and not all the ways we can process it.  We know we can process it, making the decision how has now become the fulcrum for a successful information system.
 
 CIM has 3 things:
-  Command: 
-    Change the State of the CIM
-  Query: 
-    Observe the current State of the CIM
-  Event: 
-    Declare the CIM has changed State
+  - Command: 
+    - Change the State of the CIM
+  - Query: 
+    - Observe the current State of the CIM
+  - Event: 
+    - Declare the CIM has changed State
 
 Everything evolves from that idea.
-  Who owns this?
-  Where do I store the Events?
-  What can a Command do?
-  How do I ask questions?
-  What are all the dependencies?
-  Where are my files?
+  - Who owns this?
+  - Where do I store the Events?
+  - What can a Command do?
+  - How do I ask questions?
+  - What are all the dependencies?
+  - Where are my files?
 
 These are all reasonable expectations from an Information Machine. The idea was supposed to be simple, but somehow it has exploded into a million acronyms we cannot understand.
 

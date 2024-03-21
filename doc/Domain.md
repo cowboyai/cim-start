@@ -23,10 +23,12 @@ This enables a model interaction with AI to best utilize our natural language to
 3. Subdomains:
 
 A complex Domain often consists of multiple "Subdomains," each representing a distinct part of the overall Domain. These Subdomains are categorized into:
-
-    Core Domain: The primary focus area that provides strategic value and competitive advantage for the business. It is where the most significant business rules and processes reside.
-    Supporting Subdomains: These provide necessary support to the Core Domain but do not offer a competitive advantage. They still require custom development to meet specific business needs.
-    Generic Subdomains: Areas that can be handled with off-the-shelf solutions or generic software components, as they do not contain business-specific logic or processes. We replace these components through a "fitness function". The fitness function declares what the business uses the tool for and the criteria or functionality required from the tool. This way any tool meeting said fitness function is eligible as a substitution for that tool.
+    - Core Domain: 
+      - The primary focus area that provides strategic value and competitive advantage for the business. It is where the most significant business rules and processes reside.
+    - Supporting Subdomains: 
+      - These provide necessary support to the Core Domain but do not offer a competitive advantage. They still require custom development to meet specific business needs.
+    - Generic Subdomains: 
+      - Areas that can be handled with off-the-shelf solutions or generic software components, as they do not contain business-specific logic or processes. We replace these components through a "fitness function". The fitness function declares what the business uses the tool for and the criteria or functionality required from the tool. This way any tool meeting said fitness function is eligible as a substitution for that tool.
 
 4. Bounded Context:
 
@@ -49,7 +51,8 @@ We can import data and other models as we go. This system is designed to be evol
 You can build it one node and edge at a time, or you can import models from other tools such as Arrow.app or graphviz dot files.
 
 ## Primary Focus
-Domain
+
+### Domain
 
 Domain is always the primary focus here. We add supporting elements to describe the Domain.
 Everything leads back to Domain as the purpose of our CIM.

@@ -3,6 +3,8 @@ A starting point for CIM - Composable Information Machine.
 
 CIM can be huge, but it starts small. A single configuration and we have a working, portable environment.
 
+![CIM Architecture](doc/CIMArchitecture.svg)
+
 git is acting as our repository of storage.
 
 CIM will transport us into the future very quickly and let us enjoy information as it is supposed to be... connected.

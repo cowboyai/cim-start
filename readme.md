@@ -68,4 +68,6 @@ This would be incredibly difficult to do manually, but there have been many succ
 
 Rather than impose this on you to manually recreate, the CIM will extract from everything you build and re-process it to create a language for your own use, but also for connecting semantically to Large Language Models and future AI capable processors.
 
-Start by cloning this template repository, then open it in a Codespace (or equivalent) to continue.
+Start by cloning this template repository and then open the folder
+
+[using the template](./Using_this_template.md)

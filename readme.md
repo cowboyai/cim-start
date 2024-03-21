@@ -38,8 +38,11 @@ The way we generally think of "computers" is really some sort of glorified calcu
 Humans are semantic creatures. We apply meaning to everything, consciously or subconsciously, we do it, it is engrained into how our brain works.  For some reason we still don't treat our information agents that way.
 
 To simplify this let's look at a graph:
-
-Me -> command/query -> the universe of information -> events -> Me
+```mermaid
+graph LR
+    Me(Me) -->|command/query| UOI(The Universe of Information)
+    UOI -->|events| Me
+```
 
 And this loop cycle just continues as we process information.
 
@@ -49,7 +52,7 @@ This is what a CIM does, it let's me interface to everything I interact with. In
 
 Some of the technologies we use will have a fairly steep learning curve to become an expert. Using the system and learning as we go is an intricate feature of the CIM.
 
-Queries to AI about anything in the CIM is already built in, we just have to connect it to something that makes sense.
+Queries to AI about anything in the CIM is already built in, we just have to connect it to something that makes sense. Conversations are turned into Resources similar to having a recorded meeting with AI Agents.
 
 This eliminates most of the steepness of the learning curve if you have a ready made assistant to help you and one that builds its own synaptic references in the background.
 

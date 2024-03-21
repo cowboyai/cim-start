@@ -15,8 +15,7 @@ The `outputs` function generates configurations based on the system architecture
 
 For each system, it imports packages from `nixpkgs` with the following adjustments:
 - Allows unfree packages to be installed (`config.allowUnfree = true`).
-- Applies an overlay (not detailed in the snippet, but indicated by the `overlays` variable usage).
-
+  
 ### Neo4j Service
 
 It configures the Neo4j service to be enabled by adding it to the `modules` array. This part of the configuration is directly inlined in the flake, illustrating the ability to mix NixOS module configurations directly in flakes.
@@ -35,3 +34,5 @@ Upon entering the shell, it checks for a `.env` file and exports its contents, a
 - It showcases the power of Nix flakes in creating reproducible and customizable development environments.
 - The configuration makes use of `flake-utils` to streamline multi-system support and reduce boilerplate.
 - Environment variables can be managed through a `.env` file, enhancing the flexibility of the development environment.
+
+[Build the Domain](./Domain.md)

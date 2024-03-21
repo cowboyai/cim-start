@@ -197,5 +197,5 @@ Open https://github.com and go to your account.
 If you already have NixOS installed, simply open a terminal.
 On NixOS we use direnv, which is part of the flake, but if it's not already there, you'll need to add it to your NixOS systemEnvironment.
 
-
+[Flakes](./Flake.md)
 

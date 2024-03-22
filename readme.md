@@ -1,11 +1,15 @@
 # cim-start
 A starting point for CIM - Composable Information Machine.
 
-CIM can be huge, but it starts small. A single configuration and we have a working, portable environment.
+We are creating an intuitive, private information system.
 
-![CIM Architecture](doc/CIMArchitecture.svg)
+CIM can be huge, but usually starts small. A single configuration and we have a working, portable environment.
+
+<!-- add initial arch here -->
 
 git is acting as our repository of storage.
+
+![CIM Architecture](doc/CIMArchitecture.svg)
 
 CIM will transport us into the future very quickly and let us enjoy information as it is supposed to be... connected.
 
@@ -76,3 +80,5 @@ Rather than impose this on you to manually recreate, the CIM will extract from e
 Start by cloning this template repository and then open the folder
 
 [using the template](./Using_this_template.md)
+
+Copyright 2024 Cowboy AI, LLC

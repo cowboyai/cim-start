@@ -1,8 +1,8 @@
 # cim-start
 A starting point for CIM - Composable Information Machine.
-
-<img src="./doc/logo.svg" alt="logo" title="Cowboy AI" width="150" style="background-color: white; border-radius: 25px;"/> 
-
+<div style="background-color: white; border-radius: 25px; width: 150px;">
+<img src="./doc/logo.svg" alt="logo" title="Cowboy AI" /> 
+</div>
 We are creating an intuitive, private information system.
 
 CIM can be huge, but usually starts small. A single configuration and we have a working, portable environment.

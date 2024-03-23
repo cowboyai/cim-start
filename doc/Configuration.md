@@ -179,20 +179,21 @@ Recall:
 
 That really means: when you learn the technology, it's no longer "magic".
 
-Open flake.nix and copy it's contents into your new git repository.
+Open your git repository.
 
 ```bash
-git commit -m init
+git status
 ```
 
-We now have single file, flake.nix, sitting in a git repository and that gives us the ability to start a compute resource, we can ignore the hardware for now.
+We now have few files, mainly, flake.nix, sitting in a git repository and that gives us the ability to start a compute resource, we can ignore the hardware for now.
 
 Where do I run this?
 
 Anywhere you can get a shell(running NixOS), or use a Codespace for now.
+
 Let's look at a Codespace.
 
-Open https://github.com and go to your account.
+On https://github.com/TheCowboyAI/cim-start, click "use this template, and choose "open in a codespace"
 
 If you already have NixOS installed, simply open a terminal.
 On NixOS we use direnv, which is part of the flake, but if it's not already there, you'll need to add it to your NixOS systemEnvironment.

@@ -216,3 +216,5 @@ CIM is an organizational tool for your business functionality. The programs you 
 If you are building software outside of this context, you must be in academia and not the real world. We have absolutely magical technology available to us, but if we cannot relate that back to a single business purpose, then we are lost.
 
 This is why we focus on the business model and generate or commission software from that, rather than shopping for software and then modeling our business process around that. We collect these into Domain Artifacts that allow us to recreate everything in the Domain from a sequence of Events and a set of Configurations.
+
+[Inventory](./Inventory.md)

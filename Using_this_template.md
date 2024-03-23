@@ -20,4 +20,5 @@ After Cloning this repository and starting an Environment, we will add neo4j so 
 We don't need to worry about Events or Commands or Queries or Storage yet, it all lives inside this new git repository.
 
 Let's take a look at flake.nix and get a basic understanding of what is going on here. This is our first Configuration and we want to be sure we understand what it does.
+
 [Configurations](doc/Configuration.md)

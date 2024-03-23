@@ -5,13 +5,28 @@ We are creating an intuitive, private information system.
 
 CIM can be huge, but usually starts small. A single configuration and we have a working, portable environment.
 
-<!-- add initial arch here -->
+When it starts looking complex, remember we only ever need to understand this:
 
-git is acting as our repository of storage.
+```graphviz
+digraph G {
+  rankdir=LR;
+  A -> B;
+}
+```
 
-![CIM Architecture](doc/CIMArchitecture.svg)
+CIM is a systemized graph of information, every node and edge have a single purpose, designed for composition. 
+
+We are State Machine driven and git is acting as our initial repository of storage.  We are transitioning from the world of Hierarchical Files, Rows and Columns, to something else. 
+
+You may have seen attempts to do this in the past, such as how to do something in SQL with this graph based approach, the difference here is that we are doing the opposite. CIM will transition from rows and columns into graphs.  We can always output rows and columns, but the underlying storage becomes a graph.
+
+Nodes in a graph can be anything, including entire operational systems, like another CIM, or your Document Repository. They can also be simple Strings, collections of Strings or Constant Strings.
+
+Strings become something elevated in our Domain Context. Every word now has meaning and semantic context. Not just in a very general way, but understanding as if it were a child growing up in a multilingual household. We use different languages for different context and collisions between these language become points of concern when trying to communicate ideas. Those points of connection always come down to a common idea, or Context and that is the pattern we seek.
 
 CIM will transport us into the future very quickly and let us enjoy information as it is supposed to be... connected.
+
+![CIM Architecture](doc/CIMArchitecture.svg)
 
 Traditionally, we have a hundred things to think about just to get started. Let's start in the middle, with a browser and a git repository. This structure is all we need for a CIM, but we will quickly outgrow it as we proceed. We will just want more capability and to add that, we need to consume more resources.
 
@@ -60,16 +75,34 @@ Queries to AI about anything in the CIM is already built in, we just have to con
 
 This eliminates most of the steepness of the learning curve if you have a ready made assistant to help you and one that builds its own synaptic references in the background.
 
-Even if you have never heard of any of these technologies, follow along. CIM will help you through Sage, a User Interface designed for designing and working with information, let's be distinct, we will talk about a lot of technology along the way, but we are concerned about the Information and how it applies to my Domain model over any particular preference for technology.
+Even if you have never heard of any of these technologies, follow along. CIM will help you through Sage, a User Interface designed for designing and working with information.
+
+Let's be distinct, we will talk about a lot of technology along the way, but we are concerned about the Information and how it applies to my Domain model over any particular preference for technology. If you hate NixOS and want to use Docker with Ansible instead you can absolutely do that, we've done it, and that is why we came to NixOS in the first place.
+
+We have tried several combinations over the past decade:
+SOA...
+VMWare...
+Radius...
+Docker...
+OpenStack...
+Kubernetes...
+Multipass...
+Cloud-init...
+DHCP/PXE...
+SystemCenter...
+Ansible...
+Terraform...
+Puppet/Chef...
+
+It's a big list, and we have tried a bunch more including homegrown solutions, they all have pluses and minuses.
 
 We certainly don't expect you to abandon your tools... CIM is a new tool, with a new purpose. It resides along with everything you already know as part of your Domain.
 
 We start with 2 things:
-A Domain
-  - a boundary around a collection of related information
-  - an environment, some place for work to take place
+  - Domain: a boundary around a collection of related information
+  - Environment: some configured place for work
   
-We need to start here because everything we add or build into the next stages become part of the language of our Domain.
+We need to start here because everything we add or build into the next stages become part of the language of our Domain.  We do start with a based language and the knowledge of what nomenclature is used in a Domain, so we have a starting reference, from there is is all dependent on what you add to your Domain.
 
 CIM conveniently extracts a language tailored to your Domain and how you use it. It's like the dialect you use in your home as opposed to writing a speech.
 

@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="900" height="960" viewBox="0 0 900 960" xml:space="preserve">
-<desc>Created with Fabric.js 3.6.6</desc>
-<defs>
-</defs>
-<g transform="matrix(1 0 0 1 449.67 480.17)"  >
-<g style=""   >
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="900" height="960" viewBox="0 0 900 960" xml:space="preserve" fill="rgb(255,255,255)">
+<g transform="matrix(1 0 0 1 449.67 480.17)" >
+<g>
 		<g transform="matrix(1.33 0 0 -1.33 0.21 -197.28)" id="path20" clip-path="url(#CLIPPATH_28)"  >
 <clipPath id="CLIPPATH_28" >
 	<path transform="matrix(1 0 0 1 -0.16 -147.96) translate(-512, -512)" id="path14" d="M 0 1024 H 1024 V 0 H 0 Z" stroke-linecap="round" />

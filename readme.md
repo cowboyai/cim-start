@@ -2,7 +2,7 @@
 A starting point for CIM - Composable Information Machine.
 
 <div>
-<img src="./doc/logo.svg" width="150px" style="background-color: white;" alt="logo" title="Cowboy AI" /> 
+<img src="./doc/logo.svg" width="150px" alt="logo" title="Cowboy AI" /> 
 </div>
 
 We are creating an intuitive, private information system.

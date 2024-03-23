@@ -136,18 +136,11 @@ Our model is expanding.
 
 Now our model looks like this:
 
-```graphviz
-digraph G {
-    // Graph properties
-    graph [charset="UTF-8"];
-    
-    // Node definitions
-    Domain [label="Domain\nname: Lucy's Lemonade"];
-    Person [label="Person\nname: Lucy LaGrange"];
-    Organization [label="Organization\nname: Lucy's Lemonade, LLC."];
-    
-    // Since there are no edges, we do not define any here
-}
+```mermaid
+graph TD
+    Domain("Domain<br>name: Lucy's Lemonade")
+    Person("Person<br>name: Lucy LaGrange")
+    Organization("Organization<br>name: Lucy's Lemonade, LLC.")
 ```
 
 Rather uninteresting so far.
@@ -180,15 +173,15 @@ return r
 
 Now we have some real information we can use to build something.
 
-There exists a Domain called Lucy's Lemonade, it is owned by Lucy's Lemonade, LLC. of which Lucy LaGrange is a Member.
+> There exists a Domain called Lucy's Lemonade, it is owned by Lucy's Lemonade, LLC. of which Lucy LaGrange is a Member.
 
 That is our initial Domain.
 
 Order doesn't matter here. In other words, we can build meaningful expressions from different perspectives:
 
-Lucy Lagrange is a member of Lucy's Lemonade who owns the Domain Lucy's Lemonade.
+> Lucy Lagrange is a Member of Lucy's Lemonade, LLC. which Owns the Domain Lucy's Lemonade.
 
-Lucy's Lemonade, LLC. is an organization consisting of Lucy LaGrange and a Domain of Lucy's Lemonade.
+> Lucy's Lemonade, LLC. is an Organization consisting of Lucy LaGrange and owns a Domain called Lucy's Lemonade.
 
 And now AI can decipher all of this and make sense of the relationships.
 

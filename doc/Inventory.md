@@ -30,27 +30,77 @@ Inventory for a CIM is therefore the Category of every Resource it has access to
 That is why we are starting at Domain, and then adding the other requirements. The Domain is what we care about and different Domains have different requirements.
 
 These are the Core Categories CIMs usually have:
-  Domain
-  People
-  Organizations
-  Agents
-  Operators
-  Accounts
-  Users
-  Resources
-  Entities
-  Values
-  Commands
-  Queries
-  Events
-  Aggregates
-  Policies
-  Behaviors
-  Projections
-  Maps
-  Location
-  Signals
-  Functions
+```mermaid
+graph TD
+    Domain --> People
+    Domain --> Organizations
+    Domain --> Agents
+    Domain --> Operators
+    Domain --> Accounts
+    Domain --> Users
+    Domain --> Resources
+    Domain --> Entities
+    Domain --> Values
+    Domain --> Commands
+    Domain --> Queries
+    Domain --> Events
+    Domain --> Aggregates
+    Domain --> Policies
+    Domain --> Behaviors
+    Domain --> Projections
+    Domain --> Maps
+    Domain --> Location
+    Domain --> Signals
+    Domain --> Functions
 
-These are the abstractions that make up our Base Inventory.
-You will surely add Domain Specific additions to this as you proceed.
+    People --> Users
+    Organizations --> Operators
+    Agents -->|interact with| Resources
+    Operators -->|manage| Accounts
+    Accounts -->|contain| Users
+    Accounts -->|contain| Agents
+    Entities -->|defined by| Values
+    Commands -->|produce| Events
+    Events -->|produce| Projections
+    Queries -->|retrieve| Projections
+    Aggregates -->|compose of| Entities
+    Aggregates -->|compose of| Functions
+    Aggregates -->|compose of| Policies
+    Policies -->|govern| Behaviors
+    Policies -->|govern| Functions
+    Maps --> Location
+    Maps --> Entities
+    Maps --> Values
+    Maps --> Functions
+    Signals -->|inform| Functions
+```
+
+These are the high level abstractions that make up our Base.
+You will surely have Domain Specific additions as you proceed.
+We will dive into every one of these in time.
+
+These are not contrived and they are not objects you inherit, they are things you instantiate and extend.
+This becomes part of the Ubiquitous Language and will be nomenclature you are guided by and follow as you build your Domain.
+
+As we see, the Domain is what links everything together, this is our Context, the Domain.
+Each part of the Domain is what we want to navigate with impunity and confidence.
+
+```mermaid
+graph LR
+    A --> B
+```
+
+One thing at a time...
+
+Once we understand:
+  - Everything happening in A
+  - Everything Happening in B
+  - The transition from A to B
+
+Then we are clear on that part of the Domain...
+- I don't care about C or D or the price of tea in Jakarta.
+- I care about Inputs to A, what that does to A
+- Causing a transition from A to B
+- And what B looks like when I am done.
+
+[Communications](./Communications.md)

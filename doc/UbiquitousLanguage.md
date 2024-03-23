@@ -54,3 +54,5 @@ You are building a natural human interface into your information, as you build m
 The Sequence of Events, along with the Object Store content of the information are all we need to recreate the entire language.
 
 This allows us to make a nomadic system based on our Domain and store it, replicate it, and run it anywhere I can connect a nats server and an API.
+
+[Inventory](./Inventory.md)

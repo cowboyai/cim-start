@@ -7,11 +7,9 @@ CIM can be huge, but usually starts small. A single configuration and we have a 
 
 When it starts looking complex, remember we only ever need to understand this:
 
-```graphviz
-digraph G {
-  rankdir=LR;
-  A -> B;
-}
+```mermaid
+graph LR
+    A --> B
 ```
 
 CIM is a systemized graph of information, every node and edge have a single purpose, designed for composition. 

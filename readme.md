@@ -1,6 +1,8 @@
 # cim-start
 A starting point for CIM - Composable Information Machine.
 
+<img src="./doc/logo.svg" alt="logo" title="Cowboy AI" width="150" style="background-color: white; border-radius: 25px;"/> 
+
 We are creating an intuitive, private information system.
 
 CIM can be huge, but usually starts small. A single configuration and we have a working, portable environment.
@@ -15,6 +17,8 @@ graph LR
 CIM is a systemized graph of information, every node and edge have a single purpose, designed for composition. 
 
 We are State Machine driven and git is acting as our initial repository of storage.  We are transitioning from the world of Hierarchical Files, Rows and Columns, to something else. 
+
+![CIM](./doc/CIM.svg)
 
 You may have seen attempts to do this in the past, such as how to do something in SQL with this graph based approach, the difference here is that we are doing the opposite. CIM will transition from rows and columns into graphs.  We can always output rows and columns, but the underlying storage becomes a graph.
 

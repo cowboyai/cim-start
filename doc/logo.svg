@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="900" height="960" viewBox="0 0 900 960" xml:space="preserve">
+<desc>Created with Fabric.js 3.6.6</desc>
+<defs>
+</defs>
+<g transform="matrix(1 0 0 1 449.67 480.17)"  >
+<g style=""   >
+		<g transform="matrix(1.33 0 0 -1.33 0.21 -197.28)" id="path20" clip-path="url(#CLIPPATH_28)"  >
+<clipPath id="CLIPPATH_28" >
+	<path transform="matrix(1 0 0 1 -0.16 -147.96) translate(-512, -512)" id="path14" d="M 0 1024 H 1024 V 0 H 0 Z" stroke-linecap="round" />
+</clipPath>
+<path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(0,24,41); fill-rule: nonzero; opacity: 1;"  transform=" translate(-169.97, 35.59)" d="m 0 0 c 39.43 -14.447 104.109 -32.526 185.051 -30.153 c 65.73 1.926 118.992 16.659 154.898 29.74 c -7.233 -9.573 -18.596 -22.608 -35.11 -34.697 c -38.087 -27.881 -77.546 -31.685 -108.635 -34.284 c -29.539 -2.47 -81.72 -6.833 -136.723 22.305 C 31.13 -32.07 11.737 -13.294 0 0" stroke-linecap="round" />
+</g>
+		<g transform="matrix(1.33 0 0 -1.33 0.4 -350.07)" id="path24" clip-path="url(#CLIPPATH_29)"  >
+<clipPath id="CLIPPATH_29" >
+	<path transform="matrix(1 0 0 1 -0.3 -262.55) translate(-512, -512)" id="path14" d="M 0 1024 H 1024 V 0 H 0 Z" stroke-linecap="round" />
+</clipPath>
+<path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(0,24,41); fill-rule: nonzero; opacity: 1;"  transform=" translate(-156.73, -65.19)" d="m 0 0 c 5.701 -1.772 13.69 -4.154 23.309 -6.688 c 41.061 -10.817 74.21 -15.223 89.414 -15.903 c 23.678 -1.061 66.795 -3.535 97.188 0 c 30.394 3.534 57.253 9.895 70.329 13.076 c 13.076 3.181 33.221 10.956 33.221 10.956 c -1.047 8.419 -2.295 17.122 -3.778 26.082 c -1.649 9.963 -3.47 19.535 -5.411 28.697 c 0 0 -0.353 5.654 -4.241 10.955 c -3.887 5.302 -17.67 24.386 -17.67 24.386 c 0 0 -19.792 31.807 -24.739 40.289 c -4.948 8.482 -13.783 21.205 -24.739 22.618 c -10.956 1.414 -17.317 -1.767 -22.972 -4.594 c -5.655 -2.827 -14.49 -16.257 -14.49 -16.257 c 0 0 -3.181 -5.655 -8.835 -9.896 c -5.655 -4.241 -16.964 -6.361 -24.739 -6.715 c -7.775 -0.353 -18.377 0 -25.799 1.767 c -7.422 1.768 -19.791 18.378 -19.791 18.378 c 0 0 -9.896 17.658 -27.566 17.664 C 71.02 154.822 67.839 147.753 63.598 141.745 C 59.357 135.737 47.695 116.3 40.273 105.344 C 32.851 94.388 17.301 73.183 17.301 73.183 C 15.388 70.944 12.656 67.388 10.233 62.581 C 5.015 52.228 5.104 43.757 3.816 29.402 C 3.194 22.48 2.092 12.392 0 0" stroke-linecap="round" />
+</g>
+		<g transform="matrix(1.33 0 0 -1.33 106.12 -57.05)" id="path44"  >
+<linearGradient id="SVGID_linearGradient42_5" gradientUnits="userSpaceOnUse" gradientTransform="matrix(0 60.9 60.9 0 591.59 523.55)"  x1="0" y1="0" x2="1" y2="0">
+<stop offset="0%" style="stop-color:rgb(0,25,39);stop-opacity: 1"/>
+<stop offset="100%" style="stop-color:rgb(0,50,86);stop-opacity: 1"/>
+</linearGradient>
+<path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: url(#SVGID_linearGradient42_5); fill-rule: nonzero; opacity: 1;"  transform=" translate(-591.59, -554.78)" d="m 582.719 581.88 v -59.06 l 17.739 0.35 v 63.58 c -5.689 -1.75 -11.61 -3.39 -17.739 -4.87" stroke-linecap="round" />
+</g>
+		<g transform="matrix(1.33 0 0 -1.33 142.37 171.18)" id="path56" clip-path="url(#CLIPPATH_30)"  >
+<clipPath id="CLIPPATH_30" >
+	<path transform="matrix(1 0 0 1 -106.77 128.38) translate(-512, -512)" id="path50" d="M 0 1024 H 1024 V 0 H 0 Z" stroke-linecap="round" />
+</clipPath>
+<path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(0,25,39); fill-rule: nonzero; opacity: 1;"  transform=" translate(17.93, 0.01)" d="m 0 0 c 0 -2.48 -1 -4.72 -2.62 -6.34 c -1.62 -1.62 -3.86 -2.62 -6.33 -2.62 h -25.16 c 1.1 2.27 1.71 4.82 1.71 7.51 c 0 3.9 -1.29 7.5 -3.47 10.4 H -8.95 C -4.01 8.95 0 4.95 0 0" stroke-linecap="round" />
+</g>
+		<g transform="matrix(1.33 0 0 -1.33 -156.47 271.13)" id="path60" clip-path="url(#CLIPPATH_31)"  >
+<clipPath id="CLIPPATH_31" >
+	<path transform="matrix(1 0 0 1 117.35 203.35) translate(-512, -512)" id="path50" d="M 0 1024 H 1024 V 0 H 0 Z" stroke-linecap="round" />
+</clipPath>
+<path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(5,67,103); fill-rule: nonzero; opacity: 1;"  transform=" translate(15.62, -25.95)" d="m 0 0 c 0 -5.92 -4.8 -10.72 -10.72 -10.72 c -5.92 0 -10.72 4.8 -10.72 10.72 c 0 1.35 0.25 2.63 0.7 3.82 v 39.15 h -10.39 c -0.04 6.67 -0.08 13.39 -0.11 19.66 h 14.06 l 14.2 -14.2 V 7.41 C -1.13 5.49 0 2.87 0 0" stroke-linecap="round" />
+</g>
+		<g transform="matrix(1.33 0 0 -1.33 3.79 297.79)" id="path64" clip-path="url(#CLIPPATH_32)"  >
+<clipPath id="CLIPPATH_32" >
+	<path transform="matrix(1 0 0 1 -2.84 223.34) translate(-512, -512)" id="path50" d="M 0 1024 H 1024 V 0 H 0 Z" stroke-linecap="round" />
+</clipPath>
+<path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(0,24,41); fill-rule: nonzero; opacity: 1;"  transform=" translate(-67.59, -11.96)" d="m 0 0 h 135.186 c 0 0 -31.843 16.702 -31.868 16.715 c -6.365 3.338 -14.103 8.13 -21.657 7.045 c -4.962 -0.713 -9.816 -4.532 -14.88 -4.532 c -3.407 0.001 -7.33 2.15 -10.539 3.134 c -7.916 2.427 -15.355 0.988 -22.344 -3.336 z" stroke-linecap="round" />
+</g>
+		<g transform="matrix(1.33 0 0 -1.33 1 334.27)" id="path68" clip-path="url(#CLIPPATH_33)"  >
+<clipPath id="CLIPPATH_33" >
+	<path transform="matrix(1 0 0 1 -0.75 250.7) translate(-512, -512)" id="path50" d="M 0 1024 H 1024 V 0 H 0 Z" stroke-linecap="round" />
+</clipPath>
+<path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(0,24,41); fill-rule: nonzero; opacity: 1;"  transform=" translate(-24.76, 2.7)" d="M 0 0 H 49.518 C 44.843 -2.138 36.382 -5.279 25.393 -5.396 C 13.718 -5.52 4.751 -2.173 0 0" stroke-linecap="round" />
+</g>
+		<g transform="matrix(1.33 0 0 -1.33 -162.19 -71.17)" id="path72" clip-path="url(#CLIPPATH_34)"  >
+<clipPath id="CLIPPATH_34" >
+	<path transform="matrix(1 0 0 1 121.64 -53.37) translate(-512, -512)" id="path50" d="M 0 1024 H 1024 V 0 H 0 Z" stroke-linecap="round" />
+</clipPath>
+<path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(0,50,86); fill-rule: nonzero; opacity: 1;"  transform=" translate(13.64, -21.61)" d="M 0 0 H -0.05 C -0.01 -0.36 0 -0.72 0 -1.09 c 0 -7.53 -6.11 -13.64 -13.64 -13.64 c -7.54 0 -13.64 6.11 -13.64 13.64 c 0 6.1 4.01 11.27 9.54 13.02 v 46.01 c 0.47 -0.22 0.94 -0.43 1.42 -0.64 c 3.57 -1.59 9.17 -4.06 16.32 -6.86 z" stroke-linecap="round" />
+</g>
+		<g transform="matrix(1.33 0 0 -1.33 -192.16 -102.25)" id="path76" clip-path="url(#CLIPPATH_35)"  >
+<clipPath id="CLIPPATH_35" >
+	<path transform="matrix(1 0 0 1 144.12 -76.69) translate(-512, -512)" id="path50" d="M 0 1024 H 1024 V 0 H 0 Z" stroke-linecap="round" />
+</clipPath>
+<path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(0,50,86); fill-rule: nonzero; opacity: 1;"  transform=" translate(10.16, -16.55)" d="m 0 0 c 0 -5.61 -4.54 -10.16 -10.15 -10.16 c -5.61 0 -10.16 4.55 -10.16 10.16 c 0 1.8 0.47 3.49 1.29 4.95 v 38.31 c 5.18 -2.88 11.1 -6.02 17.73 -9.24 V 4.95 C -0.47 3.49 0 1.8 0 0" stroke-linecap="round" />
+</g>
+		<g transform="matrix(1.33 0 0 -1.33 82.17 251.72)" id="path80" clip-path="url(#CLIPPATH_36)"  >
+<clipPath id="CLIPPATH_36" >
+	<path transform="matrix(1 0 0 1 -61.63 188.79) translate(-512, -512)" id="path50" d="M 0 1024 H 1024 V 0 H 0 Z" stroke-linecap="round" />
+</clipPath>
+<path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(2,71,114); fill-rule: nonzero; opacity: 1;"  transform=" translate(11.69, 0)" d="m 0 0 c 0 -6.454 -5.232 -11.685 -11.685 -11.685 c -6.454 0 -11.686 5.231 -11.686 11.685 c 0 6.454 5.232 11.685 11.686 11.685 C -5.232 11.685 0 6.454 0 0" stroke-linecap="round" />
+</g>
+		<g transform="matrix(1.33 0 0 -1.33 -107.36 225.67)" id="path84" clip-path="url(#CLIPPATH_37)"  >
+<clipPath id="CLIPPATH_37" >
+	<path transform="matrix(1 0 0 1 80.52 169.26) translate(-512, -512)" id="path50" d="M 0 1024 H 1024 V 0 H 0 Z" stroke-linecap="round" />
+</clipPath>
+<path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(0,169,255); fill-rule: nonzero; opacity: 1;"  transform=" translate(14.57, -0.01)" d="m 0 0 c 0 -4.56 -2.1 -8.63 -5.38 -11.29 c -2.51 -2.05 -5.71 -3.27 -9.19 -3.27 c -3.77 0 -7.2 1.43 -9.79 3.79 c -2.94 2.66 -4.78 6.5 -4.78 10.77 c 0 8.05 6.53 14.57 14.57 14.57 C -6.52 14.57 0 8.05 0 0" stroke-linecap="round" />
+</g>
+		<g transform="matrix(1.33 0 0 -1.33 -95.11 139.19)" id="path88" clip-path="url(#CLIPPATH_38)"  >
+<clipPath id="CLIPPATH_38" >
+	<path transform="matrix(1 0 0 1 71.33 104.39) translate(-512, -512)" id="path50" d="M 0 1024 H 1024 V 0 H 0 Z" stroke-linecap="round" />
+</clipPath>
+<path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(6,60,106); fill-rule: nonzero; opacity: 1;"  transform=" translate(11.62, 0)" d="m 0 0 c 0 -6.42 -5.204 -11.624 -11.624 -11.624 c -6.42 0 -11.624 5.204 -11.624 11.624 c 0 6.42 5.204 11.624 11.624 11.624 C -5.204 11.624 0 6.42 0 0" stroke-linecap="round" />
+</g>
+		<g transform="matrix(1.33 0 0 -1.33 0.29 46.98)" id="path92" clip-path="url(#CLIPPATH_39)"  >
+<clipPath id="CLIPPATH_39" >
+	<path transform="matrix(1 0 0 1 -0.22 35.23) translate(-512, -512)" id="path50" d="M 0 1024 H 1024 V 0 H 0 Z" stroke-linecap="round" />
+</clipPath>
+<path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(0,50,86); fill-rule: nonzero; opacity: 1;"  transform=" translate(8.87, 25.93)" d="m 0 0 c 1.278 1.786 2.037 3.968 2.037 6.331 c 0 6.023 -4.882 10.906 -10.906 10.906 c -6.023 0 -10.905 -4.883 -10.905 -10.906 c 0 -2.363 0.759 -4.545 2.037 -6.331 v -51.862 c -1.278 -1.786 -2.037 -3.968 -2.037 -6.331 c 0 -6.023 4.882 -10.906 10.905 -10.906 c 6.024 0 10.906 4.883 10.906 10.906 c 0 2.363 -0.759 4.545 -2.037 6.331 z" stroke-linecap="round" />
+</g>
+		<g transform="matrix(1.33 0 0 -1.33 -195.62 93.02)" id="path96" clip-path="url(#CLIPPATH_40)"  >
+<clipPath id="CLIPPATH_40" >
+	<path transform="matrix(1 0 0 1 146.71 69.76) translate(-512, -512)" id="path50" d="M 0 1024 H 1024 V 0 H 0 Z" stroke-linecap="round" />
+</clipPath>
+<path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(0,50,86); fill-rule: nonzero; opacity: 1;"  transform=" translate(11.43, 0)" d="m 0 0 c 0 -6.311 -5.116 -11.427 -11.427 -11.427 c -6.312 0 -11.428 5.116 -11.428 11.427 c 0 6.311 5.116 11.427 11.428 11.427 C -5.116 11.427 0 6.311 0 0" stroke-linecap="round" />
+</g>
+		<g transform="matrix(1.33 0 0 -1.33 0 57.55)" id="path100" clip-path="url(#CLIPPATH_41)"  >
+<clipPath id="CLIPPATH_41" >
+	<path transform="matrix(1 0 0 1 0 43.17) translate(-512, -512)" id="path50" d="M 0 1024 H 1024 V 0 H 0 Z" stroke-linecap="round" />
+</clipPath>
+<path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(0,25,39); fill-rule: nonzero; opacity: 1;"  transform=" translate(70.72, 0.82)" d="m 0 0 c 0 7.64 6.2 13.84 13.84 13.84 c 7.64 0 13.84 -6.2 13.84 -13.84 c 0 -7.64 -6.2 -13.83 -13.84 -13.83 C 6.2 -13.83 0 -7.64 0 0 m -142.05 0 c 0 -7.64 -6.19 -13.83 -13.84 -13.83 c -7.64 0 -13.83 6.19 -13.83 13.83 c 0 7.64 6.19 13.84 13.83 13.84 c 7.65 0 13.84 -6.2 13.84 -13.84 M 114.7 -7.23 c -1.15 -9.47 -2.3 -18.94 -3.45 -28.42 l -0.58 -0.4 l -28.85 -19.97 C 75.46 -60.43 69.1 -64.83 62.74 -69.23 v -55.4 H 46.29 c -2.71 6.01 -8.75 10.2 -15.78 10.2 c -9.55 0 -17.29 -7.75 -17.29 -17.3 c 0 -9.55 7.74 -17.3 17.29 -17.3 c 5.46 0 10.33 2.53 13.5 6.49 h 18.73 v -27.95 H 35.01 c -2.47 2.8 -6.09 4.56 -10.11 4.56 c -7.46 0 -13.5 -6.05 -13.5 -13.51 c 0 -7.46 6.04 -13.51 13.5 -13.51 c 4.02 0 7.63 1.76 10.1 4.55 h 27.74 v -1.11 c -9.43 -8.94 -18.87 -17.88 -28.3 -26.83 c -6.3 -5.97 -12.6 -11.94 -18.9 -17.91 c -17.28 -16.38 -34.55 -32.75 -51.83 -49.13 h -16.52 v 22.25 c 1.9 2.21 3.05 5.09 3.05 8.24 c 0 7 -5.68 12.68 -12.69 12.68 c -7.01 0 -12.69 -5.68 -12.69 -12.68 c 0 -3.85 1.71 -7.3 4.42 -9.62 v -20.87 h -32.17 c -10.92 10.52 -21.84 21.03 -32.76 31.55 h 16.85 c 3.06 -4.45 8.18 -7.37 13.99 -7.37 c 9.36 0 16.95 7.59 16.95 16.95 c 0 9.36 -7.59 16.95 -16.95 16.95 c -6.33 0 -11.85 -3.47 -14.76 -8.62 h -22.48 v 95.72 c -2.51 -2.05 -5.71 -3.27 -9.19 -3.27 c -3.77 0 -7.2 1.43 -9.79 3.79 v -89.72 c -14.11 13.59 -28.22 27.17 -42.33 40.76 c -0.04 6.53 -0.12 24.35 -0.22 42.66 c -0.04 6.67 -0.08 13.39 -0.11 19.66 c -0.08 14.02 -0.14 25.76 -0.16 29.42 h 5.35 c 2.74 -6.24 8.98 -10.6 16.24 -10.6 c 9.8 0 17.75 7.95 17.75 17.75 c 0 9.81 -7.95 17.75 -17.75 17.75 c -5.84 0 -11.01 -2.81 -14.24 -7.16 h -10.94 c -0.56 3.51 -1.11 7 -1.66 10.51 c -12.16 10.53 -24.31 21.05 -36.46 31.58 h -5.74 c -1.92 9.66 -3.83 19.33 -5.74 28.99 c 6.31 -4.59 12.63 -9.19 18.94 -13.78 c 2.59 1.44 5.17 2.87 7.75 4.31 c 0.06 16.44 0.11 32.89 0.17 49.33 c 17.79 -0.04 67.63 -0.27 83.12 -1.5 c 18.53 -1.47 25.58 -9.84 25.9 -10.24 c -0.76 0.18 -29.81 7.49 -52.12 4.51 c -22.6 -3.01 -44.15 -23.2 -44.15 -23.2 l 29.69 -12.95 c 0 0 16.06 -15.07 30.43 -15.54 c 14.38 -0.48 26.88 9.16 26.88 9.16 l 16.82 -7.18 v -56.96 c 0 0 -3.92 -9.34 -6.33 -18.68 c -2.41 -9.34 -2.71 -18.08 6.03 -32.93 c 8.73 -14.85 30.73 -22.82 43.68 -22.21 c 12.95 0.6 23.81 5.12 36.64 14.76 c 12.82 9.64 15.2 28.63 12.82 37.97 c -2.39 9.34 -7.57 26.22 -7.57 26.22 l -0.16 13.2 l -0.07 5.77 h 0.07 v 19.97 h -0.31 l -0.13 10.91 l 15.94 9.16 c 0 0 18.92 -10.05 34.59 -7.18 c 15.67 2.86 27.82 15.97 27.82 15.97 c 0 0 14.7 6.37 25.91 12.95 c -3.47 2.76 -7.46 4.91 -11.32 7.06 c -8.72 4.87 -17.31 9.91 -27.04 12.52 c -9.2 2.48 -18.94 3.11 -28.34 2.46 c -9.93 -0.69 -19.8 -2.49 -29.33 -5.36 c 7.14 7.12 17.81 8.89 27.42 10.04 c 3.66 0.44 7.34 0.72 11.03 0.89 v 20.15 c 0 0 -17.41 -0.34 -17.74 -0.35 c -5.69 -0.11 -11.39 -0.21 -17.09 -0.3 c -8.12 -0.14 -14.35 -4.77 -19.68 -10.65 c -4.44 -4.9 -8.37 -10.39 -11.07 -16.45 c -3.82 -8.54 -2.55 -18.58 -2.55 -27.73 v -85.79 c 0 0 7.29 -16.47 3.07 -27.92 c -4.22 -11.45 -21.7 -12.96 -21.7 -12.96 c 0 0 -17.47 0.87 -23.7 11.15 c -6.23 10.28 2.32 30 2.32 30 v 28.25 c 0 17.2 -0.01 34.4 -0.01 51.6 c 0 5.38 0.19 10.76 0.2 16.15 c 0.01 3.95 0.37 8.35 -0.73 12.17 c -1.78 6.19 -5.63 12 -9.11 17.32 c -3.3 5.04 -8.27 8.54 -13.5 10.96 v 20.74 c 1.11 1.68 1.75 3.69 1.75 5.84 c 0 5.86 -4.75 10.62 -10.62 10.62 c -5.86 0 -10.62 -4.76 -10.62 -10.62 c 0 -2.15 0.64 -4.16 1.75 -5.84 V 53.92 c -4.3 0.58 -8.65 0.5 -12.98 0.5 v 58.81 c 1.71 -0.46 3.45 -0.9 5.21 -1.33 c 5.5 -1.34 18.89 -4.42 37.47 -6.34 V 76.57 c -1.53 -1.93 -2.45 -4.37 -2.45 -7.03 c 0 -6.25 5.07 -11.31 11.32 -11.31 c 6.25 0 11.32 5.06 11.32 11.31 c 0 2.66 -0.92 5.1 -2.45 7.03 v 27.67 c 10.98 -0.5 23.13 -0.47 36.07 0.49 c 17.08 1.26 33.05 3.94 47.78 7.5 c 6.13 1.48 12.05 3.12 17.74 4.87 c 31.31 9.6 55.84 22.6 71.99 32.41 c -0.02 -10.83 -0.04 -21.66 -0.06 -32.49 H 76.19 L 59.38 99.3 c -3.05 3.16 -7.34 5.12 -12.07 5.12 c -9.28 0 -16.8 -7.52 -16.8 -16.8 c 0 -9.28 7.52 -16.8 16.8 -16.8 c 7.28 0 13.49 4.64 15.82 11.13 h 3.55 l 15.05 14.54 h 7.9 C 89.62 88.52 89.6 80.54 89.59 72.57 H 89.44 V 50.29 h 0.11 c -0.04 -17.58 -0.07 -35.15 -0.1 -52.73 c 2.46 -2 4.03 -5.05 4.03 -8.46 c 0 -1.57 -0.33 -3.05 -0.92 -4.39 c 0.87 -1.62 1.75 -3.24 2.62 -4.86 c 6.51 4.31 13.01 8.62 19.52 12.92 m -344.47 156.45 c 1.89 -1.1 3.92 -2.26 6.07 -3.47 c 5.18 -2.88 11.1 -6.02 17.73 -9.24 c 3.03 -1.47 6.2 -2.97 9.51 -4.45 c 0.47 -0.22 0.94 -0.43 1.42 -0.64 c 3.57 -1.59 9.17 -4.06 16.32 -6.86 c 4.89 -1.92 10.51 -4 16.72 -6.05 V 54.42 h -68.1 c 0.11 31.6 0.22 63.2 0.33 94.8 M 245.83 282 c -2.15 5.18 -3.99 8.18 -6.01 10.75 c -1.9 2.41 -11.4 13.88 -26.89 15.19 c -10.46 0.88 -18.26 -3.33 -24.99 -6.96 c -7.64 -4.13 -12.77 -8.87 -20.87 -17.4 c -15.86 -16.69 -26.26 -30.05 -26.26 -30.05 c -5.81 -7.47 -23.14 -29.76 -34.79 -42.7 c -29.34 -32.6 -61.34 -48.95 -69.91 -53.14 c -24.81 -12.14 -46.57 -16.94 -58.2 -18.98 c -21.21 -3.72 -37.03 -3.2 -57.25 -2.53 c -19.42 0.64 -38.06 1.37 -61.37 8.22 c -12.58 3.7 -21.99 7.84 -27.83 10.44 c -8.81 3.92 -26.3 12.3 -44.29 25.3 c -23.39 16.92 -37.46 34.3 -56.3 57.57 c -9.56 11.82 -20.49 26.4 -38.59 45.87 c -6.64 7.14 -17.56 18.57 -35.11 23.41 c -0.05 0.01 -0.1 0.02 -0.15 0.04 c -8.76 2.39 -18.17 1.04 -25.93 -3.66 c -2.36 -1.43 -4.9 -3.17 -7.45 -5.24 c -10.12 -8.22 -17.08 -31 -18.03 -49.35 c -0.95 -18.34 2.85 -40.48 5.38 -48.08 c 2.53 -7.59 6.96 -22.45 11.07 -30.99 c 4.11 -8.54 13.92 -25.94 25.94 -41.44 c 12.02 -15.5 32.26 -32.9 32.26 -32.9 c 0 0 26.89 -17.43 49.03 -30.44 c -3.48 35.11 15.18 69.03 15.18 69.03 l 0.32 -87.62 l -6.64 -0.31 c 0 0 -11.08 0.63 -18.98 -6.65 c -7.91 -7.28 -4.43 -25.54 -4.43 -25.54 L -268.18 -65 c 0 0 2.53 -14.55 12.65 -22.75 c 3.43 -2.78 7.61 -4.62 11.62 -5.85 c 1.82 -0.55 3.6 -0.97 5.26 -1.3 c 5.53 -1.09 9.79 -1.1 9.79 -1.1 v -104.38 l 48.3 -47.76 c 0 0 55.04 -52.19 62.31 -56.62 c 7.28 -4.43 14.87 -5.06 14.87 -5.06 c 0 0 72.75 1.58 76.55 2.84 c 3.79 1.27 12.02 7.28 12.02 7.28 c 12.02 11.6 24.04 23.19 36.06 34.79 c 22.03 21.83 44.07 43.65 66.1 65.48 L 87.99 -96 c 6.29 0.77 11.34 2.08 14.86 3.17 c 5.73 1.77 9.03 2.82 12.39 5.64 c 2.77 2.34 4.64 5.08 6.91 9.86 c 5.36 11.26 6.95 21.15 6.96 21.19 c 1.95 12.11 0.24 -6.41 14.86 66.42 c 0.71 3.54 2.22 11.53 -0.63 20.56 c -1.05 3.33 -2.62 8.1 -6.96 11.71 c -8.16 6.79 -19.5 3.93 -21.19 3.48 l -1.26 89.83 c 5.71 -8.79 14.06 -24.35 16.44 -45.23 c 1.13 -9.91 0.65 -18.64 -0.31 -25.62 c 19.39 9.36 46.77 25.85 71.8 54.09 c 25.18 28.4 36.2 55.39 38.91 62.31 c 3.22 8.23 12.16 32.71 12.33 61.68 c 0.04 6.19 -0.26 22.01 -7.27 38.91" stroke-linecap="round" />
+</g>
+		<g transform="matrix(1.33 0 0 -1.33 204.39 71.01)" id="path104" clip-path="url(#CLIPPATH_42)"  >
+<clipPath id="CLIPPATH_42" >
+	<path transform="matrix(1 0 0 1 -153.29 53.25) translate(-512, -512)" id="path50" d="M 0 1024 H 1024 V 0 H 0 Z" stroke-linecap="round" />
+</clipPath>
+<path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(0,50,79); fill-rule: nonzero; opacity: 1;"  transform=" translate(10.91, 0)" d="m 0 0 c 0 -1.57 -0.33 -3.05 -0.92 -4.39 c -1.69 -3.84 -5.52 -6.52 -9.99 -6.52 c -6.02 0 -10.9 4.88 -10.9 10.91 c 0 6.02 4.88 10.9 10.9 10.9 c 2.61 0 5 -0.91 6.88 -2.44 C -1.57 6.46 0 3.41 0 0" stroke-linecap="round" />
+</g>
+		<g transform="matrix(1.33 0 0 -1.33 49.5 -40.29)" id="path108" clip-path="url(#CLIPPATH_43)"  >
+<clipPath id="CLIPPATH_43" >
+	<path transform="matrix(1 0 0 1 -37.12 -30.22) translate(-512, -512)" id="path50" d="M 0 1024 H 1024 V 0 H 0 Z" stroke-linecap="round" />
+</clipPath>
+<path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(0,24,41); fill-rule: nonzero; opacity: 1;"  transform=" translate(33.59, 11.85)" d="m 0 0 v -17.74 h -34.65 c -2.39 -6.37 -8.53 -10.91 -15.74 -10.91 c -9.28 0 -16.8 7.52 -16.8 16.8 c 0 9.28 7.52 16.8 16.8 16.8 c 4.65 0 8.87 -1.89 11.91 -4.95 z" stroke-linecap="round" />
+</g>
+		<g transform="matrix(1.33 0 0 -1.33 -113.56 56.46)" id="path112" clip-path="url(#CLIPPATH_44)"  >
+<clipPath id="CLIPPATH_44" >
+	<path transform="matrix(1 0 0 1 85.17 42.35) translate(-512, -512)" id="path50" d="M 0 1024 H 1024 V 0 H 0 Z" stroke-linecap="round" />
+</clipPath>
+<path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(0,169,255); fill-rule: nonzero; opacity: 1;"  transform=" translate(13.84, -0.01)" d="m 0 0 c 0 -7.64 -6.19 -13.83 -13.84 -13.83 c -7.64 0 -13.83 6.19 -13.83 13.83 c 0 7.64 6.19 13.84 13.83 13.84 C -6.19 13.84 0 7.64 0 0" stroke-linecap="round" />
+</g>
+		<g transform="matrix(1.33 0 0 -1.33 112.74 56.46)" id="path116" clip-path="url(#CLIPPATH_45)"  >
+<clipPath id="CLIPPATH_45" >
+	<path transform="matrix(1 0 0 1 -84.56 42.35) translate(-512, -512)" id="path50" d="M 0 1024 H 1024 V 0 H 0 Z" stroke-linecap="round" />
+</clipPath>
+<path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(0,169,255); fill-rule: nonzero; opacity: 1;"  transform=" translate(13.84, -0.01)" d="m 0 0 c 0 -7.64 -6.2 -13.83 -13.84 -13.83 c -7.64 0 -13.84 6.19 -13.84 13.83 c 0 7.64 6.2 13.84 13.84 13.84 C -6.2 13.84 0 7.64 0 0" stroke-linecap="round" />
+</g>
+		<g transform="matrix(1.33 0 0 -1.33 94.33 356.67)" id="path120" clip-path="url(#CLIPPATH_46)"  >
+<clipPath id="CLIPPATH_46" >
+	<path transform="matrix(1 0 0 1 -70.75 267.5) translate(-512, -512)" id="path50" d="M 0 1024 H 1024 V 0 H 0 Z" stroke-linecap="round" />
+</clipPath>
+<path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(2,71,114); fill-rule: nonzero; opacity: 1;"  transform=" translate(-10.55, 8.81)" d="m 0 0 c -2.49 2.91 -6.18 4.75 -10.31 4.75 c -7.48 0 -13.55 -6.07 -13.55 -13.56 c 0 -7.49 6.07 -13.56 13.55 -13.56 c 3.99 0 7.57 1.72 10.06 4.46 h 26.31 c 6.3 5.97 12.6 11.94 18.9 17.91 z" stroke-linecap="round" />
+</g>
+		<g transform="matrix(1.33 0 0 -1.33 100.02 173.11)" id="path124" clip-path="url(#CLIPPATH_47)"  >
+<clipPath id="CLIPPATH_47" >
+	<path transform="matrix(1 0 0 1 -75.01 129.83) translate(-512, -512)" id="path50" d="M 0 1024 H 1024 V 0 H 0 Z" stroke-linecap="round" />
+</clipPath>
+<path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(0,25,39); fill-rule: nonzero; opacity: 1;"  transform=" translate(17.3, 0)" d="m 0 0 c 0 -2.69 -0.61 -5.24 -1.71 -7.51 c -2.79 -5.8 -8.72 -9.79 -15.58 -9.79 c -9.56 0 -17.3 7.74 -17.3 17.3 c 0 9.55 7.74 17.29 17.3 17.29 c 5.65 0 10.66 -2.71 13.82 -6.89 C -1.29 7.5 0 3.9 0 0" stroke-linecap="round" />
+</g>
+		<g transform="matrix(1.33 0 0 -1.33 165.74 -14.16)" id="path144"  >
+<linearGradient id="SVGID_linearGradient142_6" gradientUnits="userSpaceOnUse" gradientTransform="matrix(71.7 0 0 -71.7 600.46 522.62)"  x1="0" y1="0" x2="1" y2="0">
+<stop offset="0%" style="stop-color:rgb(0,25,39);stop-opacity: 1"/>
+<stop offset="100%" style="stop-color:rgb(0,50,86);stop-opacity: 1"/>
+</linearGradient>
+<path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: url(#SVGID_linearGradient142_6); fill-rule: nonzero; opacity: 1;"  transform=" translate(-636.31, -522.62)" d="m 666.779 542.219 l -18.081 -18.119 l -48.24 -0.93 v -20.15 c 6.6 0.33 13.23 0.35 19.84 0.46 v 0 c 5.409 0.085 10.819 -0.033 16.23 -0.151 v 0 c 5.951 -0.131 11.904 -0.261 17.86 -0.119 v 0 l 16.01 16.73 h 1.76 v 22.279 z" stroke-linecap="round" />
+</g>
+		<g transform="matrix(1.33 0 0 -1.33 149.07 117.85)" id="path164"  >
+<linearGradient id="SVGID_linearGradient162_7" gradientUnits="userSpaceOnUse" gradientTransform="matrix(139.17 0 0 -139.17 554.22 423.61)"  x1="0" y1="0" x2="1" y2="0">
+<stop offset="0%" style="stop-color:rgb(0,50,86);stop-opacity: 1"/>
+<stop offset="100%" style="stop-color:rgb(0,25,39);stop-opacity: 1"/>
+</linearGradient>
+<path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: url(#SVGID_linearGradient162_7); fill-rule: nonzero; opacity: 1;"  transform=" translate(-623.8, -423.62)" d="m 554.218 433.6 v -19.97 h 110.32 l 28.85 19.97 z" stroke-linecap="round" />
+</g>
+</g>
+</g>
+</svg>

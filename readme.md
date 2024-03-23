@@ -16,17 +16,17 @@ graph LR
     A --> B
 ```
 
-CIM is a systemized graph of information, every node and edge have a single purpose, designed for composition. 
+CIM is a systemized graph of information, every node and edge has a single purpose, designed for composition. 
 
-We are State Machine driven and git is acting as our initial repository of storage.  We are transitioning from the world of Hierarchical Files, Rows and Columns, to something else. 
+We are transitioning from the world of Location-based Hierarchical Files, Rows and Columns, to something else. 
 
 ![CIM](./doc/CIM.svg)
 
-You may have seen attempts to do this in the past, such as how to do something in SQL with this graph based approach, the difference here is that we are doing the opposite. CIM will transition from rows and columns into graphs.  We can always output rows and columns, but the underlying storage becomes a graph.
+You may have seen attempts to do this in the past, such as how to do something in SQL with this graph based approach to UML, the difference here is that we are doing the opposite. CIM transitions from rows and columns into graphs.  We can always output rows and columns, but the underlying Domain storage becomes a graph.
 
-Nodes in a graph can be anything, including entire operational systems, like another CIM, or your Document Repository. They can also be simple Strings, collections of Strings or Constant Strings.
+Nodes in a graph can be anything, including entire operational systems, like another CIM, or your Document Repository. They can also be simple Strings, collections of Strings or Constant Strings or even Generators (like sensor input).
 
-Strings become something elevated in our Domain Context. Every word now has meaning and semantic context. Not just in a very general way, but understanding as if it were a child growing up in a multilingual household. We use different languages for different context and collisions between these language become points of concern when trying to communicate ideas. Those points of connection always come down to a common idea, or Context and that is the pattern we seek.
+Strings become something elevated in our Domain Context. Every word now has meaning and semantic context. Not just in a very general way, but understanding as if it were a child growing up in a multilingual household. We use different languages for different contexts and collisions between these languages become points of concern when trying to communicate ideas. Those points of connection always come down to a common idea, or Context and that is the pattern we seek.
 
 CIM will transport us into the future very quickly and let us enjoy information as it is supposed to be... connected.
 

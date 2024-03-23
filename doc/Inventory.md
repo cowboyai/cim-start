@@ -102,5 +102,6 @@ Then we are clear on that part of the Domain...
 - I care about Inputs to A, what that does to A
 - Causing a transition from A to B
 - And what B looks like when I am done.
+- Period
 
 [Communications](./Communications.md)

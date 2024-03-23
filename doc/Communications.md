@@ -11,7 +11,7 @@ That "comms" server then takes care of everything else.
 
 CIM is built differently.
 Oh, you have some network client you built...
-No, this is a directed graph of Subjects on tops of nats.
+No, this is a directed graph of Subjects on tops of [nats](https://nats.io).
 
 How do I make a Web Server talk?
 It talks to a local nats server.
@@ -19,6 +19,10 @@ It talks to a local nats server.
 What about my Databases?
 
 nats figures that out for us, by Domain reference, but I still just ask my local machine.
+
+Well then, I can just do this without you and use nats. Yes, you can... 
+
+Did you spend over a decade researching and developing ways to make a messaging system work inside of a distributed Domain? We did.
 
 Everything in a CIM communicates by Message.
 Messages are one of 3 things: a Command (cmd), a Query (qry) or an Event (evt)
@@ -133,7 +137,6 @@ It just boils down to a different way of thinking bout things.
 I don't have a "computer" any more, I have an Information Machine and that is a distributed thing that lives across the internet but acts like it's local. It has a structure and that structure is simple, has zero dependencies, it's a pile of text. I can transform that text into some working information system... repeatedly... with the same results.
 
 I just got reliability of information and I am no longer chained to a vendor.
-
 Everything is portable and versioned via my Object Stores and their Event Stream.
 
-[nats](./nats.md)
+[Comms](./comms.md)

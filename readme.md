@@ -108,7 +108,7 @@ We need to start here because everything we add or build into the next stages be
 
 CIM conveniently extracts a language tailored to your Domain and how you use it. It's like the dialect you use in your home as opposed to writing a speech.
 
-This would be incredibly difficult to do manually, but there have been many successful ways to do this in the past, such as the zettelkasten method.
+This would be incredibly difficult to do manually, but there have been many successful ways to do this in the past, such as the zettelkasten method. We learn from and build upon those ideas.
 
 Rather than impose this on you to manually recreate, the CIM will extract from everything you build and re-process it to create a language for your own use, but also for connecting semantically to Large Language Models and future AI capable processors.
 

@@ -35,4 +35,8 @@ Upon entering the shell, it checks for a `.env` file and exports its contents, a
 - The configuration makes use of `flake-utils` to streamline multi-system support and reduce boilerplate.
 - Environment variables can be managed through a `.env` file, enhancing the flexibility of the development environment.
 
+Do you see our Model here?
+
+Input -> Configuration -> Output, this is one reason NixOS aligns so well with our Model.
+
 [Build the Domain](./Domain.md)

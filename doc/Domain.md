@@ -1,10 +1,9 @@
 # Domain
-Domain is a model of your business.
+Domain is a model of your business, think of this as organized functionality.
 It doesn't know anything about it yet.
 We create a Domain and add parts to it as we go.
 
-As we collect those parts, we prepare them for transition into a CIM - Composable Information Machine. This machine concentrates on a single Domain, though it can connect to other Domains.
-This is an intentional partition. A Domain is a define encapsulation of Business functionality. This can be a whole company or a part of it.
+As we collect those parts, we prepare them for transition into a CIM - Composable Information Machine. This machine concentrates on a single Domain, though it can connect to other Domains. This is an intentional partition. A Domain is a define encapsulation of Business functionality. This can be a whole company or a part of it.
 
 In Domain-Driven Design (DDD), the concept of a "Domain" is central to understanding and organizing the complex realities of the business environment that a software system aims to model and solve. A Domain in DDD terms refers to the subject area to which the user's business rules apply; it is the sphere of knowledge and activity around which the business's interests revolve. Here's a breakdown of the concept and its significance in DDD:
 
@@ -12,22 +11,22 @@ In Domain-Driven Design (DDD), the concept of a "Domain" is central to understan
 
 The Domain encompasses everything related to a specific business's problem space, including the data, the business rules (or logic), and the actors (both human and system) that interact within this space. It defines the boundaries within which the software solution operates, targeting a specific area of interest or business need.
 
-CIM treats this as a unique system.  You aren't bringing other systems into your Domain, you are simply identifying how you create them, use them, and communicate with them.
+CIM treats this as a unique system.  You aren't bringing other systems into your Domain, you are simply identifying how you create them, use them, and communicate with them. We can talk about "architecture" but the Domain Model will reveal that.
 
 2. Ubiquitous Language:
 
-One of the key principles of DDD is the use of a "Ubiquitous Language" that evolves within the Domain. This language is shared by both the business experts and the development team, ensuring clear communication and a shared understanding of the Domain concepts, terms, and processes. It helps bridge the gap between the technical implementation of the software and the business requirements it seeks to fulfill. CIM automatically creates this language based on a Graph of the business model and extracts words and their context in the background. 
+One of the key principles of DDD is the use of a "Ubiquitous Language" that evolves within the Domain. This language is shared by both the business experts and the development team, ensuring clear communication and a shared understanding of the Domain concepts, terms, and processes. It helps bridge the gap between the technical implementation of the software and the business requirements it seeks to fulfill. CIM automatically creates this language based on a Graph of the business model and extracts words and their context in the background. We also have 2 Object Stores already, the Nix Store inside our Environment and the Object Store in git, with permission, we mine those too.
 
-This enables a model interaction with AI to best utilize our natural language tools.
+This enables a Model's interaction with AI and Semantics to best utilize our natural language tools.
 
 3. Subdomains:
 
 A complex Domain often consists of multiple "Subdomains," each representing a distinct part of the overall Domain. These Subdomains are categorized into:
-- Core Domain: 
+- **Core Domain**: 
   - The primary focus area that provides strategic value and competitive advantage for the business. It is where the most significant business rules and processes reside.
-- Supporting Subdomains: 
+- **Supporting Subdomains**: 
   - These provide necessary support to the Core Domain but do not offer a competitive advantage. They still require custom development to meet specific business needs.
-- Generic Subdomains: 
+- **Generic Subdomains**: 
   - Areas that can be handled with off-the-shelf solutions or generic software components, as they do not contain business-specific logic or processes. We replace these components through a "fitness function". The fitness function declares what the business uses the tool for and the criteria or functionality required from the tool. This way any tool meeting said fitness function is eligible as a substitution for that tool.
 
 4. Bounded Context:
@@ -48,7 +47,7 @@ Sage will then be able to extract Model metadata as we add information and relat
 
 Our Model will start small and specific and grow with us.
 We can import data and other models as we go. This system is designed to be evolutionary.
-You can build it one node and edge at a time, or you can import models from other tools such as Arrow.app or graphviz dot files.
+You can build it one node and edge at a time, or you can import models from other tools such as [Arrow.app](https://arrow.app) or graphviz dot files.
 
 ## Primary Focus
 
@@ -57,11 +56,50 @@ You can build it one node and edge at a time, or you can import models from othe
 Domain is always the primary focus here. We add supporting elements to describe the Domain.
 Everything leads back to Domain as the purpose of our CIM.
 
-Let's create the Domain
-```cypher
-CREATE (d:Domain {name: 'Lucy's Lemonade'})
+Let's create the Domain:
+```json
+{"Domain": {"name": "Lucy's Lemonade"}}
 ```
-Domain should reflect the appropriate name we use in daily conversation. We don't typical say LLC and Inc. in conversations. If you nickname the Domain, use that.  We will relate it to People and Organizations in a minute.
+We want a uuid...
+
+```json
+{"Domain": {"name": "Lucy's Lemonade", uid:"077259b3-8a59-4154-8953-ea17cbb2ba3d"}}
+```
+
+We are using JSON as a universal language for messaging. Today it is the defacto standard, but feel free to use anything you prefer.
+We know we are going to translate things a lot and mostly they end up in JSON.
+
+Here we have a uuidv4.  This is an important thing to know. There are already two other ID formats we have talked about: ContentID and CommitID. CommitID is just like the uuid, except it uses Content as input and the CommitID incorporates the Content in creating the ID.
+ContentID does a couple extra things. I have the same sort of hash that is a CommitID, but I also get some Type information as in a schema definition via IPLD. This Content-Address is valid universally, it is reproducible, so it can be used as a validator, and it points to the ID of a Node in a Graph containing the data.
+
+These have very different uses, but we will be using them frequently in a CIM.
+
+Content Based IDs are essentially "natural keys" and if the content changes, so does the ID.
+Sometimes that is exactly what we want...
+Even in a situation where A replaces B and ContentID is different for some reference to B.
+This is where our Event Store comes into play.
+
+Object Stores are immutable (or at least they are supposed to be.)
+
+If it's immutable how do we update it?
+
+We update via whole replacement of invariants.
+
+If they go together, they are replaced together.
+
+If A is replacing B, there is an Event showing the progression.
+
+Starting with an empty Object Store, we add something to it and that is stored as a transaction in the Event Store.
+Yes, these two are tightly coupled.
+In theory, you can store the events as objects in the object store, but that gets into many weird situations splitting them prevents.
+
+Remember, our backup pattern is simply duplication.
+The system you pride yourself on is the same, even if it's microfiche, a lamp and a magnifying glass.
+
+We are trusting that the global information system is going to stay alive.
+From our Object Stores and our Event Stores, we can recreate everything.
+Both are immutable, and both are easily replicated both on and off line.
+Immutability also provides for infinite cache-ability and archiving.
 
 Domain is the thing we are trying to model.
 
@@ -78,10 +116,11 @@ That can make us really nervous, we have been told to avoid using detailed perso
 
 This system is closed and all operations are secure.
 Every message is communicated with zero-trust, meaning it requires valid authentication and authorization at every step. This is YOUR information not anything we can mine behind your back.
-We designed this information system specifically to encapsulate a Private Domain with all it's intricacies and feel safe no matter where I host it due to the nature of the architecture in which it is built. Personal information is highly guarded and requires security to access.
+
+We designed this information system specifically to encapsulate a Private Domain with all it's intricacies and feel safe no matter where it's hosted due to the nature of the architecture in which it is built. Personal information is highly guarded and requires security to access.
 
 We are going to have many things that live inside the Domain.
-Our focus is on how they are related more than we focus on the details of the information.
+Our focus is on how they are related more than how we focus on the details of the information for now.
 
 People are an external force that we contend with to build a Domain.
 So are Organizations, these things exist outside our Domain, yet we are related to them intrinsically. We also have the concept of Agents. Agents act like people, but aren't.
@@ -101,34 +140,38 @@ We also need to cover some constraints that will make our Domain operate efficie
 
 To create a Person:
 
-Please execute this query using your own name and whenever you see Lucy just substitute your name.
-Use your entire name if you can, we will make a ton of metadata around this.
+Use the entire name, we will make a ton of metadata around this.
 
 So we don't get any collisions, let's add a uuid:
-```cypher
-CREATE (p:Person {name: 'Lucy LaGrange', uid: '753e35f3-25bc-49ba-aeb6-068baee5f66b'}) 
+```json
+{"Person": {"name": "Lucy LaGrange", "uid": "753e35f3-25bc-49ba-aeb6-068baee5f66b"}} 
 ```
 
 Hopefully, you are starting to see a management problem. How do I create the IDs?
-If I do all this in my database, I have to back all that up and relate it to everything else.
+If I did all this in a database, I have to back all that up and relate it to everything else.
+Storing these in files alone is going to also be a problem.
 
-This whole thing just blew up.
+By semantically relating all this to a Domain and making it live in a Canonical Messaging System we eliminate a ton of those worries.
 
-We are instantiating our base, and to do that, we just need to create some loose information and trust that we will be adding constraints and relationships as we go.
+Think of this in the real world:
 
-So we have a Domain and Person, we have decided that we want to allow for more than one Person with the same Name to exist.  Think of "David Smith" or "John Lee", there are a bunch of them in the real world.
+My database died... like the hard drive died.
+ok, no worries, we take the configuration and deploy to a new instance.
+the instance comes up empty
+we run a "catch-up" subscription for all events we want in the database
+it repopulates itself 
+it starts a subscription to it's Event Stream and is back online
+nobody had to change anything in the Messaging system, it just kept going.
+this is a bit different than restoring database backups and hoping they work.
 
-We can try to make a "Natural Key" but that has it's own problems and while we do use those in the system as indices, we don't want to constrain ourselves into an unworkable model.
-
-For this purpose we use uuid. A simple unique identifier will suit us well for this purpose.
-Recognize that this is providing uniqueness and not a pointer to use to identify the id like a traditional primary key. 
+In our Domain, We are instantiating our base, and to do that, we just need to create some loose information and trust that we will be adding constraints and relationships as we go.
 
 This is all getting stored in git as we proceed. As we need it, we will create environments and services to connect the Domain. You could literally do this with a bunch of sticky notes, and we loosely follow that model, we have a bunch of disconnected things to evaluate and define relationships around. Doing this electronically is going to create a digital twin in which we can collaborate as though the Domain is real, because in fact, it is.
 
 Next we create our Organization.
 
-```cypher
-CREATE (o:Organization {name: 'Lucy's Lemonade, LLC', uid: '79137452-6e75-44f0-8ca1-a03139bd08de'})
+```json
+{"Organization": {"name": "Lucy's Lemonade, LLC.", "uid": "79137452-6e75-44f0-8ca1-a03139bd08de"}}
 ```
 
 Our model is expanding.
@@ -153,23 +196,28 @@ Now we need to distinguish a Person is a Member in an organization and that orga
 Nodes are Nouns and Relationships are Verbs.
 Furthermore, Past tense are Events, Present tense verbs are either Command or Query 
 
-```cypher
-MATCH (p:Person),(o:Organization)
-WHERE p.name = "Lucy LaGrange" AND o.name = "Lucy's Lemonade, LLC"
-CREATE (p)-[r:MEMBER_OF]->(o)
-RETURN r
+Relationship may seem a little weird at first, here is our definition:
+Relationship has a Type as its Name
+First Node Reference is Direction From
+Second Node Reference is Direction To 
 
+```json
+{"MEMBER_OF": 
+  {"Person": {"name": "Lucy LaGrange"}},
+  {"Organization": {"name": "Lucy's Lemonade, LLC."}} 
+}
 ```
+This is applied as: Lucy LaGrange MEMBER_OF Lucy's Lemonade, LLC.
 
 And the Organization owns the Domain.
 
-```cypher
-MATCH (d:Domain),(o:Organization)
-WHERE d.name = "Lucy's Lemonade" AND o.name = "Lucy's Lemonade, LLC"
-CREATE (o)-[r:OWNS]->(d)
-return r
-
+```json
+{"OWNS": 
+  {"Organization": {"name": "Lucy's Lemonade, LLC."}}, 
+  {"Domain": {"name": "Lucy's Lemonade"}}
+}
 ```
+This is applied as: Lucy's Lemonade, LLC. OWNS Lucy's Lemonade
 
 Now we have some real information we can use to build something.
 
@@ -185,6 +233,16 @@ Order doesn't matter here. In other words, we can build meaningful expressions f
 
 And now AI can decipher all of this and make sense of the relationships.
 
+```mermaid
+graph TD
+    Domain("Domain<br>name: Lucy's Lemonade")
+    Person("Person<br>name: Lucy LaGrange")
+    Organization("Organization<br>name: Lucy's Lemonade, LLC")
+    Organization -->|OWNS| Domain
+    Person -->|MEMBER_OF| Organization
+```
+
+
 We don't even have properties yet, consider those the Adjectives and Adverbs.
 
 From here we expand on this notion with other relationships and Domain Objects.
@@ -194,19 +252,20 @@ There are several tools we make available to assist you in this journey.
 When we establish an Organization, we should have an idea of what this organization does and for that we use the Value Proposition Canvas to build our sections related to business functionality and how we work with customers.  If we model this directly into the business model, then it is never "lost" and context is always available for us to use it.
 
 If this seems tedious, it is.
+
 We however, encourage you to only import things that actually exist and are used instead of trying to duplicate things you already have.  In other words, don't import your entire mail system just to create users. Many of them will never participate here and we should try to reflect that.
 
-You may connect to any other external system and develop a continuous integration to that content.
+You may connect to any other external system and develop a continuous integration to that content, we will get to that soon.
 
-From here we will create our Infrastructure Model for the CIM, all the Entities, Values, Policies and Behaviors we will be using. These will operate through collections of Commands, Queries and Events organized into Transactions we call Aggregates.
+Before we can create our Infrastructure Model for the CIM which are all the Entities, Values, Policies and Behaviors we will be using that operate through collections of Commands, Queries and Events organized into Transactions we call Aggregates, we will have to make some more base definitions around the Domain.
 
 These are the Domain, the Organizations, People, and Things related to that Domain.
 
 Domain things move from any creation tool (such as Excel or Text or Documents) into the Domain by relationship. If we need that data, we capture it, if we just ephemerally point to it (like a url), we do that.
 
-CIM is an organizational tool for your business functionality. The programs you use do not matter as much as what they are used for in terms of business functionality.  That business functionality relates back to your Business Model Canvas which is a collection of your Business Resources and the Value Propositions for reaching customers.
+CIM is an organizational tool for business functionality. The programs you use do not matter as much as what they are used for in terms of business functionality.  That business functionality relates back to your Business Model Canvas which is a collection of your Business Resources and the Value Propositions for reaching customers.
 
-If you are building software outside of this context, you must be in academia and not the real world. We have absolutely magical technology available to us, but if we cannot relate that back to a single business purpose, then we are lost.
+We have absolutely magical technology available to us, but if we cannot relate that back to a single business purpose, then we are lost.
 
 This is why we focus on the business model and generate or commission software from that, rather than shopping for software and then modeling our business process around that. We collect these into Domain Artifacts that allow us to recreate everything in the Domain from a sequence of Events and a set of Configurations.
 

@@ -79,8 +79,12 @@ Additionally:
 I have information all over the place...
 I need to collect it, modify it and move it around.
 Even if I leave it at Vendor X, I want to access it from other "apps"
+This is a completely different problem than 100 machines inside your Domain.
 How can I make all these "apps" talk to each other without coding all this manually?
-Comms does that. It does ETL, Projections, Queries and anything else you need to access data and share it over the entire Domain.
+
+[Comms](./comms.md) does that. 
+
+It does ETL, Projections, Queries and anything else you need to access data and share it over the entire Domain.
 It also does it with Zero-trust, every message is scrutinized, so you can be assured of security.
 Comms uses Certificates, so all communication is secured and encrypted.
 It load balances and scales for you.

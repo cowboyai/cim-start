@@ -42,7 +42,144 @@ You can either write plugins directly in Go (recommended) or you can have Bentho
 
 We write most of ours in Rust, so we have plenty of examples for you to follow.
 
-The bottom line here is that CIM deals with how to talk to the Domain and you no longer have to worry about that, you just process streams. If the stream gets messed up, Comms handles that and you don't have to... Commands, Queries and Events... not IP Addresses, Reverse Proxies and Load Balancers.
+The bottom line here is that CIM deals with how to talk to the Domain and you no longer have to worry about that, you just process streams. If the stream gets messed up, Comms handles that and you don't have to... Commands, Queries and Events, sent to localhost... not IP Addresses, Reverse Proxies, Load Balancers and direct API calls.
 
+## Message Structure
 
+```rust
+pub enum DomainContent {
+    Event(DomainEvent),
+    Command(DomainCommand),
+    Query(DomainQuery),
+}
 
+pub struct Msg {
+  pub id: Uuid,
+  pub sequence: Option<u64>,
+  pub correlation: Option<Uuid>,
+  pub causation: Option<Uuid>,
+  pub owner: Option<Uuid>,
+  pub content: Option<DomainContent>,
+}
+```
+
+We will dive in to DomainContent soon, but these will be your Domain Contracts for what Content looks like.
+There are also outside wrappers from nats that have even more message data and standard patterns for Schemas.
+
+Here is how things break down:
+
+- Every Message has a Unique ID
+- Messages are Sequenced
+- A Correlation Identifier may be added to group messages
+- A Causation Identifier may be added to show direct causation (what Command caused this Event to propagate)
+- All Messages have an Owner
+- Content is a Generic construct tailored to the Domain
+
+We persist ALL Events into an Event Store
+Content over a configured threshold size will offload Content to the Object Store and receive a Content-Address
+Content-Addresses are universally unique identifiers for a Directed Acyclic Graph of data blocks 
+Content-Addresses may be retrieved from Comms
+Content-Addresses are IPFS Compatible
+Content-Addresses may be structured with IPLD
+
+Think of this scenario:
+I am adding a 100 Page PDF to my CIM
+This is too big to be passing around internally inside the message
+Comms receives the AddDocument Command
+Comms sees the size of the payload is large
+Comms extracts the payload and stores it into the Object Store with authorization constraints
+Comms forwards the Message intact, replacing Content with a CID instead of Bits
+Event Listeners receive the Event that Document-CID has been added
+Event Listeners who need the Content retrieve the CID, passing along authorization
+CID Content is delivered
+
+Using this methodology, the Event Stream remains optimized
+Large Objects do not get passed through the Messaging System, they are off-loaded to the Object System.
+The Object System is like a file system where you may put and get Content by CID.
+If you have ever used IPFS, this works the same way, we just use a different network technology to pass bits around the system.
+
+If you only ever have a single Leaf Node, this is pretty boring, but still solves a massive problem for us: file sharing.
+How does one thing share files with another thing.
+
+For Comms, it it a simple get and it just delivers it to you.
+We generally don't manually request these things, and that is the magic of the Object Store and Messaging.
+I have a CID... If I need to render this Content, I can fetch it with the CID... anywhere I have a connection to Comms.
+I save LOCALLY, if it is needed elsewhere, the Domain Listeners will fetch it an move it around.
+For example, I have told my Domain that I want 3 copies of all Objects.
+If I am only Local, it just makes 3 copies...
+That isn't very safe.
+If we have a Domain Cluster (typically we do) then the Local Comms system has broadcast to the Domain that it has a new Object and anyone interested can retrieve it. The Domain is the manager, it knows where Content is needed and will relocate things as needed to optimize in the background.
+
+That means that if you add Content and that Content is related to a Website that Projects the Content, it will move the Object Data close to the Website for optimization automatically.
+
+Object Stores are just S3 Buckets with an Event Model for adding and retrieving large objects.
+What we call large, may not seem large to you, but Message Payloads should be kept as small as possible.
+We aren't usually processing payload inside the message traffic, that is a Domain function, not the Comms function.
+There are exceptions for mapping, but these are still offloaded processes and if we are processing, we can also retrieve CID Content.
+
+We can send a million messages a second if they remain small.
+
+git does the same thing with large files through the LFS Plugin.
+Large files can slow down versioning, tremendously.
+If you use the LFS Plugin, and you commit a large file
+git will pull it out of the commit and put the file into Object Storage then replace the file in the commit with a pointer to the Object in the Object Store.
+
+We are doing the exact same thing for messages. The Integrity of the DomainContent is preserved in the Object Store.
+Object Stores are distributed throughout a CIM and can load balance and optimize themselves.
+
+Imagine adding a playlist of a thousand Music files you use for promotional materials.
+If you want to persist the music along with the playlist, you can absolutely do that, but we wouldn't want the Events to reflect the entire music file 10 or 12 times as it travels around the system. Instead, the Music is saved to a CID, and the CID is then the content of the Message and we know that to get the Music, we retrieve the CID.
+
+This will also apply to anything like Documents we don't trust that need virus scans, etc.
+
+This is the entre beauty of Comms.
+I have Messaging to any functionality my Domain can provide and it is shared securely throughout the platform, no matter where it lives.
+
+Now compare this to something like Docker and a Web App.
+Sure, I can do a lot of this wrapped in a Docker container, then I have to deal with the File System, sharing Data, opening ports and a whole lots of other things I really don't care about in day-to-day usage of my information.
+
+Comms frees us from this dilemma in Domain Communications.
+
+Create a Message
+Send it to Comms
+Get an Event containing the Response
+
+This is not that different from some things we have done in the past...
+But can't that just make Comms act like a backend Web Server.
+YES, now you are seeing the value.
+I can have a Local WASM Web Client
+That Web Client can talk to ta Local Comms server
+ALL Domain access is potentially available through Messages
+
+This can be done for ANY Domain Resource.
+Make it available through Comms, anything in the Domain with Authority can now access it.
+
+We have been trying to accomplish this basically since we first networked two machines together.
+The problem has always been speed, but that is a totally relative thing.
+Speed is now sufficient as network speeds and reliability are as good as local hardware.
+
+Now, it is a matter of cost.
+
+## Subjects
+Messages run by Subject.
+
+This is a Dot Delimited String with some structure
+  - foo
+    - gives me everything on the foo channel
+  - foo.bar
+    - gives me everything on foo.bar, but nothing in foo
+  - foo.*
+    - gives me foo and foo.bar
+  - foo.bar.>
+    - gives me everything under foo.bar, i.e. foo.bar.baz, foo.bar.bay
+
+With our Domain Model, this becomes a very easy pattern to create automatically.
+All Strings are now part of the Domain, this is a lot different than passing around everything as a string in a web app. It's much more akin to passing around Constant, because it acts that way.
+For Example, "Yellow".
+It's a color.
+It's a behavior.
+It's other things, those things depend on Context.
+
+The Domain Model Language provides that Context.
+
+[Reactive System](./reactive.md)

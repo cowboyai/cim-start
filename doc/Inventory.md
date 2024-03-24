@@ -11,7 +11,7 @@ No. Essentially, the Event Store is already a Graph Database, the Object Store i
 
 Not that they are running on top of some database infra-structure, they are simply stored on a persistence layer in graph format.
 
-You could make this work on any file system you are comfortable using.  These file systems will have different limitations and we would need to worry about all those.
+You could make this work on any file system you are comfortable using and that is what git does.  These file systems will have different limitations and we would need to worry about all those. git does all it's work in the .git folder.
 
 If we think of files as inputs or outputs, things become a little bit more clear.  Afterall, "files" are a construct of the Operating System (OS). The OS is giving you a pile of blocks organized into a sequence you think of as a "file" which in fact, is a name pointer to a graph of blocks. It's just hidden from you.
 
@@ -53,8 +53,8 @@ graph TD
     Domain --> Signals
     Domain --> Functions
 
-    People --> Users
-    Organizations --> Operators
+    People -->|are| Users
+    Organizations -->|are| Operators
     Agents -->|interact with| Resources
     Operators -->|manage| Accounts
     Accounts -->|contain| Users
@@ -68,21 +68,24 @@ graph TD
     Aggregates -->|compose of| Policies
     Policies -->|govern| Behaviors
     Policies -->|govern| Functions
-    Maps --> Location
-    Maps --> Entities
-    Maps --> Values
-    Maps --> Functions
+    Maps -->|transform| Location
+    Maps -->|transform| Entities
+    Maps -->|transform| Values
+    Maps -->|compose| Functions
     Signals -->|inform| Functions
 ```
+Woah... Now we are looking at some meat.
 
 These are the high level abstractions that make up our Base.
 You will surely have Domain Specific additions as you proceed.
 We will dive into every one of these in time.
 
 These are not contrived and they are not objects you inherit, they are things you instantiate and extend.
+
 This becomes part of the Ubiquitous Language and will be nomenclature you are guided by and follow as you build your Domain.
 
 As we see, the Domain is what links everything together, this is our Context, the Domain.
+
 Each part of the Domain is what we want to navigate with impunity and confidence.
 
 ```mermaid
@@ -102,6 +105,6 @@ Then we are clear on that part of the Domain...
 - I care about Inputs to A, what that does to A
 - Causing a transition from A to B
 - And what B looks like when I am done.
-- Period
+- Period, Events and State Machines control that
 
 [Communications](./Communications.md)

@@ -1,7 +1,7 @@
 # CIM Template
 The CIM template is a repository to start a CIM, the Composable Information Machine.
 
-This is a machine to control your information and how it is processed. This is a new enabling technology that we will guide you through to create a personal information system capable of semantic engagement with all your information, no matter where you choose to create it or store it.
+This is a machine to control your information and how it is processed. When we say machine... think of the entire internet as a single machine. This is a new enabling technology that we will guide you to create a personal information system capable of semantic engagement with all your information, no matter where you choose to create it or store it.
 
 We will start with a base platform and tailor it to your needs through a predictable, resilient pattern for storing and processing distributed information.
 

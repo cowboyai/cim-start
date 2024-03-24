@@ -7,6 +7,19 @@ A starting point for CIM - Composable Information Machine.
 
 We are creating an intuitive, private information system.
 
+I am sure you have seen information presented in one of these:
+
+<img src="./doc/spreadsheet.svg" width="200px" alt="spreadsheet" title="Spreadsheet" /> 
+
+Spreadsheets... Rows and Columns...
+
+What if everything isn't rows and columns?
+
+CIM is a systemized graph of information, every node and edge has a single purpose, designed for composition. 
+We are transitioning from the world of Location-based Hierarchical Files, Rows and Columns, to something else. 
+
+Rows and Columns are a construct, so are Graphs, but for some reason, we haven't gravitated to graphs as much yet.  They pervade social media and data science, but for reasoning, people still gravitate to browsing spreadsheets, or the equivalent of rows and columns from a database in much the same way. Why? there is no good reason, not performance and not the ability to understand. It's just a different way of looking at the same thing.
+
 CIM can be huge, but usually starts small. A single configuration and we have a working, portable environment.
 
 When it starts looking complex, remember we only ever need to understand this:
@@ -16,24 +29,45 @@ graph LR
     A --> B
 ```
 
-CIM is a systemized graph of information, every node and edge has a single purpose, designed for composition. 
+Looking at the spreadsheet, it is this in a graph:
+Not terribly difficult to understand... and in many ways, easier to reason about
 
-We are transitioning from the world of Location-based Hierarchical Files, Rows and Columns, to something else. 
+```mermaid
+graph TD
+    A1("A1") --> B1("B1")
+    B1 --> C1("C1")
+    A1 --> A2("A2")
+    B1 --> B2("B2")
+    C1 --> C2("C2")
+    A2 --> A3("A3")
+    B2 --> B3("B3")
+    C2 --> C3("C3")
+    A2 --> B2
+    B2 --> C2
+    A3 --> B3
+    B3 --> C3
+```
+
+If you can put a formula in a cell on a spreadsheet, you can put one in the edge of a graph and they operate the same way.
+
+One version of a CIM can look like this:
 
 ![CIM](./doc/CIM.svg)
 
-You may have seen attempts to do this in the past, such as how to do something in SQL with this graph based approach to UML, the difference here is that we are doing the opposite. CIM transitions from rows and columns into graphs.  We can always output rows and columns, but the underlying Domain storage becomes a graph.
+In a graph, nodes can represent a wide array of elements, from comprehensive operational systems like another CIM or your Document Repository, to simpler entities such as individual strings, collections of strings, constant strings, or even generators (such as sensor inputs).
 
-Nodes in a graph can be anything, including entire operational systems, like another CIM, or your Document Repository. They can also be simple Strings, collections of Strings or Constant Strings or even Generators (like sensor input).
+In our domain context, strings are elevated beyond their basic form. Every word is imbued with meaning and semantic context, not merely in a broad sense but with the nuanced understanding akin to a child raised in a multilingual home. We employ various languages for distinct contexts, and the intersections of these languages highlight critical areas when conveying ideas. These intersections ultimately converge on a shared concept or context, revealing the underlying pattern we aim to uncover.
 
-Strings become something elevated in our Domain Context. Every word now has meaning and semantic context. Not just in a very general way, but understanding as if it were a child growing up in a multilingual household. We use different languages for different contexts and collisions between these languages become points of concern when trying to communicate ideas. Those points of connection always come down to a common idea, or Context and that is the pattern we seek.
+Previous endeavors might have explored similar ideas, but CIM adopts a unique approach by moving away from the conventional structure of rows and columns towards a graph-based model. This transition allows for a more dynamic representation of data. While the option to present data in rows and columns remains, the core structure of our domain shifts to a graph. This change doesn't render traditional databases obsolete; instead, it offers a fresh perspective on how we interact with data.
 
-CIM will transport us into the future very quickly and let us enjoy information as it is supposed to be... connected.
+CIM is set to quickly advance us into a future where information is inherently connected, enhancing our ability to understand and utilize data effectively.
+
+Another way to look at a more developed CIM Graph, here we are connecting a Leaf Node to a Domain Cluster:
 
 ![CIM Architecture](doc/CIMArchitecture.svg)
 
 Traditionally, we have a hundred things to think about just to get started. Let's start in the middle, with a browser and a git repository. This structure is all we need for a CIM, but we will quickly outgrow it as we proceed. We will just want more capability and to add that, we need to consume more resources.
-
+  
 CIM ia a massive abstraction, we need to get rid of the technology noise. The tech is still there, it's just sent to the background so we can focus on the information and not all the ways we can process it.  We know we can process it, making the decision how has now become the fulcrum for a successful information system.
 
 CIM has 3 things:

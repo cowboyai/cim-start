@@ -15,6 +15,7 @@
         };
         modules = [
           ({ config, pkgs, ... }: {
+            devcontainer.enable = true;
             services.neo4j = {
               enable = true;
             };

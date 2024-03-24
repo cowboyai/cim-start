@@ -9,23 +9,22 @@ That's right. Built on the fly. No Schemas, No Constants.
 Eek... How do I Type anything?
 
 Let's turn that around...
-When I Type things, distinguish they are a special kind of thing, do I just make up the names or is there a logic to the words we use.
+When I Type things, distinguishing they are a special kind of thing, do I just make up the names or is there a logic to the words we use.
 
 We have some kind of logic being applied and whatever that may be, we can detect the patterns and suggest those going forward.
 
-If we sit down with a team of architects and domain experts we can certainly develop this language in a few months or years... Ummmm... Faster please.
+If you have used any modern code editor, you have probably used a Language Server and the [Language Server Protocol](https://microsoft.github.io/language-server-protocol/). This tells you how to format code documents and whether you have syntax errors in the code.
+Now imagine your Domain Language available this way... through Comms.
 
-By the same token, if we are adding a bunch of related things into a graph, we can just look at the graph and tell you what you are using.
+If we sit down with a team of architects and domain experts we can certainly develop a Ubiquitous Language in a few months or years... Ummmm... Faster please.
 
-We can also see that hey, you are using some weird phrase here and we normally use this other term. And this can apply throughout the CIM.
+By the same token, if we are adding a bunch of related things into a graph, we can just look at the graph and tell you what you are using. We can also see that hey, you are using some weird phrase here and we normally use this other term. And this can apply throughout the CIM.
 
-When we are developing, most of us use a Language Server to tell us how to format and look at structured information for say the Rust Language.
-
-CIM uses the same idea... You have a Language, a Domain Specific Language, it is persisted and we can access it through a Language Server just the same way and allow our tools to have direct insight into our language and make suggestions based on that language.
+You have a Language, a Domain Specific Language, it is persisted and we can access it through a Language Server just the same way and allow our tools to have direct insight into our language and make suggestions based on that language.
 
 While this is nothing new, language servers I mean, building a DSL on the fly from a private system and providing usage in editing tools certainly is.
 
-If you love semantics, we open an entire linguistic arsenal into your Domain's Ubiquitous Language.
+If you love semantics, we open an entire linguistic arsenal into your Domain Model's Language.
 
 Armed with this Language, We can go from Domain to Domain and have perfect contextual clarity. Building one of these in the past was a massive undertaking and an ordeal of effort no less than forming the scriptures of a religion.
 
@@ -34,7 +33,7 @@ Usually John thinks of an idea, Sally names it, and Eric and Steven use that nam
 
 We have to start with a base somewhere... that is where the LLMs come into play.  These are terrific generalized tools that have really cracked the way language is built and how each word semantically relates to another.
 
-To get the full use out of these tools, were need a dialect translation and that is where the Ubiquitous Language comes in. This augments the LLM about the specific Domain Specific Language inside the context of our Domain.
+To get the full use out of these tools, were need a dialect translation and that is where the Ubiquitous Language comes in. This augments the LLM about the Domain Specific Language inside the context of our Domain.
 
 Augmenting LLMs with your naturally used language tunes the LLM into a better response, more directly related to the context we are in.
 

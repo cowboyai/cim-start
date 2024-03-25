@@ -1,24 +1,16 @@
 # CIM Template
-The CIM template is a repository to start a CIM, the Composable Information Machine.
+The CIM template serves as a launching point for creating your Composable Information Machine (CIM), a system designed to manage and process your information with semantic precision. Imagine harnessing the vast capabilities of the internet as if it were a single, cohesive machine—this is the vision behind CIM.
 
-This is a machine to control your information and how it is processed. When we say machine... think of the entire internet as a single machine. This is a new enabling technology that we will guide you to create a personal information system capable of semantic engagement with all your information, no matter where you choose to create it or store it.
+Our journey begins with a foundational platform, which we'll customize to meet your specific information management needs, ensuring a reliable and scalable approach to handling distributed information.
 
-We will start with a base platform and tailor it to your needs through a predictable, resilient pattern for storing and processing distributed information.
+Instead of overwhelming you with information from the start, which could take days or weeks to master, we adopt a learn-as-you-go approach. With just 30 minutes of initial setup, you'll be on your way to developing and shaping your domain. If you have an OpenAI account, we can leverage it for conversational tools to further refine your domain's creation.
 
-We will walk through each aspect of the CIM and how to connect it to big iron on the back as you grow.
+The customization of your CIM is crucial because no two domains are identical. Even with similar components, the unique application of resources—guided by specific requirements and industry standards—ensures your system remains distinctly yours.
 
-We could just dump all this in your lap, but that would require several days, weeks or months to become proficient.
+Change is inevitable, whether it's adopting new technologies or preparing for unforeseen disasters. Our goal is to equip you to swiftly adapt as needed.
 
-Learn as we go requires about 30 minutes of time to get up and running, then starting to create and form our Domain. If you have an Open AI Account, then we can immediately start using that as a conversational tools to produce our Domain.
+The first step is cloning this repository and establishing an environment. We'll introduce neo4j early on to facilitate visualizing your domain as it evolves. At this stage, concerns about event handling, commands, queries, or storage can be set aside; everything is neatly encapsulated within this new git repository.
 
-We do it this way because every Domain is different, yes you may have some of the same elements, but you will most likely utilize those resources in a unique way, no matter how strictly you stay to the manufacturer's instructions and industry standards.
-
-You will choose some different technology at some point and will need to adapt quickly. Disasters can and will happen, we want to be prepared for them.
-
-After Cloning this repository and starting an Environment, we will add neo4j so we can start to visualize the Domain as we build it.
-
-We don't need to worry about Events or Commands or Queries or Storage yet, it all lives inside this new git repository.
-
-Let's take a look at flake.nix and get a basic understanding of what is going on here. This is our first Configuration and we want to be sure we understand what it does.
+Let's dive into the `flake.nix` configuration to gain a clear understanding of its role and functionalities. This initial setup is crucial for ensuring a solid grasp of how your CIM operates.
 
 [Configurations](doc/Configuration.md)

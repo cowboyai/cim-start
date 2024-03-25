@@ -5,24 +5,18 @@ A starting point for CIM - Composable Information Machine.
 <img src="./doc/logo.svg" width="150px" alt="logo" title="Cowboy AI" /> 
 </div>
 
-We are creating an intuitive, private information system.
 
-I am sure you have seen information presented in one of these:
-
+We are developing an intuitive, private information system.
+<div>
 <img src="./doc/spreadsheet.svg" width="200px" alt="spreadsheet" title="Spreadsheet" /> 
+<p>
+You're likely familiar with the traditional method of organizing information: spreadsheets, with their ubiquitous rows and columns. But what if we could move beyond this limited structure?
 
-Spreadsheets... Rows and Columns...
+CIM counters this with a structured graph of information where each node and edge is purposefully designed for seamless composition. We're shifting away from the conventional paradigm of location-based hierarchical files and spreadsheets to embrace a more dynamic format.
 
-What if everything isn't rows and columns?
+Although graphs are fundamental in areas like social media and data science, many still default to the familiar rows and columns of spreadsheets for information management. This isn't due to performance issues or a lack of comprehensibility; it's merely a matter of habit. Viewing data through a graph-based lens simply offers a different, and often more insightful, perspective.
 
-CIM is a systemized graph of information, every node and edge has a single purpose, designed for composition. 
-We are transitioning from the world of Location-based Hierarchical Files, Rows and Columns, to something else. 
-
-Rows and Columns are a construct, so are Graphs, but for some reason, we haven't gravitated to graphs as much yet.  They pervade social media and data science, but for reasoning, people still gravitate to browsing spreadsheets, or the equivalent of rows and columns from a database in much the same way. Why? there is no good reason, not performance and not the ability to understand. It's just a different way of looking at the same thing.
-
-CIM can be huge, but usually starts small. A single configuration and we have a working, portable environment.
-
-When it starts looking complex, remember we only ever need to understand this:
+CIM is designed to scale, starting from a straightforward, single-configuration setup that grows as needed. Yet, no matter its complexity, the core principle remains simple and accessible.
 
 ```mermaid
 graph LR
@@ -54,101 +48,60 @@ One version of a CIM can look like this:
 
 ![CIM](./doc/CIM.svg)
 
-In a graph, nodes can represent a wide array of elements, from comprehensive operational systems like another CIM or your Document Repository, to simpler entities such as individual strings, collections of strings, constant strings, or even generators (such as sensor inputs).
+In a graph, nodes can represent a diverse range of elements, from complex operational systems like another CIM or a Document Repository to simpler entities such as individual strings, collections of strings, constant numbers, or generators (e.g., sensor inputs).
 
-In our domain context, strings are elevated beyond their basic form. Every word is imbued with meaning and semantic context, not merely in a broad sense but with the nuanced understanding akin to a child raised in a multilingual home. We employ various languages for distinct contexts, and the intersections of these languages highlight critical areas when conveying ideas. These intersections ultimately converge on a shared concept or context, revealing the underlying pattern we aim to uncover.
+Within our domain, strings transcend their basic form. Each word is enriched with meaning and semantic context, similar to the deep, nuanced understanding seen in a child raised in a multilingual environment. We utilize different languages for specific contexts, where the overlap of these languages illuminates crucial aspects of idea conveyance. These overlaps lead to a unified concept or context, uncovering the patterns we seek.
 
-Previous endeavors might have explored similar ideas, but CIM adopts a unique approach by moving away from the conventional structure of rows and columns towards a graph-based model. This transition allows for a more dynamic representation of data. While the option to present data in rows and columns remains, the core structure of our domain shifts to a graph. This change doesn't render traditional databases obsolete; instead, it offers a fresh perspective on how we interact with data.
+While previous efforts may have touched on similar concepts, CIM distinguishes itself by shifting from the traditional rows and columns to a graph-based model. This shift enables a more dynamic data representation. Although data can still be presented in rows and columns, our domain's core structure evolves into a graph. This evolution does not make traditional databases redundant but introduces a new way of interacting with them.
 
-CIM is set to quickly advance us into a future where information is inherently connected, enhancing our ability to understand and utilize data effectively.
+CIM positions us on the brink of a future where information is seamlessly interconnected, significantly improving our ability to comprehend and leverage data.
 
-Another way to look at a more developed CIM Graph, here we are connecting a Leaf Node to a Domain Cluster:
+Looking at a more developed CIM Graph, we illustrate the connection of a Leaf Node to a Domain Cluster, showcasing the system's advanced capabilities.
 
 ![CIM Architecture](doc/CIMArchitecture.svg)
 
-Traditionally, we have a hundred things to think about just to get started. Let's start in the middle, with a browser and a git repository. This structure is all we need for a CIM, but we will quickly outgrow it as we proceed. We will just want more capability and to add that, we need to consume more resources.
-  
-CIM ia a massive abstraction, we need to get rid of the technology noise. The tech is still there, it's just sent to the background so we can focus on the information and not all the ways we can process it.  We know we can process it, making the decision how has now become the fulcrum for a successful information system.
+Starting with a browser and a git repository may seem simple, yet it's the foundational structure for a CIM. Initially sufficient, our needs will grow, demanding more capabilities and resources.
 
-CIM has 3 things:
-  - Command: 
-    - Change the State of the CIM
-  - Query: 
-    - Observe the current State of the CIM
-  - Event: 
-    - Declare the CIM has changed State
+CIM represents a significant abstraction, focusing on distilling information from technological complexity. The underlying technology remains, but it's relegated to the background, allowing us to concentrate on the essence of the information rather than the myriad ways to process it. This prioritization of decision-making over process intricacies becomes the cornerstone of a successful information system.
 
-Everything evolves from that idea.
-  - Who owns this?
-  - Where do I store the Events?
-  - What can a Command do?
-  - How do I ask questions?
-  - What are all the dependencies?
-  - Where are my files?
+CIM revolves around three core functions:
+- **Command**: Modifies the state of the CIM.
+- **Query**: Observes the current state of the CIM.
+- **Event**: Signals a change in the CIM's state.
 
-These are all reasonable expectations from an Information Machine. The idea was supposed to be simple, but somehow it has exploded into a million acronyms we cannot understand.
+From these concepts arise questions about ownership, event storage, command capabilities, inquiry methods, dependencies, and file management. These considerations, while fundamental to an information machine, have expanded into a bewildering array of technical jargon.
 
-We return to the simple, but that doesn't equate to less capable, in fact it becomes quite the opposite.
+However, returning to simplicity does not imply reduced functionality; on the contrary, it enhances capability.
 
-The way we generally think of "computers" is really some sort of glorified calculator that can hold and work with my information.  We all know they can do more, but they have been relegated to number crunchers and not semantics.
+Typically, we view computers as advanced calculators, capable yet often limited to numerical data processing. This perspective overlooks our innate human capacity for semantics, the meaningful interpretation of information. Despite our tendency to imbue everything with meaning, we rarely apply this semantic depth to our digital tools.
 
-Humans are semantic creatures. We apply meaning to everything, consciously or subconsciously, we do it, it is engrained into how our brain works.  For some reason we still don't treat our information agents that way.
+Consider the simplicity and clarity offered by a graph:
 
-To simplify this let's look at a graph:
 ```mermaid
 graph LR
     Me(Me) -->|command/query| UOI(The Universe of Information)
     UOI -->|events| Me
 ```
 
-And this loop cycle just continues as we process information.
+This continuous loop of information processing requires a method to pre-process data without becoming overwhelmed.
 
-I need a way to pre-process things so I am not the engine.
+CIM serves this purpose, allowing seamless interaction with various systems and technologies. Previously challenging, current advancements now make it not only feasible but also advantageous to adopt such a system.
 
-This is what a CIM does, it let's me interface to everything I interact with. In the past this was nearly an impossible feat, but technology has brought us to a point where it is not only possible, but a distinct advantage to move to right now.
+While some technologies integrated with CIM might present a learning curve, the platform is designed to facilitate learning on the go. Built-in queries to AI and the conversion of conversations into resources akin to AI-assisted meetings significantly flatten this curve. With a ready-made assistant, users can navigate the system more intuitively, even without prior technological expertise.
 
-Some of the technologies we use will have a fairly steep learning curve to become an expert. Using the system and learning as we go is an intricate feature of the CIM.
+Sage, a user-friendly interface within CIM, guides you through designing and managing information, emphasizing the relevance of information over the choice of technology. Whether you prefer NixOS or wish to integrate Docker with Ansible, CIM's flexibility supports various technological ecosystems.
 
-Queries to AI about anything in the CIM is already built in, we just have to connect it to something that makes sense. Conversations are turned into Resources similar to having a recorded meeting with AI Agents.
+Over the years, we've experimented with numerous technologies, each with its strengths and weaknesses. However, CIM isn't meant to replace these tools but to complement them, integrating into your existing domain as a novel tool with a unique purpose.
 
-This eliminates most of the steepness of the learning curve if you have a ready made assistant to help you and one that builds its own synaptic references in the background.
+The foundation of CIM is built on two key concepts:
+- **Domain**: A defined boundary encompassing related information.
+- **Environment**: A specifically configured workspace.
 
-Even if you have never heard of any of these technologies, follow along. CIM will help you through Sage, a User Interface designed for designing and working with information.
+Starting with a basic language and understanding of domain-specific nomenclature provides a reference point. From there, CIM customizes a language suited to your domain's unique needs, simplifying complex manual processes.
 
-Let's be distinct, we will talk about a lot of technology along the way, but we are concerned about the Information and how it applies to my Domain model over any particular preference for technology. If you hate NixOS and want to use Docker with Ansible instead you can absolutely do that, we've done it, and that is why we came to NixOS in the first place.
+Drawing inspiration from methods like the zettelkasten, CIM automates the creation of a domain-specific language, enhancing communication with advanced AI technologies.
 
-We have tried several combinations over the past decade:
-SOA...
-VMWare...
-Radius...
-Docker...
-OpenStack...
-Kubernetes...
-Multipass...
-Cloud-init...
-DHCP/PXE...
-SystemCenter...
-Ansible...
-Terraform...
-Puppet/Chef...
-
-It's a big list, and we have tried a bunch more including homegrown solutions, they all have pluses and minuses.
-
-We certainly don't expect you to abandon your tools... CIM is a new tool, with a new purpose. It resides along with everything you already know as part of your Domain.
-
-We start with 2 things:
-  - Domain: a boundary around a collection of related information
-  - Environment: some configured place for work
-  
-We need to start here because everything we add or build into the next stages become part of the language of our Domain.  We do start with a based language and the knowledge of what nomenclature is used in a Domain, so we have a starting reference, from there is is all dependent on what you add to your Domain.
-
-CIM conveniently extracts a language tailored to your Domain and how you use it. It's like the dialect you use in your home as opposed to writing a speech.
-
-This would be incredibly difficult to do manually, but there have been many successful ways to do this in the past, such as the zettelkasten method. We learn from and build upon those ideas.
-
-Rather than impose this on you to manually recreate, the CIM will extract from everything you build and re-process it to create a language for your own use, but also for connecting semantically to Large Language Models and future AI capable processors.
-
-Start by cloning this template repository and then open the folder
+To begin, clone the template repository and explore the possibilities CIM offers for your domain.
 
 [using the template](./Using_this_template.md)
 

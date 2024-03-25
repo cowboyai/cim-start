@@ -1,166 +1,113 @@
-# CIM
-The Composable Information Machine
+# CIM: The Composable Information Machine
 
-CIM is an architecture built to work with today's global and soon to be interplanetary information.
-We have massive satellite networks and regular communication off-planet.
+CIM is an architecture designed to navigate the complexities of today's global information network, with an eye toward the future of interplanetary communication. Our world is connected through vast satellite networks, facilitating regular off-planet communication.
 
-So how does my thumb-drive send information to Mars?
+How would one transfer data from a thumb drive to Mars? While this may not be a current concern, it poses an intriguing question for the future.
 
-Really, that isn't something we have to deal with... yet.
+Consider sending data from a ranch in Montana to Japan as swiftly as possible. With satellite technology, we're moving information globally using off-world innovations. Launching your own satellite has become surprisingly affordable, at $10,000—equivalent to the cost of an in-house server or a year's worth of 1 TB cloud storage in 2024. It's time to question our reliance on outdated 1980s technology.
 
-Ok, how about how do I send something to Japan from a ranch in Montana as fast as possible?
-Satellites, so we are regularly moving things around the globe using off-world technologies.
-Did you know you can launch and deploy your own satellite now for $10,000? That's the cost of a single in-house server or about a year of cloud storage for 1 TB of data in 2024. Why are we still living in 1980s technology?
+Many of our information management techniques were developed before the advent of the internet. Since then, academia has kept pace, offering innovative solutions for enhancing our digital capabilities. Thanks to Moore's Law, both computing power and network speeds have surpassed local access speeds in many cases. However, this often leads to being locked into multiple accounts and data sources, each with its own set of complications.
 
-Most of our techniques for Information were developed before the Internet even existed. We have learned quite a lot since then and Academia has mostly kept up and produced marvelous papers about how we can do things better. Moore's Law finally caught up and both compute power and network speeds are faster, faster than local access in a lot of cases. There's an App for that... and usually that means trapping me into yet another account and yet another data source to contend with and usually another payment.
+Where does all this information go? Often, it's scattered across the internet, frequently under the control of various vendors without straightforward export or eventing options outside their platforms. This fragmentation presents a significant challenge.
 
-Where do I put all this... typically it is getting scattered all over the internet, even internationally, usually under some vendor's control and they don't have export or simple eventing available outside their "app".
+Thankfully, many applications offer direct APIs, allowing us to integrate them into our Cmd/Qry/Evt pattern using [Comms](./comms.md), facilitating communication with any application.
 
-This is a serious problem.
-
-Fortunately, the litany of valid applications have direct APIs we can talk to and then we wrap the API in our Cmd/Qry/Evt pattern using [Comms](./comms.md) and suddenly, we can talk to any application.
-
-Do I really have to wrap every API?
-You are already doing it, we just make that whole process a simple mapping exercise that can usually be accomplished through automation.
-If you are using vendor products, you already need to authenticate, speak to a particular location, and use a structure to speak.
-
-We again, wrap this into a configuration and composition to allow access to any API through the messaging system.
+Must we integrate every API individually? In practice, we're already performing this task. Our approach simplifies the process, turning API integration into an automated mapping exercise. Using vendor products necessitates authentication and structured communication, which we encapsulate into configurations for seamless API access through our messaging system.
 
 ## Canonic Message Model
-We will be forming a Canonic Message Model for the Domain.
-This is a map of all the possible messages that may be sent through the system.
-It's like a registry for your functionality inside the Domain.
+We aim to develop a Canonic Message Model for the Domain—a comprehensive registry of all potential system messages, acting as a functional directory within the Domain.
 
-This aids not only in discovery, such as how can I work with a street address, but also for directing any Entity to be able to have access to this functionality throughout the Domain.
+This model not only aids in discovering functionalities, such as handling a street address but also ensures that any entity within the Domain can access these capabilities.
 
-If you have done development in the past... How many times do I need to define functionality for Phone Numbers or Zip Codes... Or do very basic functionality on a collection of data, like sorting and mapping.
+Developers often find themselves redefining functionalities for common elements like phone numbers or zip codes or implementing basic data operations such as sorting and mapping. Our Domain Message Model serves as a functional roadmap for the Domain.
 
-Our Domain Message Model is the map of Domain Functionality.
+Traditional education on information access emphasizes a straightforward approach:
+- Create a website
+- Connect it to a SQL database
+- Profit
 
-When we have access to information it is usually packaged with an API to the source.
+While enticing, this oversimplification falls short in practice.
 
-Typically, we have been taught things like:
-  Create a Web Site
-  Hook it up to a SQL Database
-  Profit
+In reality, information access today is characterized by:
+- Ubiquitous APIs
+- High-speed internet
+- Affordable storage
+- Commodity computing
 
-This is all great marketing fluff until you need to actually implement it.
+The necessity to construct a data center is obsolete; incremental, pay-as-you-go services are globally accessible. The agility to scale up or down in response to demand, almost instantly, is a modern requirement.
 
-Today's information access is different:
-  - Most things have an API (seriously, we fought this battle for 25+ years...)
-  - The Internet is really fast
-  - Storage is cheap
-  - Compute is a commodity
+However, making information readily available poses a significant challenge. The traditional cycle of setting up a system, testing it, and deploying it to production, followed by inevitable troubleshooting, is outdated. Today, the focus is on configuration, testing, commitment, and letting CI/CD handle the deployment.
 
-I don't have to lose my mind trying to build a datacenter to run these things, incremental, pay-as-you-go service is generally available worldwide. Cost structures can be compared in real-time. Flash mobs are a thing... massive scale-up, scale-down in real-time is needed.
-
-But how do I make my information available, even to me.
-
-This is an issue. A big one.
-
-We have been doing our best to move these crates of data around in our business and personal lives for ever.
-I am tired of the old tradition of:
--  Setup a system
--  Test it for validity
--  Make a golden production copy
--  Back it up, on 3 medias in 3 places
--  deploy to production
--  oops, type...
--  repeat above cycle...
-
-That just doesn't work anymore.
--  Configure
--  Test
--  Commit
--  CI/CD does the rest
-
-Additionally:
-
-I have information all over the place...
-I need to collect it, modify it and move it around.
-Even if I leave it at Vendor X, I want to access it from other "apps"
-This is a completely different problem than 100 machines inside your Domain.
-How can I make all these "apps" talk to each other without coding all this manually?
+Moreover, managing dispersed information—whether it's about consolidating data, modifying it, or accessing it across different platforms—requires a novel approach. How do we facilitate seamless communication between disparate "apps" without resorting to extensive manual coding?
 
 [Comms](./comms.md) does that. 
 
-It does ETL, Projections, Queries and anything else you need to access data and share it over the entire Domain.
-It also does it with Zero-trust, every message is scrutinized, so you can be assured of security.
-Comms uses Certificates, so all communication is secured and encrypted.
-It load balances and scales for you.
-If you need durable persistance everywhere, it can provide that too.
-Comms is how you work with Commands, Queries and Events.
-How can it do all this?
+It performs ETL, projections, queries, and any other tasks required to access and share data across the entire domain. Additionally, it operates on a zero-trust principle, meticulously scrutinizing every message to ensure security. Comms employs certificates, ensuring that all communication is secure and encrypted. It also manages load balancing and scaling. If durable persistence is needed everywhere, it can provide that as well. Comms facilitates working with commands, queries, and events. But how is all this possible?
 
-With a Domain Model built directly from a Business Model.
+It's all enabled by a domain model constructed directly from a business model.
 
 ### What about the Business Model?
-The term business model refers to a company's plan for making a profit. It identifies the products or services the business plans to sell, its identified target market, and any anticipated expenses.
+The term "business model" refers to a company's strategy for generating profit. It outlines the products or services the company intends to sell, its target market, and any expected costs.
 
-We add these academic ideas to a relationship with the Business Model:
-  - Domain Driven Design
-  - Messaging
-  - People
-  - Organizations
-  - Portable Content-Addressed Data
-  - Resource Management
-  - Event Sourcing
-  - Continuous Deliver
-  - Continuous Integration
-  - Functional Reactive Programming
+To enhance our understanding of the business model, we incorporate several academic concepts into its framework:
+- Domain-Driven Design
+- Messaging
+- People
+- Organizations
+- Portable Content-Addressed Data
+- Resource Management
+- Event Sourcing
+- Continuous Delivery
+- Continuous Integration
+- Functional Reactive Programming
 
-That is a lot to take in, even at a high level.
+Admittedly, this encompasses a broad spectrum of ideas, challenging to grasp in its entirety.
 
-The good news is: We have Sage... a tool incorporating a responsive AI system that allows you to ask questions about how all this stuff works. Immediately get started with building your model. Sage is quite a lot more than a co-pilot. It is an interactive Agent fully capable of executing any Command or Query in the CIM and responds with Events.
+Fortunately, we have Sage — a tool equipped with a responsive AI system designed to simplify these complexities. Sage enables you to inquire about how these components interact and assists you in developing your model. More than just a support tool, Sage acts as an interactive agent capable of executing any command or query within the CIM and responding with events.
 
-Let's look at an example:
+Let's explore an example:
 
 ![CIM - Inventory](./CIM-Inventory.svg)
 
-That is quite a lot of information to understand, and this is a simple base example. In a real Business Model this will have thousands of relationships and more nodes broken down into individual Domain Parts.
+This is a substantial amount of information to grasp, especially considering this is merely a foundational example. In a comprehensive business model, there would be thousands of relationships and additional nodes divided into distinct domain parts.
 
-The advantage of doing all this in a graph and translating it, gives us an extremely flexible framework for change while maintaining order and discipline.
+Utilizing graphs for organization and translation provides a highly adaptable framework for change, ensuring both structure and discipline are maintained.
 
-The bottom Nodes for IT Resources will be a list of Hardware and a set of Configurations.
-The Top nodes are Domains and Organizations.  While these are not strictly hierarchical, they are definitely directed graphs.
+The lower nodes for IT resources will comprise a list of hardware and configurations. The upper nodes represent domains and organizations. Although not strictly hierarchical, they form directed graphs.
 
-We leverage [git](https://git-scm.com/) to manage configurations along with their documentation and tests.  git is a universal tool that operates on Content-Addresses (a commit) and fits our model for portability. Guess what git's model is... a Graph. We are seeing this more and more in the information world.
+We utilize [git](https://git-scm.com/) for managing configurations, along with their documentation and tests. Git operates on content addresses (commits), fitting our need for portability. Interestingly, git itself is based on a graph model, reflecting a growing trend in information management.
 
-git resources can live in simple Object Stores and we can maintain them simply without the need for github or gitlab. If you want to use those tools, you are more than welcome to, but they are not required. git is. We can store git repositories in an S3 bucket and basically have the same thing as github if we add a front-end to it.
+Git resources can reside in simple object stores, allowing for maintenance without the need for GitHub or GitLab. While those platforms are optional, git is essential. Git repositories can be stored in an S3 bucket, essentially replicating GitHub's functionality with an added front-end.
 
-With git at our disposal, we have a reliable source for our Configurations no matter what form they may take, they will be version controlled, we can perform actions (commands) and ask questions (query).
+With git, we have a dependable source for our configurations, regardless of their form, ensuring version control and the ability to execute commands and queries.
 
-Our structure starts like this:
-1.  create a git repository anywhere
-2.  make configurations (i.e. flake.nix)
-3.  commit them
+The process begins as follows:
+1. Create a git repository anywhere.
+2. Make configurations (e.g., flake.nix).
+3. Commit them.
 
-That's it. That is all we need to start.
+That's all we need to get started.
 
-Changes are stored in the git repository and we may query them, or project them into a Domain Event Stream at any time. git enables us to persist our configuration in a reliable, portable, version controlled way. If you want a different repository, you will need to figure out how to make it Content-Addressable and store an Event Stream of changes. git already does this, and is available universally.
+Changes are saved in the git repository, allowing us to query them or integrate them into a Domain Event Stream. Git provides a reliable, portable, and version-controlled method for maintaining our configuration. For alternative repositories, ensuring content addressability and the ability to store an Event Stream of changes is crucial. Git already fulfills these requirements and is universally available.
 
-We can now start from an empty git repository and walk through building a Domain CIM.
+We can start with an empty git repository and progress towards building a Domain CIM.
 
-The Domain CIM is your base, in which you will contain your Business Model for the Domain, the Domain Model.  We separate the Domain Model and the Business Model for distribution and clarity, some Business Models will contain several Domains and some Domains will contain several Business Models.
+The Domain CIM serves as the foundation, encapsulating your business model and domain model. To ensure clarity and distribution, we distinguish between the domain model and the business model. Some business models may encompass multiple domains, while some domains may include several business models.
 
-From here we can grow to sub modules and projects that connect to the Domain Model.
-Since this is git, it's already distributed, you just need some replicas.
+From this point, we can expand into submodules and projects linked to the domain model. Thanks to git's distributed nature, only replicas are needed.
 
-This is the model we want to think about.  We are creating a Business Model and a Domain Model, its all stored in a self contained, distributed bucket, from there we can relate to everything required to make this a successful venture.
+This model prompts us to think about creating a cohesive business and domain model, stored in a self-contained, distributed system. This approach enables us to connect all necessary elements for a successful venture.
 
-We will be extracting a Ubiquitous Language as we add to the CIM.
-CIM is designed to understand your entire Model and help you build it.
-While CIM is indeed an architectural concept, Cowboy AI provides a wide assortment of tooling to help you get everything in the architecture up and running.
+As we enhance the CIM, we'll develop a ubiquitous language, aiding in the comprehension and construction of your model. Although CIM is primarily an architectural concept, Cowboy AI offers a comprehensive suite of tools to facilitate the architecture's implementation.
 
-We start with git, and build our first Model, a NixOS Compute Environment.
-This is where we can run and test our Domain Model. You don't even need to own a computer to do this, it is all available online, you just need a browser.
+Starting with git, we build our initial model, a NixOS Compute Environment, where we can run and test our domain model. Remarkably, all you need is a browser to access this online, eliminating the need for personal computing hardware.
 
-This sounds like utter magic.
+You don't have to learn NixOS, we can generate flakes from the Domain.
+
+utter magic.
 
 Recall:
 > "Any sufficiently advanced technology is indistinguishable from magic." - Arthur C. Clark
-
-That really means: when you learn the technology, it's no longer "magic".
 
 Open your git repository.
 
@@ -169,16 +116,18 @@ We have few files, mainly, flake.nix, sitting in a git repository and that gives
 Where do I run this?
 
 We prefer a system running NixOS. This can be a VM or Metal, Docker works but has issues.
-If you have never run NixOS, or for some reason prefer not to, ANY linux system is viable running nix package manager.
-Basically, anywhere you can get a shell running Nix.
+If you have never run NixOS, or for some reason prefer not to, ANY linux system is viable running nix package manager. Basically, anywhere you can get a shell running Nix.
 
 For Windows WSL2 see [NixOS-WSL]([htt](https://github.com/nix-community/NixOS-WSL))
 
-If you already have NixOS installed, which is always preferred simply open a terminal and either nix develop or direnv allow.
-On NixOS we use [direnv](https://direnv.net/), which is part of the flake, but if it's not already there, you'll need to add it to your NixOS systemEnvironment.
+If you already have NixOS installed, which is always preferred, simply open a terminal and either nix develop or direnv allow.
 
-Codespaces currently aren't working on pure NixOS, we are working on a solution, we can do it with Alpine and nix.
+On NixOS we prefer [direnv](https://direnv.net/), which is part of this flake, but if it's not already there, you'll want to add it to your NixOS systemEnvironment as well as turning container support on.
+
+Codespaces currently aren't working on pure NixOS, we are working on a solution, we can do it with Alpine and nix, but even that is having issues.
+
 On https://github.com/TheCowboyAI/cim-start, click "use this template, and choose "open in a codespace"
+
 We will remove the not working comment in devcontainer.json when Codespaces work
 
 If you need another alternative:

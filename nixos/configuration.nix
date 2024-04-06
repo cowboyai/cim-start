@@ -3,7 +3,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  users.users.neo4j = {
+  users.users.nixos = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
@@ -14,10 +14,9 @@
       pkg-config
       zlib.dev
       graphviz
-      neo4j
       direnv
     ];
-    initialPassword = "neo4j";
+    initialPassword = "nixos";
   };
 
   system.stateVersion = "24.05";

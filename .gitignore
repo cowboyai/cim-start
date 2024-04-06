@@ -25,3 +25,6 @@ playwright/.cache/
 /models
 .sass-cache/
 /neo4j/
+*.qcow2
+
+**/result

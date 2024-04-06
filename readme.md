@@ -5,8 +5,10 @@ A starting point for CIM - Composable Information Machine.
 <img src="./doc/logo.svg" width="150px" alt="logo" title="Cowboy AI" /> 
 </div>
 
-
 We are developing an intuitive, private information system.
+
+An information system is not simply about setting up various applications on computers. Instead, imagine it as a master blueprint for organizing different pieces of information, understanding how they connect, and ensuring they can communicate effectively, no matter the type of computers or the form of the data they deal with. It's like giving a machine its own DNA, a set of instructions that allows it to construct itself flexibly, adapting to whatever environment it finds itself in. This system doesn't just blindly follow a set routine; it intelligently assembles and reassembles itself to meet the needs of its surroundings, much like how living organisms adapt to their habitats.
+
 <div>
 <img src="./doc/spreadsheet.svg" width="200px" alt="spreadsheet" title="Spreadsheet" /> 
 <p>

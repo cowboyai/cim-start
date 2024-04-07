@@ -35,6 +35,11 @@ The challenge lies in aligning technological capabilities with business terms, t
 
 The transition from centralized computing to networked environments and software proliferation has complicated identity and access management (IAM), with information systems advancing significantly in the last decade. Today, we navigate a landscape of cloud computing, NLP, AI, ubiquitous connectivity, and freely available production-grade software, yet integration remains sparse.
 
+# Flake Layout
+This is how we layout our nix files in git repositories for consistency.
+![NixOS Flakes](./NixOS%20Flakes.svg)
+
+
 What architecture then suits the modern landscape? This question guides our exploration of a system that not only supports but enhances business functionality, ensuring resilience and adaptability in the face of unforeseen challenges.
 
 [CIM - the Composable Information Machine](./cim.md)

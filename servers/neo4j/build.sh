@@ -1,1 +1,1 @@
-nix build .#nixosConfigurations.nats.config.system.build.vm
+nix build .#nixosConfigurations.neo4j.config.system.build.vm

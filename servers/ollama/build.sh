@@ -1,1 +1,1 @@
-nix build .#nixosConfigurations.nats.config.system.build.vm
+nix build .#nixosConfigurations.ollama.config.system.build.vm

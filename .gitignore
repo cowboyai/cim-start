@@ -18,7 +18,7 @@ playwright/.cache/
 .env
 .secrets
 
-/target
+**/target
 /secrets
 /nats
 /jwt

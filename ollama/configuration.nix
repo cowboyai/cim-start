@@ -1,9 +1,16 @@
-{ config, pkgs, ... }:
-{
+{ nixpkgs, ... }:
+let 
   description = "Domain Ollama Environment VM";
+  pkgs = nixpkgs.legacyPackages.x86_64-linux;
+in
+{
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+
+  services.qemuGuest.enable = true;
+
+  networking.hostName = "ollama";
 
   users.users.ollama = {
     isNormalUser = true;

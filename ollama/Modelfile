@@ -1,2 +1,0 @@
-FROM ./mistral-7b-v0.1.Q4_0.gguf
-TEMPLATE "[INST] {{ .Prompt }} [/INST]"

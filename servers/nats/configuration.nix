@@ -61,6 +61,9 @@
     git
   ];
 
+  # Hardening
+  # environment.defaultPackages = lib.mkForce [];
+
   # start nats with systemd (as a user service)
   systemd.user.services.nats = {
     enable = true;

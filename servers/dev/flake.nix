@@ -1,5 +1,5 @@
 {
-  description = "Domain NixOS Development Environment";
+  description = "CIM Domain Development Environment";
 
   inputs = {
     nixpkgs = {
@@ -13,7 +13,7 @@
   in 
   {
     nixosConfigurations = {
-      nixos-dev = nixpkgs.lib.nixosSystem {
+      cim-dev = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
           ./configuration.nix

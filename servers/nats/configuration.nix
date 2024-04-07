@@ -1,18 +1,11 @@
-{ nixpkgs, ... }:
-let 
-  description = "Domain Ollama Environment VM";
-  pkgs = nixpkgs.legacyPackages.x86_64-linux;
-in
+{ config, pkgs, ... }:
 {
+  description = "Domain NATS Environment VM";
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  services.qemuGuest.enable = true;
-
-  networking.hostName = "ollama";
-
-  users.users.ollama = {
+  users.users.nixos = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
@@ -23,10 +16,11 @@ in
       pkg-config
       zlib.dev
       graphviz
+      nats
+      benthos
       direnv
-      ollama
     ];
-    initialPassword = "ollama";
+    initialPassword = "nixos";
   };
 
   system.stateVersion = "24.05";

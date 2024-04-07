@@ -9,11 +9,11 @@ CIM Operates on a Message Bus.
 
 This means all communication is sent to the Bus and the Bus figures out where to send it.
 
-It also means I don't have to troubleshoot all the possible communication problem...
+It also means I don't have to troubleshoot all the possible communication problems...
 
 We send a message, get an acknowledgement the message was received and potentially more Events containing any results of the message.
 
-This is far easier to manage than handling a dozen APIs no matter how well written.
+This is far easier to manage than handling a dozen APIs individually no matter how well written.
 Just managing that network is a problem.
 
 With NATS, all we need is a connection to a server, either local or remote and we are done.

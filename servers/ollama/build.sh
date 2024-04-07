@@ -1,3 +1,1 @@
-nix-build '<nixpkgs/nixos>' -A vm \
-  -I nixpkgs=channel:nixos-unstable \
-  -I nixos-config=./configuration.nix
+nix build .#nixosConfigurations.nats.config.system.build.vm

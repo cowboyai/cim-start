@@ -5,7 +5,7 @@
 
   services.qemuGuest.enable = true;
 
-  networking.hostName = "neo4j";
+  networking.hostName = "cim-neo4j";
   networking.firewall.allowedTCPPorts = [ 22 4222];
 
   security.sudo.wheelNeedsPassword = false;

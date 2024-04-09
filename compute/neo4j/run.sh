@@ -1,1 +1,1 @@
-result/bin/run-neo4j-vm
+result/bin/run-cim-neo4j-vm

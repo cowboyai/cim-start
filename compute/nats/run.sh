@@ -1,1 +1,1 @@
-result/bin/run-nats-vm
+result/bin/run-cim-nats-vm

@@ -5,7 +5,7 @@
 
   services.qemuGuest.enable = true;
 
-  networking.hostName = "nats";
+  networking.hostName = "cim-nats";
   networking.firewall.allowedTCPPorts = [ 22 4222];
 
   security.sudo.wheelNeedsPassword = false;

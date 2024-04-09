@@ -1,1 +1,1 @@
-nix build .#nixosConfigurations.neo4j.config.system.build.vm
+nix build .#nixosConfigurations.cim-neo4j.config.system.build.vm

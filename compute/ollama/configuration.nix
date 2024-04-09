@@ -5,7 +5,7 @@
 
   services.qemuGuest.enable = true;
 
-  networking.hostName = "ollama";
+  networking.hostName = "cim-ollama";
   networking.firewall.allowedTCPPorts = [ 22 11434];
 
   security.sudo.wheelNeedsPassword = false;

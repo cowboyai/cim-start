@@ -13,7 +13,7 @@
   in 
   {
     nixosConfigurations = {
-      neo4j = nixpkgs.lib.nixosSystem {
+      cim-neo4j = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
           ./configuration.nix

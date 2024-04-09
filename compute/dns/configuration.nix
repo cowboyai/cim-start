@@ -5,7 +5,7 @@
 
   services.qemuGuest.enable = true;
 
-  networking.hostName = "nats";
+  networking.hostName = "cim-dns";
   networking.firewall.allowedTCPPorts = [ 22 4222];
 
   security.sudo.wheelNeedsPassword = false;
@@ -18,7 +18,7 @@
     useDefaultShell = false;
     shell = pkgs.zsh;
     packages = with pkgs; [
-      bacon
+      bind
       
     ];
     initialPassword = "nixos";

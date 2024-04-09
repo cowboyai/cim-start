@@ -5,7 +5,7 @@
 
   services.qemuGuest.enable = true;
 
-  networking.hostName = "nats";
+  networking.hostName = "cim-dev";
   networking.firewall.allowedTCPPorts = [ 22 4222];
 
   security.sudo.wheelNeedsPassword = false;
@@ -18,8 +18,7 @@
     useDefaultShell = false;
     shell = pkgs.zsh;
     packages = with pkgs; [
-      bacon
-      
+      bind      
     ];
     initialPassword = "nixos";
     #openssh.authorizedKeys.keys = [""];
@@ -32,7 +31,7 @@
         memorySize = 8192; # megs... 64 megs
         cores = 2;
         graphics = false;
-        diskSize = 32768; #set this to however big you want your object store for now... we move it to S3 later
+        diskSize = 32768; #set this to however big you want your dev store.
       };
     };
   };

@@ -5,13 +5,13 @@
 
   services.qemuGuest.enable = true;
 
-  networking.hostName = "cim-ollama";
+  networking.hostName = "ollama";
   networking.firewall.allowedTCPPorts = [ 22 11434];
 
   security.sudo.wheelNeedsPassword = false;
   security.polkit.enable = true;
 
-  users.users.ollama = {
+  users.users.cim = {
     isNormalUser = true;
     extraGroups = [ "wheel" "" ]; # Enable ‘sudo’ for the user.
     useDefaultShell = false;
@@ -20,7 +20,8 @@
       graphviz
       ollama
     ];
-    initialPassword = "ollama";
+    initialPassword = "cim";
+    openssh.authorizedKeys.keys = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDgGW4Y7S8YO3Se/1AK1ZuIaAtxa+sakK4SBv/nixRyJ cim@thecowboy.ai"];
   };
 
   virtualisation = {
@@ -42,6 +43,7 @@
   programs = {
     zsh.enable = true;
     direnv.enable = true;
+    git.enable = true;
   };
   
   environment.systemPackages = with pkgs; [
@@ -52,9 +54,7 @@
     openssl.dev
     pkg-config
     zlib.dev
-    #direnv
     curl
-    git
   ];
 
   # start ollama with systemd (as a user service)

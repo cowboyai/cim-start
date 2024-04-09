@@ -1,1 +1,1 @@
-result/bin/run-cim-dns-vm
+result/bin/run-dns-vm

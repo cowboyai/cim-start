@@ -1,1 +1,1 @@
-result/bin/run-cim-dev-vm
+result/bin/run-dev-vm

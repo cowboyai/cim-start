@@ -5,32 +5,34 @@
 
   services.qemuGuest.enable = true;
 
-  networking.hostName = "neo4j";
-  networking.firewall.allowedTCPPorts = [ 22 4222 7687 7474 7473 2003 2004 ];
+  networking.hostName = "web";
+  networking.firewall.allowedTCPPorts = [ 80 8080 443 4443];
 
   security.sudo.wheelNeedsPassword = false;
   security.polkit.enable = true;
 
+  users.mutableUsers = true;
   users.users.cim = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
     useDefaultShell = false;
     shell = pkgs.zsh;
     packages = with pkgs; [
-      graphviz
-      neo4j
+      dig
+      nginx      
     ];
     initialPassword = "cim";
     openssh.authorizedKeys.keys = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDgGW4Y7S8YO3Se/1AK1ZuIaAtxa+sakK4SBv/nixRyJ cim@thecowboy.ai"];
+    
   };
 
   virtualisation = {
     vmVariant = {
       virtualisation = {
-        memorySize = 16384;
+        memorySize = 8192; # megs... 64 megs
         cores = 2;
         graphics = false;
-        diskSize = 32768; #set this to however big you want your database for now... we move it to S3 later
+        diskSize = 32768; #set this to however big you want your dev store.
       };
     };
   };
@@ -43,7 +45,7 @@
   programs = {
     zsh.enable = true;
     direnv.enable = true;
-    git.enable = true;
+    starship.enable = true;
   };
   
   environment.systemPackages = with pkgs; [
@@ -55,28 +57,8 @@
     pkg-config
     zlib.dev
     curl
+    git
   ];
-
-  # start neo4j with systemd (as a user service)
-  systemd.user.services.neo4j = {
-    enable = true;
-
-    unitConfig = {
-      Description = "neo4j server instance";
-      Type = "simple";
-      PrivateTmp = true;
-      After = "network-online.target ntp.service";
-    };
-
-    serviceConfig = {
-      ExecStart = "${pkgs.neo4j}/bin/neo4j start";
-      ExecReload = "";
-      ExecStop = "";
-      KillSignal = "SIGUSR2";
-    };
-
-    wantedBy = [ "default.target" ];
-  };
 
   system.stateVersion = "24.05";
 }

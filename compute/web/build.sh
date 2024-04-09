@@ -1,0 +1,1 @@
+nix build .#nixosConfigurations.web.config.system.build.vm

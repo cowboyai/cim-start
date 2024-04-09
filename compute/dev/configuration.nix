@@ -5,14 +5,14 @@
 
   services.qemuGuest.enable = true;
 
-  networking.hostName = "cim-dev";
+  networking.hostName = "dev";
   networking.firewall.allowedTCPPorts = [ 22 4222];
 
   security.sudo.wheelNeedsPassword = false;
   security.polkit.enable = true;
 
   users.mutableUsers = true;
-  users.users.nixos = {
+  users.users.cim = {
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
     useDefaultShell = false;
@@ -20,9 +20,8 @@
     packages = with pkgs; [
       bind      
     ];
-    initialPassword = "nixos";
-    #openssh.authorizedKeys.keys = [""];
-    
+    initialPassword = "cim";
+    openssh.authorizedKeys.keys = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDgGW4Y7S8YO3Se/1AK1ZuIaAtxa+sakK4SBv/nixRyJ cim@thecowboy.ai"];    
   };
 
   virtualisation = {
@@ -45,6 +44,7 @@
     zsh.enable = true;
     direnv.enable = true;
     starship.enable = true;
+    git.enable = true;
   };
   
   environment.systemPackages = with pkgs; [
@@ -56,7 +56,6 @@
     pkg-config
     zlib.dev
     curl
-    git
   ];
 
   system.stateVersion = "24.05";

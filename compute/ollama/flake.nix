@@ -13,7 +13,7 @@
   in 
   {
     nixosConfigurations = {
-      cim-ollama = nixpkgs.lib.nixosSystem {
+      ollama = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
           ./configuration.nix

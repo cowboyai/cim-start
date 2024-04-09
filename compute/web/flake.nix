@@ -1,5 +1,5 @@
 {
-  description = "Neo4j Domain Environment";
+  description = "CIM Domain Development Environment";
 
   inputs = {
     nixpkgs = {
@@ -13,7 +13,7 @@
   in 
   {
     nixosConfigurations = {
-      neo4j = nixpkgs.lib.nixosSystem {
+      cim-dev = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
           ./configuration.nix

@@ -1,1 +1,1 @@
-nix build .#nixosConfigurations.cim-dns.config.system.build.vm
+nix build .#nixosConfigurations.dns.config.system.build.vm

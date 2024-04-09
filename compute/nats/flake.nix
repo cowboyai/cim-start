@@ -13,7 +13,7 @@
   in 
   {
     nixosConfigurations = {
-      cim-nats = nixpkgs.lib.nixosSystem {
+      nats = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
           ./configuration.nix

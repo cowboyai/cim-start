@@ -13,7 +13,7 @@
   in 
   {
     nixosConfigurations = {
-      cim-dns = nixpkgs.lib.nixosSystem {
+      dns = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
           ./configuration.nix

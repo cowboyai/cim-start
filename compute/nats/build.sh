@@ -1,1 +1,1 @@
-nix build .#nixosConfigurations.cim-nats.config.system.build.vm
+nix build .#nixosConfigurations.nats.config.system.build.vm

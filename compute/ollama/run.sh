@@ -1,1 +1,1 @@
-result/bin/run-cim-ollama-vm
+result/bin/run-ollama-vm

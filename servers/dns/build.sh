@@ -1,0 +1,1 @@
+nix build .#nixosConfigurations.cim-dev.config.system.build.vm

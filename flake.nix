@@ -56,8 +56,10 @@
             export RUST_SRC_PATH=${pkgs.rustPlatform.rustLibSrc}
             export LIBCLANG_PATH=${pkgs.llvmPackages.libclang.lib}/lib
 
+            # support cargo installs
             export PATH=$PATH:~/.cargo/bin
 
+            # wasm support
             export BINDGEN_EXTRA_CLANG_ARGS="-isystem ${pkgs.clang}/resource-root/include $NIX_CFLAGS_COMPILE"
             '';
         };

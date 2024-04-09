@@ -1,7 +1,7 @@
 # cim-start
 A starting point for CIM - Composable Information Machine.
 
-<div>
+<div style="background: white; border-radius: 25px; width: 128px; height: 128px;">
 <img src="./doc/logo.svg" width="150px" alt="logo" title="Cowboy AI" /> 
 </div>
 
@@ -9,9 +9,10 @@ We are developing an intuitive, private information system.
 
 An information system is not simply about setting up various applications on computers. Instead, imagine it as a master blueprint for organizing different pieces of information, understanding how they connect, and ensuring they can communicate effectively, no matter the type of computers or the form of the data they deal with. It's like giving a machine its own DNA, a set of instructions that allows it to construct itself flexibly, adapting to whatever environment it finds itself in. This system doesn't just blindly follow a set routine; it intelligently assembles and reassembles itself to meet the needs of its surroundings, much like how living organisms adapt to their habitats.
 
-<div>
+<div style="background: white; border-radius: 25px; width: 128px; height: 128px;">
 <img src="./doc/spreadsheet.svg" width="200px" alt="spreadsheet" title="Spreadsheet" /> 
-<p>
+</div>
+
 You're likely familiar with the traditional method of organizing information: spreadsheets, with their ubiquitous rows and columns. But what if we could move beyond this limited structure?
 
 CIM counters this with a structured graph of information where each node and edge is purposefully designed for seamless composition. We're shifting away from the conventional paradigm of location-based hierarchical files and spreadsheets to embrace a more dynamic format.
@@ -91,13 +92,17 @@ CIM serves this purpose, allowing seamless interaction with various systems and 
 
 While some technologies integrated with CIM might present a learning curve, the platform is designed to facilitate learning on the go. Built-in queries to AI and the conversion of conversations into resources akin to AI-assisted meetings significantly flatten this curve. With a ready-made assistant, users can navigate the system more intuitively, even without prior technological expertise.
 
-Sage, a user-friendly interface within CIM, guides you through designing and managing information, emphasizing the relevance of information over the choice of technology. Whether you prefer NixOS or wish to integrate Docker with Ansible, CIM's flexibility supports various technological ecosystems.
+Sage, a user-friendly interface within CIM, guides you through designing and managing information, emphasizing the relevance of information over the choice of technology. Whether you prefer NixOS or wish to integrate Docker with Ansible, or Kubernetes helm charts with Terraform, CIM's flexibility supports any technological ecosystems.
 
 Over the years, we've experimented with numerous technologies, each with its strengths and weaknesses. However, CIM isn't meant to replace these tools but to complement them, integrating into your existing domain as a novel tool with a unique purpose.
 
 The foundation of CIM is built on two key concepts:
 - **Domain**: A defined boundary encompassing related information.
 - **Environment**: A specifically configured workspace.
+
+This is our sample architecture we will start from in any new CIM.
+
+![cim-start Architecture](doc/cim-start.svg)
 
 Starting with a basic language and understanding of domain-specific nomenclature provides a reference point. From there, CIM customizes a language suited to your domain's unique needs, simplifying complex manual processes.
 

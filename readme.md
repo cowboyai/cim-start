@@ -16,7 +16,7 @@ You're likely familiar with the traditional method of organizing information: sp
 
 CIM counters this with a structured graph of information where each node and edge is purposefully designed for seamless composition. We're shifting away from the conventional paradigm of location-based hierarchical files and spreadsheets to embrace a more dynamic format.
 
-Although graphs are fundamental in areas like social media and data science, many still default to the familiar rows and columns of spreadsheets for information management. This isn't due to performance issues or a lack of comprehensibility; it's merely a matter of habit. Viewing data through a graph-based lens simply offers a different, and often more insightful, perspective.
+Although graphs are fundamental in areas like social media and data science, many still default to the familiar rows and columns of spreadsheets for information management. This isn't due to performance issues or a lack of comprehensibility; it's merely a matter of habit. Viewing data through a graph-based lens offers a different, and often more insightful, perspective.
 
 CIM is designed to scale, starting from a straightforward, single-configuration setup that grows as needed. Yet, no matter its complexity, the core principle remains simple and accessible.
 

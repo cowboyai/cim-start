@@ -3,8 +3,8 @@
 #### Composable Information Machine by Cowboy AI
 
 #### The Vision Behind CIM
-- **Intuitive & Private Information System**: I want an universal information system that prioritizes user intuition and data privacy.
-- **Business and AI**: With AI's ability to quickly extract information and produce fully tested code, businesses can accelerate their digital transformation, integrate diverse systems more efficiently, and harness the full potential of their existing applications in conjunction with AI-driven self-improvement models.
+- **Intuitive & Private Information System**: I want an universal information system that prioritizes user intuition, sensory reflection, and data privacy.
+- **Business and AI**: With AI's ability to quickly extract information and produce fully tested code, businesses can accelerate their digital transformation, integrate diverse systems more efficiently, and harness the full potential of their existing applications in conjunction with AI Agents, and AI-driven self-improvement models.
 - **Redefining Data Organization**: Moving beyond traditional applications, APIs and databases to a fully distributed and connected system that adapts and evolves like a living organism, offering a new DNA for information architecture.
 
 <img style="background:white;width:12rem;height:12rem;padding:3px;" alt="Cowboy AI Logo" src="./doc/logo.svg"/>
@@ -31,7 +31,11 @@
 <img style="background:white;width:12rem;height:12rem;padding:3px;" alt="spreadsheet" src="./doc/spreadsheet.svg"/>
 <p>*Most of us are familiar with a spreadsheet.*</p>
 
-Cowboy AI moves beyond that notion to focus on state machines and relationships.
+THis is a paper paradigm...
+Why are we still using paper paradigms on digital screens?
+Forms, Really??? How 19th Century.
+
+Cowboy AI moves beyond this notion to focus on state machines and relationships.
 
 ```graphviz
 digraph MealyStateMachine {

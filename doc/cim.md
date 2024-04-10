@@ -4,7 +4,7 @@ CIM is an architecture designed to navigate the complexities of today's global i
 
 How would one transfer data from a thumb drive to Mars? While this may not be a current concern, it poses an intriguing question for the future.
 
-Consider sending data from a ranch in Montana to Japan as swiftly as possible. With satellite technology, we're moving information globally using off-world innovations. Launching your own satellite has become surprisingly affordable, at $10,000—equivalent to the cost of an in-house server or a year's worth of 1 TB cloud storage in 2024. It's time to question our reliance on outdated 1980s technology.
+Consider sending data from a ranch in Montana to Japan as swiftly as possible. With satellite technology, we're moving information globally using off-world innovations. Launching your own satellite has become surprisingly affordable, at $10,000—equivalent to the cost of an in-house server or a year's worth of 1 TB cloud storage in 2024. It's time to question our reliance on outdated 1980s technology built on ideas derived from the paper processes of the 19th Century.
 
 Many of our information management techniques were developed before the advent of the internet. Since then, academia has kept pace, offering innovative solutions for enhancing our digital capabilities. Thanks to Moore's Law, both computing power and network speeds have surpassed local access speeds in many cases. However, this often leads to being locked into multiple accounts and data sources, each with its own set of complications.
 
@@ -12,7 +12,7 @@ Where does all this information go? Often, it's scattered across the internet, f
 
 Thankfully, many applications offer direct APIs, allowing us to integrate them into our Cmd/Qry/Evt pattern using [Comms](./comms.md), facilitating communication with any application.
 
-Must we integrate every API individually? In practice, we're already performing this task. Our approach simplifies the process, turning API integration into an automated mapping exercise. Using vendor products necessitates authentication and structured communication, which we encapsulate into configurations for seamless API access through our messaging system.
+Must we integrate every API individually? In practice, we're already performing this task. Our approach simplifies the process, turning API integration into a testable, automated mapping exercise. Using vendor products necessitates authentication and structured communication, which we encapsulate into configurations for seamless API access through our messaging system.
 
 ## Canonic Message Model
 We aim to develop a Canonic Message Model for the Domain—a comprehensive registry of all potential system messages, acting as a functional directory within the Domain.
@@ -40,14 +40,14 @@ However, making information readily available poses a significant challenge. The
 
 Moreover, managing dispersed information—whether it's about consolidating data, modifying it, or accessing it across different platforms—requires a novel approach. How do we facilitate seamless communication between disparate "apps" without resorting to extensive manual coding?
 
-[Comms](./comms.md) does that. 
+[Comms](./comms.md) solves this. 
 
-It performs ETL, projections, queries, and any other tasks required to access and share data across the entire domain. Additionally, it operates on a zero-trust principle, meticulously scrutinizing every message to ensure security. Comms employs certificates, ensuring that all communication is secure and encrypted. It also manages load balancing and scaling. If durable persistence is needed everywhere, it can provide that as well. Comms facilitates working with commands, queries, and events. But how is all this possible?
+It performs streaming blob transfer, ETL, projections, queries, and any other tasks required to access and share data across the entire domain. Additionally, it operates on a zero-trust principle, meticulously scrutinizing every message to ensure security. Comms employs certificates, ensuring that all communication is secure and encrypted. It also manages load balancing and scaling. If durable persistence is needed everywhere, it can provide that as well. Comms facilitates working with commands, queries, and events. But how is all this possible?
 
 It's all enabled by a domain model constructed directly from a business model.
 
 ### What about the Business Model?
-The term "business model" refers to a company's strategy for generating profit. It outlines the products or services the company intends to sell, its target market, and any expected costs.
+The term "business model" refers to a company's strategy for generating profit. It outlines the products or services the company intends to sell, its target market, and any expected costs. It can also refer to your "personal" domain where you are the business.
 
 To enhance our understanding of the business model, we incorporate several academic concepts into its framework:
 - Domain-Driven Design
@@ -63,13 +63,13 @@ To enhance our understanding of the business model, we incorporate several acade
 
 Admittedly, this encompasses a broad spectrum of ideas, challenging to grasp in its entirety.
 
-Fortunately, we have Sage — a tool equipped with a responsive AI system designed to simplify these complexities. Sage enables you to inquire about how these components interact and assists you in developing your model. More than just a support tool, Sage acts as an interactive agent capable of executing any command or query within the CIM and responding with events.
+Fortunately, we have Sage — a Client equipped with a responsive AI system designed to simplify these complexities with cim-start being the backend. Sage enables you to inquire about how these components interact and assists you in developing your model. More than just a support tool, Sage acts as an interactive agent capable of executing any command or query within the CIM and responding with events. We don't mean "helping you code", we mean establishing workflows and having AI Agents write, test and deploy the code.
 
 Let's explore an example:
 
 ![CIM - Inventory](./CIM-Inventory.svg)
 
-This is a substantial amount of information to grasp, especially considering this is merely a foundational example. In a comprehensive business model, there would be thousands of relationships and additional nodes divided into distinct domain parts.
+This is a substantial amount of information to grasp, especially considering this is merely a foundational and incomplete example. In a comprehensive business model, there would be thousands of relationships and additional nodes divided into distinct domain parts.
 
 Utilizing graphs for organization and translation provides a highly adaptable framework for change, ensuring both structure and discipline are maintained.
 
@@ -86,7 +86,7 @@ The process begins as follows:
 2. Make configurations (e.g., flake.nix).
 3. Commit them.
 
-That's all we need to get started.
+That's all we really need to get started. However, this repository as a template offers a much more progressive starting point.
 
 Changes are saved in the git repository, allowing us to query them or integrate them into a Domain Event Stream. Git provides a reliable, portable, and version-controlled method for maintaining our configuration. For alternative repositories, ensuring content addressability and the ability to store an Event Stream of changes is crucial. Git already fulfills these requirements and is universally available.
 
@@ -124,7 +124,18 @@ If you already have NixOS installed, which is always preferred, simply open a te
 
 On NixOS we prefer [direnv](https://direnv.net/), which is part of this flake, but if it's not already there, you'll want to add it to your NixOS systemEnvironment as well as turning container support on.
 
-Codespaces currently aren't working on pure NixOS, we are working on a solution, we can do it with Alpine and nix, but even that is having issues.
+## Running the VMs
+
+### Locally
+If you can, this should be your preferred method for the closest relationship to the code, but we realize this may take more resources than you have.
+
+Just to get started, run the dev machine first.
+This has a bunch of tests to make sure it deploys correctly.
+
+### Codespaces
+Codespaces currently aren't working on pure NixOS, we are working on a solution, we can do it with Alpine and nix, but even that is having issues, for Codespace you can use Ubuntu an nix-infect it.
+
+Nix Infect is a script that allows you to install NixOS on non-NixOS hosts. It is designed to work on a variety of cloud and VPS providers, including DigitalOcean, Hetzner Cloud, Vultr, and others.
 
 On https://github.com/TheCowboyAI/cim-start, click "use this template, and choose "open in a codespace"
 
@@ -132,9 +143,14 @@ We will remove the not working comment in devcontainer.json when Codespaces work
 
 If you need another alternative:
   Docker ** coming soon...
-  Virtual Machine
-  - run the build.sh script to build a vm
-  - or download it [here]() 
 
-[Flakes](./Flake.md)
+Virtual Machines
+  - run the build.sh script to build a vm
+  - run.sh is convenient if you are on a nix system and want to launch the VM there.
+
+### DigitalOcean
+We can deploy these to DigitalOcean for a reasonable fee.
+in this case, run ./build_droplet.sh
+The only difference in this VM is that it uses a DigitalOcean specific base image.
+
 

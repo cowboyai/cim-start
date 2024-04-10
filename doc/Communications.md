@@ -137,10 +137,9 @@ When you are done playing around (i.e. developing and testing) you add it to the
 
 It just boils down to a different way of thinking about things.
 
-I don't have a "computer" any more, I have an Information Machise and that is a distributed thing that lives across the internet but acts like it's local. It has a structure and that structure is simple, has zero dependencies, it's a pile of text. I can transform that text into some working information system... repeatedly... with the same results.
+I don't have a "computer" any more, I have an Information Machine and that is a distributed thing that lives across the internet but acts like it's local. It has a structure and that structure is simple, has zero dependencies, it's a pile of text. I can transform that text into some working information system... repeatedly... with the same results.
 
-I just got reliability of information and I am no longer chained to a vendor.
-Everything is portable and versioned via my Object Stores and their Event Stream.
+I just got reliability of information and I am no longer chained to a vendor. Everything is portable and versioned via my Object Stores and their Event Stream.
 
 Is this Perfect?
 Certainly not, but we are evolving our way there.

@@ -65,14 +65,18 @@ We want a uuid...
 ```json
 {"Domain": {"name": "Lucy's Lemonade", uid:"077259b3-8a59-4154-8953-ea17cbb2ba3d"}}
 ```
+we also want a fqdn...
 
-We are using JSON as a universal language for messaging. Today it is the defacto standard, but feel free to use anything you prefer.
-We know we are going to translate things a lot and mostly they end up in JSON.
+```json
+{"Domain": {"name": "Lucy's Lemonade", "fqdn": "lucyslemonade.org",uid:"077259b3-8a59-4154-8953-ea17cbb2ba3d"}}
+```
 
-Here we have a uuidv4.  This is an important thing to know. There are already two other ID formats we have talked about: ContentID and CommitID. CommitID is just like the uuid, except it uses Content as input and the CommitID incorporates the Content in creating the ID.
+We are using JSON as a universal language for messaging. Today it is the defacto standard, but feel free to use anything you prefer. We know we are going to translate things a lot and mostly they end up in JSON.
+
+Here we have a uuidv4.  This is an important thing to know. There are already two other ID formats we have talked about: ContentID and CommitID. CommitID is just like the uuid, except it uses Commit hash as input and the CommitID incorporates the Content in creating the ID.
 ContentID does a couple extra things. I have the same sort of hash that is a CommitID, but I also get some Type information as in a schema definition via IPLD. This Content-Address is valid universally, it is reproducible, so it can be used as a validator, and it points to the ID of a Node in a Graph containing the data.
 
-These have very different uses, but we will be using them frequently in a CIM.
+These have very different uses, but we will be using them all frequently in a CIM.
 
 Content Based IDs are essentially "natural keys" and if the content changes, so does the ID.
 Sometimes that is exactly what we want...
@@ -96,10 +100,7 @@ In theory, you can store the events as objects in the object store, but that get
 Remember, our backup pattern is simply duplication.
 The system you pride yourself on is the same, even if it's microfiche, a lamp and a magnifying glass.
 
-We are trusting that the global information system is going to stay alive.
-From our Object Stores and our Event Stores, we can recreate everything.
-Both are immutable, and both are easily replicated both on and off line.
-Immutability also provides for infinite cache-ability and archiving.
+We are trusting that the global information system is going to stay alive. From our Object Stores and our Event Stores, we can recreate everything. Both are immutable, and both are easily replicated both on and off line. Immutability also provides for infinite cache-ability and archiving.
 
 Domain is the thing we are trying to model.
 
@@ -111,24 +112,20 @@ Who are you?
 
 This is after all a personalized system.
 
-The more we know about each aspect of how you intend to use the system is to your benefit.
-That can make us really nervous, we have been told to avoid using detailed personal information, but that applies to external applications controlled by others, not a system like CIM which is totally under your control.
+The more we know about each aspect of how you intend to use the system is to your benefit. That can make us really nervous, we have been told to avoid using detailed personal information, but that applies to external applications controlled by others, not a system like CIM which is totally under your control.
 
 This system is closed and all operations are secure.
 Every message is communicated with zero-trust, meaning it requires valid authentication and authorization at every step. This is YOUR information not anything we can mine behind your back.
 
 We designed this information system specifically to encapsulate a Private Domain with all it's intricacies and feel safe no matter where it's hosted due to the nature of the architecture in which it is built. Personal information is highly guarded and requires security to access.
 
-We are going to have many things that live inside the Domain.
-Our focus is on how they are related more than how we focus on the details of the information for now.
+We are going to have many things that live inside the Domain. Our focus is on how they are related more than how we focus on the details of the information for now.
 
-People are an external force that we contend with to build a Domain.
-So are Organizations, these things exist outside our Domain, yet we are related to them intrinsically. We also have the concept of Agents. Agents act like people, but aren't.
+People are an external force that we contend with to build a Domain. So are Organizations, these things exist outside our Domain, yet we are related to them intrinsically. We also have the concept of Agents. Agents act like people, but aren't, they may be totally driven by a human, completely autonomous, or a mix of both.
 
 Now we have our first problem to contend with:
 Requiring a unique name is going to be a problem...
-It's a problem because we experience in the real world, many people with the same name.
-We can try all we want, but the fact that there are some 10 Billion people to consider, name collisions are unavoidable.
+It's a problem because we experience in the real world, many people with the same name. We can try all we want, but the fact that there are some 10 Billion people to consider, name collisions are unavoidable. In that same vein, what is a name? Can it be vocal only? Some single symbol?
 
 It's not that we want to find a magic solution that will fix this, we want to establish how WE deal with it in our Domain.
 
@@ -148,21 +145,27 @@ So we don't get any collisions, let's add a uuid:
 ```
 
 Hopefully, you are starting to see a management problem. How do I create the IDs?
-If I did all this in a database, I have to back all that up and relate it to everything else.
-Storing these in files alone is going to also be a problem.
+If I did all this in a database, I have to back all that up and relate it to everything else. Storing these in files alone is going to also be a problem.
 
 By semantically relating all this to a Domain and making it live in a Canonical Messaging System we eliminate a ton of those worries.
 
+We need a Fully Qualified Domain Name in order to use the internet effectively.
+
+```json
+{"Person": {"name": "Lucy LaGrange", "fqdn":"lucyslemonade.org", "uid": "753e35f3-25bc-49ba-aeb6-068baee5f66b"}} 
+```
+
 Think of this in the real world:
 
-My database died... like the hard drive died.
-ok, no worries, we take the configuration and deploy to a new instance.
-the instance comes up empty
-we run a "catch-up" subscription for all events we want in the database
-it repopulates itself 
-it starts a subscription to it's Event Stream and is back online
-nobody had to change anything in the Messaging system, it just kept going.
-this is a bit different than restoring database backups and hoping they work.
+My database died... like, the hard drive died.
+ok, no worries, we take the configuration and deploy to a new instance:
+- the instance comes up empty
+- it starts a subscription to it's Event Stream and is back online
+- it runs a "catch-up" subscription for all events we want in the database
+- it repopulates itself 
+- nobody had to change anything in the Messaging system, it just kept going.
+
+This is a bit different than restoring database backups and hoping they work.
 
 In our Domain, We are instantiating our base, and to do that, we just need to create some loose information and trust that we will be adding constraints and relationships as we go.
 
@@ -267,6 +270,6 @@ CIM is an organizational tool for business functionality. The programs you use d
 
 We have absolutely magical technology available to us, but if we cannot relate that back to a single business purpose, then we are lost.
 
-This is why we focus on the business model and generate or commission software from that, rather than shopping for software and then modeling our business process around that. We collect these into Domain Artifacts that allow us to recreate everything in the Domain from a sequence of Events and a set of Configurations.
+This is why we focus on the business model and generate or commission software from that, rather than shopping for software and then modeling our business process around that. We collect these into Domain Artifacts that allow us to recreate everything in the Domain from a set of Configurations and a sequence of Events.
 
 [Inventory](./Inventory.md)

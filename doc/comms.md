@@ -53,10 +53,7 @@ pub enum DomainContent {
 
 pub struct Msg {
   pub id: Uuid,
-  pub sequence: Option<u64>,
-  pub correlation: Option<Uuid>,
-  pub causation: Option<Uuid>,
-  pub owner: Option<Uuid>,
+  pub metadata: Hashmap,
   pub content: Option<DomainContent>,
 }
 ```
@@ -71,44 +68,47 @@ Here is how things break down:
 - A Correlation Identifier may be added to group messages
 - A Causation Identifier may be added to show direct causation (what Command caused this Event to propagate)
 - All Messages have an Owner
+- Metadata is a simple Key Value Array
 - Content is a Generic construct tailored to the Domain
 
 We persist ALL Events into an Event Store
-Content over a configured threshold size will offload Content to the Object Store and receive a Content-Address
-Content-Addresses are universally unique identifiers for a Directed Acyclic Graph of data blocks 
-Content-Addresses may be retrieved from Comms
-Content-Addresses are IPFS Compatible
-Content-Addresses may be structured with IPLD
+- Content over a configured threshold size will offload 
+- Content to the Object Store and receive a Content-Address
+- Content-Addresses are universally unique identifiers for a Directed Acyclic Graph of data blocks 
+- Content-Addresses may be retrieved from Comms
+- Content-Addresses are IPFS Compatible
+- Content-Addresses may be structured with IPLD
 
 Think of this scenario:
-I am adding a 100 Page PDF to my CIM
-This is too big to be passing around internally inside the message
-Comms receives the AddDocument Command
-Comms sees the size of the payload is large
-Comms extracts the payload and stores it into the Object Store with authorization constraints
-Comms forwards the Message intact, replacing Content with a CID instead of Bits
-Event Listeners receive the Event that Document-CID has been added
-Event Listeners who need the Content retrieve the CID, passing along authorization
-CID Content is delivered
+- I am adding a 100 Page PDF to my CIM
+- This is too big to be passing around internally inside the message
+- Comms receives the AddDocument Command
+- Comms sees the size of the payload is large
+- Comms extracts the payload and stores it into the Object Store with authorization constraints
+- Comms forwards the Message intact, replacing Content with a CID instead of Bits
+- Event Listeners receive the Event that Document-CID has been added
+- Event Listeners who need the Content retrieve the CID, passing along authorization
+- CID Content is delivered
 
-Using this methodology, the Event Stream remains optimized
+Using this methodology, the Event Stream remains optimized.
 Large Objects do not get passed through the Messaging System, they are off-loaded to the Object System.
 The Object System is like a file system where you may put and get Content by CID.
 If you have ever used IPFS, this works the same way, we just use a different network technology to pass bits around the system.
 
-If you only ever have a single Leaf Node, this is pretty boring, but still solves a massive problem for us: file sharing.
-How does one thing share files with another thing.
+If you only ever have a single Leaf Node, this is pretty boring, but still solves a massive problem for us: file sharing. How does one thing share files with another thing.
 
-For Comms, it is a simple get(cid) and it just delivers it to you.
-We generally don't manually request these things, and that is the magic of the Object Store and Messaging.
-I have a CID... If I need to render this Content, I can fetch it with the CID... anywhere I have a connection to Comms.
-I can name it anything I want and that Name is now part of the Domain with a Relationship to the CID.
-I save LOCALLY, if it is needed elsewhere, the Domain Listeners will fetch it an move it around.
+For Comms, it is a simple get(cid) and it just delivers it to you. cids also have names, so asking for the name instead of a cid works too. We generally don't manually request these things manually, and that is the magic of the Object Store and Messaging.
 
-For example, I have told my Domain that I want 3 copies of all Objects.
-If I am only Local, it just makes 3 copies...
-That isn't very safe.
-If we have a Domain Cluster (typically we do) then the Local Comms system has broadcast to the Domain that it has a new Object and anyone interested can retrieve it. The Domain is the manager, it knows where Content is needed and will relocate things as needed to optimize in the background.
+I have a CID... 
+- If I need to render this Content, I can fetch it with the CID or one of many Names for the CID... anywhere I have a connection to Comms.
+- I can name it anything I want and that Name is now part of the Domain with a Relationship to the CID.
+- I save LOCALLY, if it is needed elsewhere, the Domain Listeners will fetch it an move it around.
+
+For example, I have told my Domain that I want 3 copies of all Objects. If I am only Local, it just makes 3 copies...
+
+>That isn't very safe.
+
+If we have a Domain Cluster (typically we do) then the Local Comms system has broadcast to the Domain that it has a new Object and anyone interested can retrieve it. The Domain is the manager, it knows where Content is needed and will relocate things as needed to optimize storage in the background.
 
 That means that if you add Content and that Content is related to a Website that Projects the Content, it will move the Object Data close to the Website for optimization automatically.
 
@@ -120,19 +120,20 @@ There are exceptions for mapping, but these are still offloaded processes and if
 We can send a million messages a second if they remain small.
 
 git does the same thing with large files through the LFS Plugin.
+
 Large files can slow down versioning, tremendously.
 If you use the LFS Plugin, and you commit a large file
 git will pull it out of the commit and put the file into an Object Store then replace the file in the commit with a pointer to the Object in the Object Store.
 
-We are doing the exact same thing for Messages. The Integrity of the DomainContent is preserved in the Object Store.
-Object Stores are distributed throughout a CIM and can load balance and optimize themselves.
+We are doing the exact same thing for Messages. The Integrity of the DomainContent is preserved in the Object Store. Object Stores are distributed throughout a CIM and can load balance and optimize themselves.
 
 Imagine adding a playlist of a thousand Music files you use for promotional materials.
+
 If you want to persist the music along with the playlist, you can absolutely do that, but we wouldn't want the Events to reflect the entire music file 10 or 12 times as it travels around the system. Instead, the Music is saved to a CID, and the CID is then the Content of the Message and we know that to get the Music, we retrieve the CID.
 
 This will also apply to anything like Documents we don't trust that need virus scans, etc.
 
-This is the entire beauty of Comms. I have Messaging to any functionality my Domain can provide and it is shared securely throughout the platform, no matter where it lives.  This is so much easier than even setting up a "home lab". Hardware become just some way to run functionality and I can send it around without thinking about where it lives and how to connect to it.
+This is the entire beauty of Comms. I have Messaging to any functionality my Domain can provide and it is shared securely throughout the platform, no matter where it lives.  This is so much easier than even setting up a "home lab". Hardware becomes just some way to run functionality and I can send it around without thinking about where it lives and how to connect to it.
 
 Now compare this to something like Docker and a Web App.
 Sure, I can do a lot of this wrapped in a Docker container, then I have to deal with the File System, sharing Data, opening ports and a whole lots of other things I really don't care about in day-to-day usage of my information.

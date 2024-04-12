@@ -50,10 +50,10 @@
     unbound = {
       enable = true;
       settings = {
-        do-ip4 = true;
-        do-ip6 = false;
-        do-udp = false;
-        do-tcp = true;
+        do-ip4 = "yes";
+        do-ip6 = "no";
+        do-udp = "no";
+        do-tcp = "yes";
         server = {
           interface = [ "127.0.0.1" ];
         };

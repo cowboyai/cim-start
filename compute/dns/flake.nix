@@ -13,7 +13,7 @@
   in 
   {
     nixosConfigurations = {
-      dns = nixpkgs.lib.nixosSystem {
+      ns = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
           ./configuration.nix

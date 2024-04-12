@@ -12,7 +12,7 @@ This is a Dot Delimited String with some structure
     - gives me everything under foo.bar, i.e. foo.bar.baz, foo.bar.bay
 
 With our Domain Model, this becomes a very easy pattern to create automatically.
-All Strings are now part of the Domain, this is a lot different than passing around everything as a string in a web app. It's much more akin to passing around Constant, because it acts that way.
+All Strings are now part of the Domain, this is a lot different than passing around everything as a string in a web app. It's much more akin to passing around a Constant, because it acts that way.
 For Example, "Yellow".
 It's a color.
 It's a behavior.

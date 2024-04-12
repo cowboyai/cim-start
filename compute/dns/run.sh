@@ -1,1 +1,1 @@
-result/bin/run-dns-vm
+result/bin/run-ns-vm

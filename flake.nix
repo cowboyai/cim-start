@@ -22,6 +22,7 @@
         devShells.default = mkShell {
             buildInputs = [
               nix-index
+              nixops
               rustToolchain
               cargo-generate
               cargo-make

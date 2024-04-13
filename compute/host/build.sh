@@ -1,0 +1,1 @@
+nix build .#nixosConfigurations.dev.config.system.build.vm

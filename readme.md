@@ -66,7 +66,7 @@ Storing information shouldn't require my personal, proper allocation into a libr
 
 Computer systems are now commodity systems we can obtain and use with off-the-shelf components.
 
-Information systems on the other hand, will always be tied directly to one or more Domains. They are concerned with how what information "is" and how it is related and sequenced rather than where it is and how we compute it.
+Information systems on the other hand, will always be tied directly to one or more Domains. They are concerned with what information "is" and how it is related and sequenced rather than where it is and how we compute it.
 
 #### Scalability and Simplicity
 - **Start Simple, Scale Smartly**: We begin with a basic setup, designed to grow and adapt to your needs.

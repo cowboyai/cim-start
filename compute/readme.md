@@ -55,11 +55,11 @@ Deploy to Digital Ocean
 
 All will have slightly different meanings and we want to be able to have a consistent, abstracted configuration that doesn't know about where it is deployed, only that you CAN deploy it.
 
-## Nixops
-Note: Nixops is currenltly stable at version 1.7, but is undergoing a complete rewrtite as [NixOps4](https://github.com/nixops4/nixops4). We will convert to NixOps4 when it reaches a stable version.
+## NixOps
+Note: NixOps is currenltly stable at version 1.7, but is undergoing a complete rewrtite as [NixOps4](https://github.com/NixOps4/NixOps4). We will convert to NixOps4 when it reaches a stable version.
 
-Nixops is our tool for building multiple systems that deploy together.
-We casn also use [terraform](https://github.com/terranix/terranix), but for now we are sticking with nixops.
+NixOps is our tool for building multiple systems that deploy together.
+We casn also use [terraform](https://github.com/terranix/terranix), but for now we are sticking with NixOps.
 
 While this could deploy entire Domain at once and propably should until it reaches a certain size, we want to make our configurations in a way they can stand alone and be reused.
 

@@ -1,1 +1,1 @@
-$ nixops create network.nix cimdeploy.nix -d cim
+$ NixOps create network.nix cimdeploy.nix -d cim

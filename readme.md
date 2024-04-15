@@ -3,15 +3,25 @@
 #### Composable Information Machine by Cowboy AI
 
 #### The Vision Behind CIM
+Designing "information systems" reflects the evolution of technology into more integrated, user-focused, and data-driven architectures. This transition encompasses systems design, data science, security, and user interface design, among others.
+
+Think about what information is as opposed to the things that allow the information to operate. 
+
 - **Intuitive & Private Information System**: I want an universal information system that prioritizes user intuition, sensory reflection, and data privacy.
 - **Business and AI**: With AI's ability to quickly extract information and produce fully tested code, businesses can accelerate their digital transformation, integrate diverse systems more efficiently, and harness the full potential of their existing applications in conjunction with AI Agents, and AI-driven self-improvement models.
 - **Redefining Data Organization**: Moving beyond traditional applications, APIs and databases to a fully distributed and connected system that adapts and evolves like a living organism, offering a new DNA for information architecture.
+
+Typically, this is delivered as bottom-up approach where we start defining the Networks, Operating Systems and Programs we use and how to set them all up.
+
+This is a very manual approach to something we can finally automate in a realistic way.
+
+CIM is the pattern we have developed to accomplish this.
 
 <img style="background:white;width:12rem;height:12rem;padding:3px;" alt="Cowboy AI Logo" src="./doc/logo.svg"/>
 <p>*Cowboy AI streamlines information integration and management.*</p>
 
 <h1>*** CAUTION ***</h1>
-<p>This repository is HIGHLY unstable and incomplete.</p>
+<p>This repository is transitional, HIGHLY unstable and incomplete.</p>
 <p>Version: 0.7.0</p>
 
 <p>Please don't let this discourage you. This repository is rapidly changing, we are just issuing a word of caution that you may not want to use this in a production system without a great deal of testing and validation.</p>

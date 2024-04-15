@@ -11,8 +11,7 @@
   dns =
     { config, pkgs, ... }:
     { 
-      services.httpd.enable = true;
-      services.httpd.adminAddr = "admin@domain.cim";
+      services.unbound.enable = true;
     };
 
   nats =

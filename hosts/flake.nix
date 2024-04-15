@@ -13,7 +13,7 @@
   in 
   {
     nixosConfigurations = {
-      dev = nixpkgs.lib.nixosSystem {
+      host-dev = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
           ./configuration.nix

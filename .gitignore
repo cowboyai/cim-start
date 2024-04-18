@@ -28,3 +28,5 @@ playwright/.cache/
 *.qcow2
 
 **/result
+*.deb
+*.signature

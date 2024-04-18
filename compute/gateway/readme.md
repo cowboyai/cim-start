@@ -1,5 +1,5 @@
 # Gateway
-This is your adaptation of a foreign API into your ecosystem.
+This is the API into your ecosystem.
 
 The goal here is to map the API into our canonical messaging safely.
 

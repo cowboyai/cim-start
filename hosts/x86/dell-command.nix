@@ -10,6 +10,7 @@
       pkgs = import nixpkgs { inherit system; };
     in
     {
+      # this may need sudo chmod 666 /var/run/docker.sock to fix permissions
       packages.${system}.default = pkgs.dockerTools.buildImage {
         name = "jammy-image";
         tag = "latest";

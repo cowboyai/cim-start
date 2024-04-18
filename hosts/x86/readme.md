@@ -173,5 +173,20 @@ If the vhost is using special hardware, then we want to invoke that.
 
 For our Dell Precision 7920, we have to be able to determine what is actually IN the BIOS, and that it is not changing when we reboot.
 
-We have ways to test this, and will be invoking tests as soon as we have a working system.
+Dell offers us a utility for this:
+[Dell Command](https://www.dell.com/support/contents/en-us/videos/videoplayer/how-to-do-bios-configuration-with-dell-command/dksd4rz8gma)
+
+If you have a different manufacturer, you can check for their BIOS tooling.
+
+we want this version:
+[Dell Command cli for Linux](https://dl.dell.com/FOLDER10469726M/1/command-configure_4.11.0-6.ubuntu22_amd64.tar.gz)
+
+eek, this is for Ubuntu and we are running NixOS...
+No worries, we just launch this in a container... 
+
+This isn't something we want permanently installed, basically because it is a really dangerous tool. We also don't want some hybrid OS. When we need it, we simply invoke it, get the data we need, save it and shutdown the container.
+
+What we want to be able to do is deterministically set the BIOS.
+
+I already know what the hardware is, but I need to be able to repeatedly apply settings, remotely if necessary. This is why we need to extract the BIOS information from the hardware and save it in our configuration.
 

@@ -1,37 +1,45 @@
 {
-  description = "Build Raspberry PI 4 image";
+  description = "Base system for raspberry pi 4";
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
+    nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixos-generators = {
+      url = "github:nix-community/nixos-generators";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
-  outputs = { self, nixpkgs }: let
-    system = "aarch64-linux";
-    pkgs = import nixpkgs {
-        inherit system;
-    };
-    nixosConfigurations.rpi4 = nixpkgs.lib.nixosSystem {
-      inherit system pkgs;
-      modules = [
-        "${nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64.nix"
-        ({ ... }: {
-          config = {
-            time.timeZone = "America/Phoenix";
-            sdImage.compressImage = false;
 
-            users.users.root.initialHashedPassword = "$y$j9T$07MZ4fj47Q8ghrG5QZZ0M.$iuJZ97ocoprPTIT/sAt.yB1vSuNT8AdIU5X3UXPIEu/"; # use mkpasswd to generate
-            system = {
-              stateVersion = "23.11";
-            };
-            networking = {
-              wireless.enable = false;
-              useDHCP = false;
-            };
-            environment.systemPackages = with pkgs; [ git gnupg htop ];
+  outputs = { self, nixpkgs, nixos-generators, ... }: 
+  {
+    nixosModules = {
+      system = {
+        # Disabling the whole `profiles/base.nix` module, which is responsible
+        # for adding ZFS and a bunch of other unnecessary programs:
+        disabledModules = [
+          "profiles/base.nix"
+        ];
+
+        system.stateVersion = "23.11";
+      };
+      users = {
+        users.users = {
+          cim = {
+            password = "cim";
+            isNormalUser = true;
+            extraGroups = [ "wheel" ];
           };
-        })
-      ];
-    };
-    in {
-      image.rpi4 = nixosConfigurations.rpi4.config.system.build.sdImage;
+        };
+      };
     };
 
+    packages.aarch64-linux = {
+      sdcard = nixos-generators.nixosGenerate {
+        system = "aarch64-linux";
+        format = "sd-aarch64";
+        modules = [
+          self.nixosModules.system
+          self.nixosModules.users
+        ];
+      };
+    };
+  };
 }

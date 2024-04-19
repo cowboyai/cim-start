@@ -132,8 +132,9 @@ And suddenly I have a working system in seconds, why would I try to manually ins
 
 What about backups?  What is a backup? It's just a copy of data, sometimes in  a prepared format.  The Object Store can just do that for you... If you configure the Object Store to make a minimum of 3 copies, that's what it does, there is your "backup". If you need disaster recovery, you build an Object Store Cluster that has nodes in different Data Centers.  We already know how this works, now we just deploy it instead of figuring all that stuff out.
 
-If you like playing around in free and open environments, keep doing that... on a dedicated system.
-When you are done playing around (i.e. developing and testing) you add it to the Domain and can then use that new technique you just made anywhere in the Domain.
+The Event Store *IS* your backup. So we make replicas of it and store it on differnt devices. It is totally immutable, so once written, it never, ever changes. You cannot delete it, although you can make snapshots to rollup the past and reduce active size versus archived size.
+
+If you like playing around in free and open environments, keep doing that... on a dedicated system. When you are done playing around (i.e. developing and testing) you add it to the Domain and can then use that new technique you just made anywhere in the Domain.
 
 It just boils down to a different way of thinking about things.
 

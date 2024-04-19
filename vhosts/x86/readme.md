@@ -12,15 +12,15 @@ First, let's talk about what we are going to do...
 Why ISO?
 On our initial machine we have nothing running and installing over a network is literally impossible because we aren't plugging into a known network.
 
-Sure, if you already have a running network, we "could" use that, but then we are susseptible to any problems already on that network.
+Sure, if you already have a running network, we "could" use that, but then we are susceptible to any problems already on that network.
 
-CIM ois a fresh, new, declarative installation and we didn't declare any existing networks nor can we if we want a clean system.
+CIM is a fresh, new, declarative installation and we didn't declare any existing networks nor can we if we want a clean system.
 
 We will however, build this using ANY system running Nix.
 Everything else is declared, we just need somewhere to generate a system. Currently we use a stock NixOS Live Image to just start the system and generate a declarative ISO. 
 
 ## Flake.nix
-This flake gets a minimal installer from the network, and builds an image that will boot into a live environment, then install iteself.
+This flake gets a minimal installer from the network, and builds an image that will boot into a live environment, then install itself.
 
 We will create an OS Drive used exclusively for the Hypervisor and virtual images.
 
@@ -28,12 +28,12 @@ We will set all the other attached storage devices to be available for virtual s
 
 We will also harden the system to only support this hardware. A change to hardware (even attaching a usb device) will require a pushed update as we will turn off the ability to do so locally for security reasons.
 
-The Hypervisor doesn't really do anything and this is good, it just serves other containers. We don't want any unauthorized containers either, so deployment must come from the Domain.
+The Hypervisor doesn't really do anything compute-wise and this is good, it just serves other containers. We don't want any unauthorized containers either, so deployment must come from the Domain.
 
 We switched to hypervisors for everything years ago.
 Even our bare metal just gets a hypervisor and everything else is virtual. The actual latency to the hardware is nearly undetectable now.
 
-I do recall when virtualization was a 30% performance hit. That is just not so any more and with optimized tuning can get as low as 1%.
+I do recall when virtualization was a 30% performance hit. That is just not so any more and with optimized tuning can get as low as an undetectable 1%. If that is still too slow, buy faster hardware.
 
 The benefits of having everything separated this way far outweighs the small performance hit for switching in the cpu. Vendors have worked for more than a decade to make hypervisor performance optimal.
 
@@ -65,12 +65,12 @@ If you DO need to do this, run the standard NixOS Live Image, detect the hardwar
 Then we can use it to build an installable ISO image.
 
 What I mean here is:
-  - Detecting Hardware should be done ONCE at the most and then saved.
+  - Detecting Hardware should be done ONCE and then saved.
   - Hardware changes are something we want to manage, not detect.
   - We want to simplify this, but also allow any conceivable configuration
   - We want to remove manual steps to installation whenever possible
 
-When we buy equipment, we always specify the hardware.
+When we buy equipment, we always specify the hardware or at least know what we get.
 When I deploy this hardware, it doesn't change.
 Why would I want to detect everyting on every boot?
 We don't that is how people plug in USB devices and hack you.
@@ -81,7 +81,7 @@ If it won't boot from the specification we have provided, then that is our fault
 When building equipment, we already know what we are putting into the system. We simply create a digital version of that specification we can use for programming.
 
 ### What to collect:
-  - Unique ID (asset tag, service tag or similar)
+  - Unique IDs (serial number, asset tag, service tag and similar)
   - CPU
   - Memory
   - BIOS Type (legacy or UEFI)
@@ -90,31 +90,11 @@ When building equipment, we already know what we are putting into the system. We
 
 Just start here and add anything else later. We will extract a ton of metadata about our hardware to use in configurations once they are running.
 
-Networking will be the difficult one.
-We need the MAC Addresses. Simply boot into the BIOS to see all this.
+# Networking
+Let's discuss networking first.
+We want a private address space.
+We also want to isolate different services (micro or not...) into their own network for security and internal simplicity.
 
-
-![Dell Precision 7920 BIOS](dell7920-bios.png)
-Sample saved in JSON format:
-```json
-{
-  "vhosts": [
-    "vhost-dev": {
-      "id": "",
-      "cpu": "x86_64", 
-      "memory": "128G",
-      "storage": [
-        "nvme": {"label"="vhost", "size"=".5T"},
-        "nvme": {"label"="data", "size"="1T"}
-      ]
-      "network": [
-      ]"192.68.100.0/29"
-    }
-  ]
-}
-```
-
-Let's discuss the network first.
 This network is 192.168.100.0/29
 This means:
   - 192.168.100.0 is the network identifier
@@ -130,11 +110,13 @@ This is meant to be an isolated local address.
 
 We will work with public addresses when we configure DNS.
 
-we will typically make .1 the gateway, which is a router, so it's not really a host address, but could be if you use software routing.
+We will typically make .1 the gateway, which is a router, so it's not really a host address, but could be if you use software routing.
 
 this leaves us 5 usable addresses and we will fill those up so nothing else can join this network.
 
 We do not want DHCP getting in the way so we disable it everywhere.
+
+DHCP while convenient, is a giant security hole. Containers are all software. This means I can set a MAC Address and game the system.
 
 Dynamic things are wonderful on non-deterministic systems. For us, we want to know exactly how things are set and that they can't change dynamically on a rebot, such as a changing dhcp address.
 
@@ -183,10 +165,77 @@ we want this version:
 
 eek, this is for Ubuntu and we are running NixOS...
 No worries, we just launch this in a container... 
+We will come back to this soon.
 
 This isn't something we want permanently installed, basically because it is a really dangerous tool. We also don't want some hybrid OS. When we need it, we simply invoke it, get the data we need, save it and shutdown the container.
 
 What we want to be able to do is deterministically set the BIOS.
 
-I already know what the hardware is, but I need to be able to repeatedly apply settings, remotely if necessary. This is why we need to extract the BIOS information from the hardware and save it in our configuration.
+We can read it with a program called `dmidecode` and will use this to read any running system. It's a bit more difficult to use and the settings are all in XML, but we can fix that and export to XML.
+
+Dmidecode is a command-line utility in Linux that retrieves and displays hardware information about a system by decoding the data stored in the DMI (Desktop Management Interface) table or SMBIOS (System Management BIOS) table.
+
+[Domain XML Format](https://libvirt.org/formatdomain.html#smbios-system-information)
+
+We want something that can boot, run dmidecode, export the settings and stop. Then we can insert those results into our configurations. (automatically during build most of the time)
+
+I already know what the hardware is, but I don't know the specifics set in the BIOS like Populated PCI Slots, Serial Numbers, and UUIDs. I also need to be able to repeatedly apply settings, remotely if necessary. This is why we need to extract the BIOS information from the hardware and save it in our configuration.
+
+No matter how we decide to do it, we want to extract the bios info and save it.
+
+## WHY???
+Because settings like this are frighteningly difficult.
+
+[A GPU Passthrough Setup for NixOS](https://astrid.tech/2022/09/22/0/nixos-gpu-vfio/)
+
+All I want to do is change a setting... 
+On equipment I own... That I want to configure any way I want.
+That should definitely not be this hard.
+
+We need to simplify by abstracting and deciding what we need to change in a Virtual Machine's description so we don't get unexpected results, like cheat blockers that are so dumb they are easily bypassed and we aren't cheating.
+
+Alright...
+
+What do we actually care about?
+
+```bash
+sudo dmidecode | jc --dmidecode -y > cim-vhost.dmi.yaml
+```
+And we get a readable format we can work with.
+
+This is a HUGE amount of information, most of which we don't really need, but are glad it's present instead of lacking.
+
+### What we want to know
+- Serial Numbers
+- CPU
+- Memory
+- Storage
+- Network
+
+We want to set this machine up to allow as much as possible to go to the virtual devices and as little as reasonable to the host.
+
+We don't want to starve the host, but instead give it what it needs and no more.  We can start thinking about everything as being replaceable and it won't hurt us.
+
+If I don't have the hardware locally, maybe I need to replicate to the cloud. Either way, you should be able to move things around at will and still have a working system.
+
+Deterministic configuration is the only realistic way to do this.
+
+Some of these BIOS settings will go directly to the hardware-configuration.nix along with other things like the bootloader and storage information.
+
+We can certainly do this manually by just creating a yaml file, but are you seriously going to retype all this stuff? What about for 1000 servers?
+
+We have to automate all this stuff away, but it must be accurate and verifiable. And that is precisely why we save it. We can then verify at any time.
+
+Who turned off HyperThreading?
+
+if someone manually does this, you have no way of tracking it, unless it's in some sort of change management database. We've done this at the corporate level for a very long time... Yes there are automation tools to do this. We simply have to pick one and make that workflow part of our strategy.
+
+dmidecode is just one way, if you have other tooling, such as [percona toolkit](https://manpages.ubuntu.com/manpages/focal/man1/pt-summary.1p.html) or the manufacturer provided tools we mentioned before feel free to use it. Though it may be harder to set it up and extract what we need from it.
+
+No, I am NOT going to tell you to use a particular piece of software, use what makes sense for your Domain.
+
+Just because we use something by default is not an indication it is irreplacable. In 10 Years, this will look quite different, not because we changed our mind, but because technology marches on and you are keeping up with it in a controlled way.
+
+
+
 

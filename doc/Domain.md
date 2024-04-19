@@ -98,7 +98,7 @@ Yes, these two are tightly coupled.
 In theory, you can store the events as objects in the object store, but that gets into many weird situations splitting them prevents.
 
 Remember, our backup pattern is simply duplication.
-The system you pride yourself on is the same, even if it's microfiche, a lamp and a magnifying glass.
+The system you pride yourself on is the same, even if it's microfiche, a lamp and a magnifying glass. (btw, these are the US Federal Government standards.)
 
 We are trusting that the global information system is going to stay alive. From our Object Stores and our Event Stores, we can recreate everything. Both are immutable, and both are easily replicated both on and off line. Immutability also provides for infinite cache-ability and archiving.
 

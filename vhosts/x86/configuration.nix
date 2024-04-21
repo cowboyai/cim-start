@@ -1,33 +1,34 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 {
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelModules = [ "kvm-intel" ]; #we only use intel here, for amd use "kvm-amd" 
+  imports = [
+		<nixpkgs/nixos/modules/profiles/all-hardware.nix>
+		<nixpkgs/nixos/modules/profiles/base.nix>
+		#installer-only ./hardware-configuration.nix
+	];
 
-  networking.hostName = "vhost-dev";
-  networking.firewall.allowedTCPPorts = [ 22 443 ];
 
   # harden for prod...
   security.sudo.wheelNeedsPassword = false;
   security.polkit.enable = true;
 
   # harden for prod
-  users.mutableUsers = true;
+  users.mutableUsers = false;
+
+  users.users.root = {
+		hashedPassword = lib.mkForce "$y$j9T$67lOar4UwWjRxaTypZV1W0$dPrgYqUJppfVUf/ugSTwVp5brl2y94B.2h060m495sC";
+	};
+
   users.users.cim = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "networkmanager" ];
     useDefaultShell = false;
     shell = pkgs.zsh;
     packages = with pkgs; [
-      #virt-manager
+      virt-manager
     ];
-    initialPassword = "cim";
+    hashedPassword = "$y$j9T$67lOar4UwWjRxaTypZV1W0$dPrgYqUJppfVUf/ugSTwVp5brl2y94B.2h060m495sC";
     openssh.authorizedKeys.keys = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDgGW4Y7S8YO3Se/1AK1ZuIaAtxa+sakK4SBv/nixRyJ cim@thecowboy.ai"];    
   };
-
-  # allow qemu/kvm
-  virtualisation.libvirtd.enable = true;
-  services.qemuGuest.enable = true;
   
   # we remove this in prod...
   services.openssh = {
@@ -42,8 +43,17 @@
   
   environment.systemPackages = with pkgs; [
     htop
+    neofetch
+    nano
+    openssl
+    pciutils
+    pv
+    unar
+    zip
     cacert
     openssl
+    curl 
+    wget
   ];
 
   system.stateVersion = "24.05";

@@ -16,10 +16,6 @@
       specialArgs = specialArgs;
     };
 
-    isoImage = {
-      name = "cim-vhost-nixos-installer";
-    };
-
     nixosConfigurations = {
       vhostiso = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";

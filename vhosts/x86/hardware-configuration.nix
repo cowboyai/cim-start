@@ -5,6 +5,13 @@
 
   networking.hostName = "vhost-dev";
   networking.firewall.allowedTCPPorts = [ 22 443 ];
+	networking.interfaces.enp2s0.useDHCP = false;
+	networking.interfaces.enp2s0.ipv4.addresses = [
+		{
+			address = "192.168.100.2";
+			prefixLength = 29;
+		}
+	];
 
   # allow qemu/kvm
   virtualisation.libvirtd.enable = true;

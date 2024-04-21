@@ -1,5 +1,7 @@
 { pkgs, config, lib, ... }:
 {
+  #description = "Service to provision the system";
+
   systemd.services.install = {
     description = "Bootstrap a NixOS installation";
     wantedBy = [ "multi-user.target" ];

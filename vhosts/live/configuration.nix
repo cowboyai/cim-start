@@ -11,6 +11,15 @@
     efiInstallAsRemovable = true;
   };
 
+  boot.kernelModules = [ "kvm-intel" ];
+  boot.initrd = {
+    availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
+    kernelModules = [ "kvm-intel" ];
+  };
+
+  networking.hostName = "vhost-dev";
+  networking.firewall.allowedTCPPorts = [ 22 443 ];
+
   services.openssh.enable = true;
 
   programs = {

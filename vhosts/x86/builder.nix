@@ -37,10 +37,7 @@
 
       wait-for mkfs.fat -F 32 -n boot /dev/disk/by-partlabel/BOOT
 
-      wait-for [ -b /dev/disk/by-partlabel/NIXOS ]
-      ${cryptsetup}/bin/cryptsetup luksFormat --type=luks2 --label=root /dev/disk/by-partlabel/NIXOS /dev/zero --keyfile-size=1
-      ${cryptsetup}/bin/cryptsetup luksOpen /dev/disk/by-partlabel/NIXOS root --key-file=/dev/zero --keyfile-size=1
-      mkfs.ext4 -L nixos /dev/mapper/root
+      wait-for mkfs.ext4 -L nixos /dev/mapper/root
 
       sync
       mount /dev/mapper/root /mnt
@@ -48,24 +45,16 @@
       mkdir /mnt/boot
       wait-for mount /dev/disk/by-label/boot /mnt/boot
 
+      install -D ${./flake.nix} /mnt/etc/nixos/flake.nix
       install -D ${./configuration.nix} /mnt/etc/nixos/configuration.nix
       install -D ${./hardware-configuration.nix} /mnt/etc/nixos/hardware-configuration.nix
 
       sed -i -E 's/(\w*)#installer-only /\1/' /mnt/etc/nixos/*
 
-      ${config.system.build.nixos-install}/bin/nixos-install \
-        --system ${(import <nixpkgs/nixos/lib/eval-config.nix> {
-          inherit system;
-          modules = [
-            ./configuration.nix
-            ./hardware-configuration.nix
-          ];
-        }).config.system.build.toplevel} \
-        --no-root-passwd \
-        --cores 0
+      ${config.system.build.nixos-install}/bin/nixos-install --flake .#vhost-dev
 
-      echo 'Shutting off in 1min'
-      ${systemd}/bin/shutdown +1
+      echo 'Shutting off now'
+      ${systemd}/bin/shutdown now
     '';
     environment = config.nix.envVars // {
       inherit (config.environment.sessionVariables) NIX_PATH;

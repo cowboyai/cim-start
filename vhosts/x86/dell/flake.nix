@@ -1,16 +1,21 @@
 {
-  description = "A very basic flake";
+  description = "NixOS configuration for vhost system";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   };
-
-  outputs = {
-    self,
-    nixpkgs,
-  }: {
-    packages.x86_64-linux.hello = nixpkgs.legacyPackages.x86_64-linux.hello;
-
-    packages.x86_64-linux.default = self.packages.x86_64-linux.hello;
+  
+  outputs = { self, nixpkgs, ... }@attrs: 
+  {
+    nixosConfigurations = { 
+      "vhost-dev" = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = attrs;
+        modules = [
+          ./configuration.nix
+          ./hardware-configuration.nix
+        ];
+      }; 
+    };
   };
 }

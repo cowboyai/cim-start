@@ -6,11 +6,22 @@
 		<nixpkgs/nixos/modules/profiles/base.nix>
 		#installer-only ./hardware-configuration.nix
   ];
-	
+
+	nix = {
+    package = pkgs.nixFlakes;
+    extraOptions = ''
+        experimental-features = nix-command flakes
+    '';
+  };
+
+  # detected gpus cause X11 to install and 
+  # we don't want it in the base
+  services.xserver.enable = lib.mkForce false;
+
   nixpkgs.config.allowUnfree = true;
 	zramSwap.enable = true;
 
-    # harden for prod...
+  # harden for prod...
   security.sudo.wheelNeedsPassword = false;
   security.polkit.enable = true;
 
@@ -34,7 +45,7 @@
   services.avahi = {
 		enable = true;
 		ipv4 = true;
-		ipv6 = true;
+		ipv6 = false;
 		nssmdns4 = true;
 		publish = { enable = true; domain = true; addresses = true; };
 	};

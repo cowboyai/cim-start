@@ -1,4 +1,4 @@
-{  webserver = 
+{  dev = 
     { config, pkgs, nodes, ... }:
     { 
       modules = [

@@ -4,5 +4,11 @@ This allows a pretty simple way to achieve our installation if you have a networ
 1.  Download a live image
 2.  copy it to usb
 3.  boot
-4.  ip addr (to obtain the dhcp addr)
-5.  nix run github:nix-community/nixos-anywhere -- --flake '.#cim-vhost' nixos@
+4.  sudo -i
+5.  passwd <any password>
+6.  ip addr (to obtain the dhcp addr, then update deploy.sh)
+7.  if you don't have dhcp, give it a reachable addr
+8.  ./test.sh
+9.  fix any errors
+10. ./deploy.sh
+  

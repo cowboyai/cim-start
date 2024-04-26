@@ -3,7 +3,7 @@
 {
   disko.devices = {
     disk.disk1 = {
-      device = lib.mkDefault "/dev/nvme0n1";
+      device = "/dev/nvme0n1";
       type = "disk";
       content = {
         type = "gpt";
@@ -27,26 +27,9 @@
             name = "root";
             size = "100%";
             content = {
-              type = "lvm_pv";
-              vg = "pool";
-            };
-          };
-        };
-      };
-    };
-    lvm_vg = {
-      pool = {
-        type = "lvm_vg";
-        lvs = {
-          root = {
-            size = "100%FREE";
-            content = {
               type = "filesystem";
               format = "ext4";
               mountpoint = "/";
-              mountOptions = [
-                "defaults"
-              ];
             };
           };
         };
@@ -54,7 +37,7 @@
     };
 
     disk.disk2 = {
-      device = lib.mkDefault "/dev/nvme1n1";
+      device = "/dev/nvme1n1";
       type = "disk";
       content = {
         type = "gpt";
@@ -63,26 +46,9 @@
             name = "data";
             size = "100%";
             content = {
-              type = "lvm_pv";
-              vg = "data-pool";
-            };
-          };
-        };
-      };
-    };
-    lvm_vg = {
-      data-pool = {
-        type = "lvm_vg";
-        lvs = {
-          data = {
-            size = "100%FREE";
-            content = {
               type = "filesystem";
               format = "ext4";
               mountpoint = "/data";
-              mountOptions = [
-                "defaults"
-              ];
             };
           };
         };

@@ -4,6 +4,9 @@
     (modulesPath + "/profiles/qemu-guest.nix")
     ./disk-config.nix
   ];
+
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   boot.loader.grub = {
     # no need to set devices, disko will add all devices that have a EF02 partition to the list already
     # devices = [ ];
@@ -18,7 +21,7 @@
   };
 
   networking.hostName = "vhost-dev";
-  networking.firewall.allowedTCPPorts = [ 22 443 ];
+  networking.firewall.allowedTCPPorts = [ 22 ];
 
   services.openssh.enable = true;
 
@@ -43,9 +46,9 @@
 
   # harden for prod...
   security.sudo.wheelNeedsPassword = false;
-  security.polkit.enable = true;
+  #security.polkit.enable = true;
 
-  users.mutableUsers = false;
+  users.mutableUsers = true;
 
   users.users.root = {
 		hashedPassword = lib.mkForce "$y$j9T$67lOar4UwWjRxaTypZV1W0$dPrgYqUJppfVUf/ugSTwVp5brl2y94B.2h060m495sC";
@@ -60,6 +63,5 @@
     openssh.authorizedKeys.keys = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDgGW4Y7S8YO3Se/1AK1ZuIaAtxa+sakK4SBv/nixRyJ cim@thecowboy.ai"];    
   };
   
-
   system.stateVersion = "23.11";
 }

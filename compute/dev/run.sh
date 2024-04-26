@@ -1,1 +1,0 @@
-result/bin/run-dev-vm

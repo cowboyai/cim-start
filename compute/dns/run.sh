@@ -1,1 +1,0 @@
-result/bin/run-ns-vm

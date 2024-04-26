@@ -1,1 +1,0 @@
-nix build .#nixosConfigurations.nats.config.system.build.vm

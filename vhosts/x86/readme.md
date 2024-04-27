@@ -44,3 +44,6 @@ sudo dd if=./result/iso/nixos-24.05.20240425.7bb2ccd-x86_64-linux.iso of=/dev/sd
 ```
 
 boot it.
+
+This will connect to the wireless network enabled in flake.nix.
+

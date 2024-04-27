@@ -24,7 +24,12 @@
           ./iso.nix
           ./builder.nix
         ];
-      };
+        networking.wireless.enable = true;
+        networking.wireless.networks = {
+          "cim-dev" = {
+            psk = "Unsecure!";
+          };
+        };
 
       vhost-dev = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";

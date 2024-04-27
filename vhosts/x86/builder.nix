@@ -58,8 +58,6 @@
       install -D ${./configuration.nix} /mnt/etc/nixos/configuration.nix
       install -D ${./hardware-configuration.nix} /mnt/etc/nixos/hardware-configuration.nix
 
-      sed -i -E 's/(\w*)#installer-only /\1/' /mnt/etc/nixos/*
-
       ${config.system.build.nixos-install}/bin/nixos-install --flake .#vhost-dev
 
       echo 'Shutting off now'

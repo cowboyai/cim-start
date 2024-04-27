@@ -38,4 +38,9 @@ build the system
 ./build.sh
 ```
 
-this results in an iso in result/iso
+the iso is in result/iso, copy it to a usb drive
+```bash
+sudo dd if=./result/iso/nixos-24.05.20240425.7bb2ccd-x86_64-linux.iso of=/dev/sda bs=4M status=progress conv=fdatasync
+```
+
+boot it.

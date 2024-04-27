@@ -2,9 +2,7 @@
 {
 
   imports = [
-    <nixpkgs/nixos/modules/profiles/all-hardware.nix>
-		<nixpkgs/nixos/modules/profiles/base.nix>
-		#installer-only ./hardware-configuration.nix
+		./hardware-configuration.nix
   ];
 
 	nix = {
@@ -14,7 +12,7 @@
     '';
   };
 
-  services.xserver.enable = lib.mkForce false;
+  services.xserver.enable = lib.mkForce true;
   services.xserver.videoDrivers = [ "nvidia" ];
 
   networking.hostName = "vhost-dev";

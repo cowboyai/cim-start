@@ -14,7 +14,7 @@
     '';
   };
 
-  services.xserver.enable = lib.mkForce true;
+  services.xserver.enable = lib.mkForce false;
   services.xserver.videoDrivers = [ "nvidia" ];
 
   networking.hostName = "vhost-dev";
@@ -28,7 +28,7 @@
   users.mutableUsers = true;
 
   users.users.root = {
-		hashedPassword = lib.mkForce "$y$j9T$67lOar4UwWjRxaTypZV1W0$dPrgYqUJppfVUf/ugSTwVp5brl2y94B.2h060m495sC";
+		#hashedPassword = lib.mkForce "$y$j9T$67lOar4UwWjRxaTypZV1W0$dPrgYqUJppfVUf/ugSTwVp5brl2y94B.2h060m495sC";
 	};
 
   users.users.cim = {
@@ -74,6 +74,7 @@
     wget
   ];
 
+  boot.enableContainers = true;
   containers = (import ./containers.nix);
 
   system.stateVersion = "24.05";

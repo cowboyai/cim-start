@@ -1,1 +1,0 @@
-nix run github:nix-community/nixos-anywhere -- --flake .#vhost-dev --vm-test

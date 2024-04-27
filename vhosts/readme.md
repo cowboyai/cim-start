@@ -38,7 +38,7 @@ We will make two paths:
 
 They will all be the same at this stage and only have different capabilities. Honestly, a Raspberry Pi can do all this, just don't expect to visualize a million nodes and have it be fast.
 
-### ISO Image for Workstation / Server
+### ISO Image for x86_64 Workstation / Server
 
 We are using a Dell Precision Workstation 7920 with an added NVidia RTX3080 GPU that we want to pass through (mostly for AI) to containers.
 
@@ -119,7 +119,7 @@ This consists of:
   - domain.json
 
 ### flake.nix
-In NixOS, his is our root control file.
+In NixOS, this is our root control file.
 It is the first thing NixOS looks for to evaluate a system.
 
 ```nix

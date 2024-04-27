@@ -23,13 +23,9 @@
           "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
           ./iso.nix
           ./builder.nix
+          ./iso-networking.nix
         ];
-        networking.wireless.enable = true;
-        networking.wireless.networks = {
-          "cim-dev" = {
-            psk = "Unsecure!";
-          };
-        };
+      };
 
       vhost-dev = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";

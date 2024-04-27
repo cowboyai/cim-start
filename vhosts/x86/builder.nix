@@ -18,10 +18,10 @@
       # do detection better ffs.
       sleep 20
 
-      install -D ${./flake.nix} /mnt/etc/nixos/flake.nix
-      install -D ${./configuration.nix} /mnt/etc/nixos/configuration.nix
-      install -D ${./hardware-configuration.nix} /mnt/etc/nixos/hardware-configuration.nix
-      install -D ${./containers.nix} /mnt/etc/nixos/containers.nix
+      install -D ${config/flake.nix} /mnt/etc/nixos/flake.nix
+      install -D ${config/configuration.nix} /mnt/etc/nixos/configuration.nix
+      install -D ${config/hardware-configuration.nix} /mnt/etc/nixos/hardware-configuration.nix
+      install -D ${config/containers.nix} /mnt/etc/nixos/containers.nix
 
       ${config.system.build.nixos-install}/bin/nixos-install --flake .#vhost-dev
 

@@ -27,8 +27,6 @@
           };
         };
       };
-    };
-    disk2 = {
       data = {
         device = "/dev/nvme1n1";
         type = "disk";

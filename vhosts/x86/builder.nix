@@ -5,7 +5,8 @@
   systemd.services.install = {
     description = "Bootstrap a NixOS installation";
     wantedBy = [ "multi-user.target" ];
-    after = [ "network.target" "polkit.service" ];
+    after = [ "network-online.target" "polkit.service" ];
+    requires = [ "network-online.target" ];
     path = [ "/run/current-system/sw/" ];
     script = with pkgs; ''
       echo 'journalctl -fb -n100 -uinstall' >>~nixos/.bash_history

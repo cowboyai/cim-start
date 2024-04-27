@@ -1,45 +1,33 @@
 {
-  network.description = "CIM-Dev via nixos-anywhere";
+  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+  inputs.disko.url = "github:nix-community/disko";
+  inputs.disko.inputs.nixpkgs.follows = "nixpkgs";
 
-  dev = 
-    { config, pkgs, ... }:
-    {
-      deployment.targetHost = "192.168.100.2";
-      deployment.targetEnv = "libvirtd";
-      deployment.libvirtd = {
-        headless = true;
-        memorySize = 16384;
-        vcpu = 4;
-      };
+  outputs = { nixpkgs, disko, ... }:
+  {
+    nixosConfigurations = {
 
-      programs.git.enable = true; 
-      programs.zsh.enable = true;
-      imports = [./dev/configuration.nix];
     };
-
-  dns =
-    { config, pkgs, ... }:
-    {
-      deployment.targetHost = "192.168.100.2";
-      deployment.targetEnv = "libvirtd";
-      deployment.libvirtd = {
-        headless = true;
-        memorySize = 2048;
-        vcpu = 1;
-      };
-      imports = [./dns/configuration.nix];
+    dev = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        disko.nixosModules.disko
+        ./configuration.nix
+      ];
     };
-
-  nats =
-    { config, pkgs, ... }:
-    {
-      deployment.targetHost = "192.168.100.2";
-      deployment.targetEnv = "libvirtd";
-      deployment.libvirtd = {
-        headless = true;
-        memorySize = 2048;
-        vcpu = 2;
-      };
-      imports = [./nats/configuration.nix];
+    dns = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        disko.nixosModules.disko
+        ./dns/configuration.nix
+      ];
     };
+    nats = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        disko.nixosModules.disko
+        ./nats/configuration.nix
+      ];
+    };
+  };
 }

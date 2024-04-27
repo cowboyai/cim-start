@@ -63,5 +63,7 @@
     openssh.authorizedKeys.keys = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDgGW4Y7S8YO3Se/1AK1ZuIaAtxa+sakK4SBv/nixRyJ cim@thecowboy.ai"];    
   };
   
+  containers = (import ./containers.nix);
+
   system.stateVersion = "23.11";
 }

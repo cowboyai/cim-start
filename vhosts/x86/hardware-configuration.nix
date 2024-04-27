@@ -13,7 +13,6 @@
 
   # allow qemu/kvm
   virtualisation.libvirtd.enable = true;
-  services.qemuGuest.enable = true;
 
   boot.initrd = {
     availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
@@ -31,17 +30,21 @@
     grub.efiSupport = true;
   };
 
+  zramSwap.enable = true;
+
 	fileSystems."/boot" = {
 		device = "/dev/disk/by-label/boot";
 		fsType = "vfat";
 	};
 
 	fileSystems."/" = {
-		device = "/dev/mapper/root";
+		device = "/dev/mapper/nixos";
 		fsType = "ext4";
 	};
 
-  swapDevices =
-    [ { device = "/dev/disk/by-label/swap"; } ];
+	fileSystems."/data" = {
+		device = "/dev/mapper/data";
+		fsType = "ext4";
+	};
 
 }

@@ -14,18 +14,18 @@
     '';
   };
 
-  # detected gpus cause X11 to install and 
-  # we don't want it in the base
-  services.xserver.enable = lib.mkForce false;
+  services.xserver.enable = lib.mkForce true;
+  services.xserver.videoDrivers = [ "nvidia" ];
+
+  networking.hostName = "vhost-dev";
 
   nixpkgs.config.allowUnfree = true;
-	zramSwap.enable = true;
 
   # harden for prod...
   security.sudo.wheelNeedsPassword = false;
   security.polkit.enable = true;
 
-  users.mutableUsers = false;
+  users.mutableUsers = true;
 
   users.users.root = {
 		hashedPassword = lib.mkForce "$y$j9T$67lOar4UwWjRxaTypZV1W0$dPrgYqUJppfVUf/ugSTwVp5brl2y94B.2h060m495sC";
@@ -39,7 +39,7 @@
     hashedPassword = "$y$j9T$67lOar4UwWjRxaTypZV1W0$dPrgYqUJppfVUf/ugSTwVp5brl2y94B.2h060m495sC";
     openssh.authorizedKeys.keys = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDgGW4Y7S8YO3Se/1AK1ZuIaAtxa+sakK4SBv/nixRyJ cim@thecowboy.ai"];    
   };
-  
+
   #allow mdns for .local
   #remove this in prod
   services.avahi = {
@@ -70,10 +70,11 @@
     pv
     zip
     cacert
-    openssl
     curl 
     wget
   ];
+
+  containers = (import ./containers.nix);
 
   system.stateVersion = "24.05";
 }

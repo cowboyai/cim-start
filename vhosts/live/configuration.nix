@@ -3,25 +3,16 @@
     (modulesPath + "/installer/scan/not-detected.nix")
     (modulesPath + "/profiles/qemu-guest.nix")
     ./disk-config.nix
+    #./hardware-configuration.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  boot.loader.grub = {
-    # no need to set devices, disko will add all devices that have a EF02 partition to the list already
-    # devices = [ ];
-    efiSupport = true;
-    efiInstallAsRemovable = true;
-  };
-
-  boot.kernelModules = [ "kvm-intel" ];
-  boot.initrd = {
-    availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
-    kernelModules = [ "kvm-intel" ];
-  };
+  nixpkgs.config.allowUnfree = true;
+  
+  services.xserver.videoDrivers = [ "nvidia" ];
 
   networking.hostName = "vhost-dev";
-  networking.firewall.allowedTCPPorts = [ 22 ];
 
   services.openssh.enable = true;
 

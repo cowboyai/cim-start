@@ -1,5 +1,5 @@
 {
-  description = "A NixOS ISO Flake for VHosts"; 
+  description = "A NixOS ISO Flake for CIM VHosts"; 
 
   ### WARNING: THE ISO PRODUCED WILL WIPE DRIVES WITHOUT ASKING
   ###          Be sure you intend to destroy the machine this is used on

@@ -21,9 +21,8 @@
         done
       }
 
-      dev=/dev/sda
-      [ -b /dev/nvme0n1 ] && dev=/dev/nvme0n1
-      [ -b /dev/vda ] && dev=/dev/vda
+      dev=/dev/nvme0n1
+      dev2=/dev/nvme1n1
 
       ${utillinux}/bin/sfdisk --wipe=always $dev <<-END
         label: gpt
@@ -43,7 +42,17 @@
       mount /dev/mapper/root /mnt
 
       mkdir /mnt/boot
+      mkdir /mnt/data
+
       wait-for mount /dev/disk/by-label/boot /mnt/boot
+
+      ${utillinux}/bin/sfdisk --wipe=always $dev2 <<-END
+        label: gpt
+        name=DATA
+      END
+      mkfs.ext4 -L data /dev/mapper/data
+
+      wait-for mount /dev/disk/by-label/data /mnt/data
 
       install -D ${./flake.nix} /mnt/etc/nixos/flake.nix
       install -D ${./configuration.nix} /mnt/etc/nixos/configuration.nix

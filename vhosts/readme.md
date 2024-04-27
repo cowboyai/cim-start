@@ -38,7 +38,7 @@ We will make two paths:
 
 They will all be the same at this stage and only have different capabilities. Honestly, a Raspberry Pi can do all this, just don't expect to visualize a million nodes and have it be fast.
 
-### Workstation / Server
+### ISO Image for Workstation / Server
 
 We are using a Dell Precision Workstation 7920 with an added NVidia RTX3080 GPU that we want to pass through (mostly for AI) to containers.
 
@@ -81,5 +81,80 @@ I really don't care what happens to the hardware as long as my system can detect
 
 Our "VHost" is vulnerable to hardware failures as a single instance... To mitigate this, we make a cluster and start having some resilience, and that will come for us very soon after our initial instance. 
 
-### Raspberry Pi
+## Initial Instance
+vhost-dev
+  - virtual host
+  - containers
+    - dev
+      - development guest
+    - dns
+      - provide name services
+    - nats
+      - a way to communicate
 
+With this we can build our Domain.
+
+### Get it running:
+To install, we will:
+  - evaluate the configuration
+  - build an iso
+  - boot the iso
+  - install the system
+  - reboot into the working flake configuration
+
+First some housekeeping.
+
+We are creating a domain: "cim development"
+It has an fully-qualified-domain-name of "cim.local"
+Be aware that this is a local only domain name and cannot be used outside the local network.
+We set this up first to see how it all works, then push our configuration to a public domain provider.
+
+Intent:
+Make something I can boot and install my initial system.
+
+This consists of:
+  - flake.nix
+  - configuration.nix
+  - disk-config.nix
+  - domain.json
+
+### flake.nix
+In NixOS, his is our root control file.
+It is the first thing NixOS looks for to evaluate a system.
+
+```nix
+{
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    disko.url = "github:nix-community/disko";
+    disko.inputs.nixpkgs.follows = "nixpkgs";
+  };
+
+  outputs = { nixpkgs, disko, ... }:
+    {
+      nixosConfigurations = {
+        vhost-dev = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            disko.nixosModules.disko
+            ./configuration.nix
+          ];
+        };
+      };
+    };
+}
+```
+
+Our Inputs are:
+  - nixpkgs-unstable
+    - all the nix packages from the official unstable branch.
+  - disko
+    - a disk formatting utility for nix
+    - this is pulled directly from github for the newest code
+    - this is loaded after we get nixpkgs so it overrides what is in nixpkgs
+
+Our Outputs are:
+  - nixosConfigurations.vhost-dev
+    - the virtual host for our cim
+
+Everything else is derived.

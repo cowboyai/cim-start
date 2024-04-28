@@ -54,7 +54,7 @@
       mkdir -p /etc/nixcfg/dev /etc/nixcfg/dns /etc/nixcfg/nats
       
       # Copy files to the target directory
-      cp -r ${./vhost-dev} /etc/nixcfg/vhost-dev
+      cp -r ${./vhost-dev/.} /etc/nixcfg/vhost-dev
       cp ${../../compute/dev/configuration.nix} /etc/nixcfg/dev/configuration.nix
       cp ${../../compute/dns/configuration.nix} /etc/nixcfg/dns/configuration.nix
       cp ${../../compute/nats/configuration.nix} /etc/nixcfg/nats/configuration.nix

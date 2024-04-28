@@ -10,6 +10,7 @@
             ESP = {
               type = "EF00";
               size = "500M";
+              label = "boot";
               content = {
                 type = "filesystem";
                 format = "vfat";
@@ -18,6 +19,7 @@
             };
             root = {
               size = "100%";
+              label = "root";
               content = {
                 type = "filesystem";
                 format = "ext4";
@@ -30,6 +32,7 @@
       data = {
         device = "/dev/nvme1n1";
         type = "disk";
+        label = "data";
         content = {
           type = "gpt";
           partitions = {

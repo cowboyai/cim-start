@@ -38,12 +38,12 @@
 	};
 
 	fileSystems."/" = {
-		device = "/dev/mapper/nixos";
+		device = "/dev/disk/by-label/root";
 		fsType = "ext4";
 	};
 
 	fileSystems."/data" = {
-		device = "/dev/mapper/data";
+		device = "/dev/disk/by-label/data";
 		fsType = "ext4";
 	};
 

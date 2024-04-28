@@ -13,15 +13,30 @@
     requires = ["network-online.target"];
     path = ["/run/current-system/sw/"];
     script = with pkgs; ''
+      echo 'sudo systemctl restart wpa_supplicant.service'  >>~nixos/.bash_history
+      echo 'sudo systemctl restart install.service &'  >>~nixos/.bash_history
       echo 'journalctl -fb -n100 -uinstall' >>~nixos/.bash_history
 
-      nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko /etc/nixos/disk-config.nix
+      nix --experimental-features "nix-command flakes" run github:nix-community/disko -- \
+          --mode disko /etc/nixcfg/disk-config.nix
       process_id=$!
       
       # let disko finish
       wait $process_id
 
-      ${config.system.build.nixos-install}/bin/nixos-install --flake /etc/nixos/flake.nix#vhost-dev
+      # copy the configs to the new drive
+      echo 'copying configuration...'
+      mkdir -p /mnt/etc/nixos
+      install -D -m 755 -t /mnt/etc/nixos /etc/nixcfg/*
+      echo 'copied configuration successful...'
+
+      # actually install the system
+      # this needs to be impure
+      cd /mnt/etc/nixos
+      echo $PWD
+
+      echo 'Installing...'
+      ${config.system.build.nixos-install}/bin/nixos-install --flake .#vhost-dev
 
       echo 'Shutting off now'
       ${systemd}/bin/shutdown now

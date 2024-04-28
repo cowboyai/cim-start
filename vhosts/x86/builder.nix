@@ -15,19 +15,13 @@
     script = with pkgs; ''
       echo 'journalctl -fb -n100 -uinstall' >>~nixos/.bash_history
 
-      install -D ${./disk-config.nix} /tmp/disk-config.nix
+      nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko /etc/nixos/disk-config.nix
+      process_id=$!
+      
+      # let disko finish
+      wait $process_id
 
-      sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko /tmp/disk-config.nix
-
-      # do detection better ffs.
-      sleep 20
-
-      install -D ${conf/flake.nix} /mnt/etc/nixos/flake.nix
-      install -D ${conf/configuration.nix} /mnt/etc/nixos/configuration.nix
-      install -D ${conf/hardware-configuration.nix} /mnt/etc/nixos/hardware-configuration.nix
-      install -D ${conf/containers.nix} /mnt/etc/nixos/containers.nix
-
-      ${config.system.build.nixos-install}/bin/nixos-install --flake .#vhost-dev
+      ${config.system.build.nixos-install}/bin/nixos-install --flake /etc/nixos/flake.nix#vhost-dev
 
       echo 'Shutting off now'
       ${systemd}/bin/shutdown now

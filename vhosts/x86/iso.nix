@@ -4,11 +4,6 @@
   pkgs,
   ...
 }: {
-  imports = [
-    "${pkgs.path}/nixos/modules/profiles/all-hardware.nix"
-    "${pkgs.path}/nixos/modules/profiles/base.nix"
-    "${pkgs.path}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
-  ];
 
   nix = {
     package = pkgs.nixFlakes;
@@ -50,20 +45,16 @@
     wget
   ];
 
-  # Include custom files in the ISO image
-  system.build.isoImage = let
-    configFiles = pkgs.runCommandNoCC "config-files" {} ''
-      mkdir -p $out/conf
-      cp -r ${./vhost-dev}/* $out/conf
-    '';
-  in
-  pkgs.nixos.isoImage {
-    name = "vhost-dev-iso";
-    contents = [
-      configFiles
-    ];
-    config.system.build.toplevel = config.system.build.toplevel;
-  };
+  # copy the install files to the right place
+  isoImage.isoName = lib.mkForce "cim-vhost-dev-install.iso";
+  environment.etc.nixos.source =
+    builtins.filterSource
+      (path: type:
+        baseNameOf path
+        != ".git"
+        && type != "symlink"
+        && baseNameOf path != "secrets")
+      ./vhost-dev/.;
 
   system.stateVersion = "24.05";
 }

@@ -45,5 +45,10 @@ sudo dd if=./result/iso/nixos-24.05.20240425.7bb2ccd-x86_64-linux.iso of=/dev/sd
 
 boot it.
 
-This will connect to the wireless network enabled in flake.nix.
+This will connect to the wireless network enabled in iso-networking.nix.
+then it will start the install.service
+when the disks are provisioned
+it installs the vhost-dev system
+when complete it will shutdown
 
+reboot into the new system

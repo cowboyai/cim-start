@@ -32,19 +32,4 @@
 
   zramSwap.enable = true;
 
-	fileSystems."/boot" = {
-		device = "disk-sys-boot";
-		fsType = "vfat";
-	};
-
-	fileSystems."/" = {
-		device = "/dev/disk/by-partlabel/disk-sys-root";
-		fsType = "ext4";
-	};
-
-	fileSystems."/data" = {
-		device = "/dev/disk/by-partlabel/disk-data-data";
-		fsType = "ext4";
-	};
-
 }

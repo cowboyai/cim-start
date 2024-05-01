@@ -52,9 +52,16 @@
     text = ''
       # Ensure the target directory exists
       mkdir -p /etc/nixcfg/dev /etc/nixcfg/dns /etc/nixcfg/nats
-      
-      # build an inventory file
-      echo "servicetag: \n" && cat /sys/class/dmi/id/product_serial >> /etc/nixcfg/inventory.yaml
+
+      # utility stuff I don't like typing
+      echo 'ip addr' >>~nixos/.bash_history
+      echo 'sudo systemctl restart install.service &'  >>~nixos/.bash_history
+      echo 'journalctl -fb -n100 -uinstall' >>~nixos/.bash_history
+      echo 'sudo systemctl restart wpa_supplicant.service'  >>~nixos/.bash_history
+
+      # build an inventory file (we will extend and clean this soon)
+      servicetag=$(cat /sys/class/dmi/id/product_serial)
+      echo "servicetag: '$servicetag'" >> /etc/nixcfg/inventory.yaml
 
       # Copy files to the target directory
       cp -r ${./vhost-dev}/* /etc/nixcfg/

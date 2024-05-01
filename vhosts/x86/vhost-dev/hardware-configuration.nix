@@ -1,16 +1,6 @@
 { config, pkgs, ... }: {
   boot.kernelModules = [ "kvm-intel" ]; #we only use intel here, for amd use "kvm-amd" 
 
-  networking.hostName = "vhost-dev";
-  networking.firewall.allowedTCPPorts = [ 22 443 ];
-	# networking.interfaces.enp2s0.useDHCP = false;
-	# networking.interfaces.enp2s0.ipv4.addresses = [
-	# 	{
-	# 		address = "192.168.100.2";
-	# 		prefixLength = 29;
-	# 	}
-	# ];
-
   # allow qemu/kvm
   virtualisation.libvirtd.enable = true;
 
@@ -23,11 +13,11 @@
   #boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
   boot.loader = {
+    grub.efiSupport = true;
     efi.canTouchEfiVariables = true;
 		systemd-boot.enable = false;
     grub.enable = true;
     grub.devices = [ "nodev" ];
-    grub.efiSupport = true;
   };
 
   zramSwap.enable = true;

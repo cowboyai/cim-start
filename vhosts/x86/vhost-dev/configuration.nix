@@ -1,10 +1,15 @@
-{ config, lib, pkgs, ... }:
+{ modulesPath, config, lib, pkgs, ... }:
 {
 
   imports = [
-		./hardware-configuration.nix
-   "${builtins.fetchTarball "https://github.com/nix-community/disko/archive/master.tar.gz"}/module.nix"
+    (modulesPath + "/installer/scan/not-detected.nix")
+    (modulesPath + "/profiles/qemu-guest.nix")
+    (fetchTarball {
+      url = "https://github.com/nix-community/disko/archive/master.tar.gz";
+      sha256 = "0l9v6ilvi1dwilvx8xifnf8p775z2kbdhkbprqpxm6firjsapgsv";
+    } + "/module.nix")
    ./disk-config.nix
+	 ./hardware-configuration.nix
    ./network.nix
   ];
 
@@ -29,7 +34,8 @@
   users.mutableUsers = true;
 
   users.users.root = {
-		#hashedPassword = lib.mkForce "$y$j9T$67lOar4UwWjRxaTypZV1W0$dPrgYqUJppfVUf/ugSTwVp5brl2y94B.2h060m495sC";
+    hashedPassword = "$y$j9T$67lOar4UwWjRxaTypZV1W0$dPrgYqUJppfVUf/ugSTwVp5brl2y94B.2h060m495sC";
+    openssh.authorizedKeys.keys = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDgGW4Y7S8YO3Se/1AK1ZuIaAtxa+sakK4SBv/nixRyJ cim@thecowboy.ai"];    
 	};
 
   users.users.cim = {
@@ -76,23 +82,6 @@
 
   boot.enableContainers = true;
   containers = (import ./containers.nix);
-
-
-	fileSystems."/boot" = {
-		device = lib.mkForce "/dev/disk/by-partlabel/disk-sys-ESP";
-		fsType = "vfat";
-	};
-
-	fileSystems."/" = {
-		device = lib.mkForce "/dev/disk/by-partlabel/disk-sys-nixos";
-		fsType = "ext4";
-	};
-
-	fileSystems."/data" = {
-		device = lib.mkForce "/dev/disk/by-partlabel/disk-data-data";
-		fsType = "ext4";
-	};
-
 
   system.stateVersion = "23.11";
 }

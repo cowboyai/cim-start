@@ -14,6 +14,13 @@
     path = ["/run/current-system/sw/"];
     script = with pkgs; ''
       cd /etc/nixcfg
+
+      # # fix a bug where wpa_supplicant doesn't start...
+      # sudo systemctl restart wpa_supplicant.service
+      # sleep 20
+      # wait
+      # ip addr 
+
       nix --experimental-features "nix-command flakes" \
       run 'github:nix-community/disko#disko-install' -- --flake '.#vhost-dev' \
       --write-efi-boot-entries \

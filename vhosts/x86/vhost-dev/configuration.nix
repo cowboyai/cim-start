@@ -72,15 +72,27 @@
     cacert
     curl 
     wget
-    config.system.build.diskoScript
-    config.system.build.formatScript
-    config.system.build.mountScript
 ];
-
-  
 
   boot.enableContainers = true;
   containers = (import ./containers.nix);
+
+
+	fileSystems."/boot" = {
+		device = lib.mkForce "/dev/disk/by-partlabel/disk-sys-ESP";
+		fsType = "vfat";
+	};
+
+	fileSystems."/" = {
+		device = lib.mkForce "/dev/disk/by-partlabel/disk-sys-nixos";
+		fsType = "ext4";
+	};
+
+	fileSystems."/data" = {
+		device = lib.mkForce "/dev/disk/by-partlabel/disk-data-data";
+		fsType = "ext4";
+	};
+
 
   system.stateVersion = "23.11";
 }

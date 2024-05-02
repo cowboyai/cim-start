@@ -1,9 +1,7 @@
-{ modulesPath, config, lib, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 {
 
   imports = [
-    (modulesPath + "/installer/scan/not-detected.nix")
-    (modulesPath + "/profiles/qemu-guest.nix")
     (fetchTarball {
       url = "https://github.com/nix-community/disko/archive/master.tar.gz";
       sha256 = "0l9v6ilvi1dwilvx8xifnf8p775z2kbdhkbprqpxm6firjsapgsv";

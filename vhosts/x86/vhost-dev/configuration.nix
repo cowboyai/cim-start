@@ -47,7 +47,6 @@
 		enable = true;
 		ipv4 = true;
 		ipv6 = false;
-		nssmdns4 = true;
 		publish = { enable = true; domain = true; addresses = true; };
 	};
 
@@ -73,10 +72,15 @@
     cacert
     curl 
     wget
-  ];
+    config.system.build.diskoScript
+    config.system.build.formatScript
+    config.system.build.mountScript
+];
+
+  
 
   boot.enableContainers = true;
   containers = (import ./containers.nix);
 
-  system.stateVersion = "24.05";
+  system.stateVersion = "23.11";
 }

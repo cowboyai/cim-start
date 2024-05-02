@@ -5,7 +5,7 @@
   ###          Be sure you intend to destroy the machine this is used on
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
   };
 
   outputs = {

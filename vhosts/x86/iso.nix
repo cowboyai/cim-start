@@ -17,7 +17,6 @@
     enable = true;
     ipv4 = true;
     ipv6 = false;
-    nssmdns4 = true;
     publish = {
       enable = true;
       domain = true;
@@ -46,7 +45,7 @@
   ];
 
   # copy the install files to the iso
-  isoImage.isoName = lib.mkForce "cim-vhost-dev-install.iso";
+  isoImage.isoName = lib.mkForce "cim-vhost-dev-stable-install.iso";
 
   system.activationScripts.copyConfigFiles = {
     text = ''
@@ -72,5 +71,5 @@
     deps = [ "users" ];  # Run after the 'users' activation script
   };
 
-  system.stateVersion = "24.05";
+  system.stateVersion = "23.11";
 }

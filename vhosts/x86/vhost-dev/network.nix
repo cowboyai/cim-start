@@ -1,5 +1,6 @@
 # network.nix
 {...}: {
+  networking.networkmanager.enable = false;
   networking.wireless.enable = true; # Enable wireless networking
   networking.wireless.networks = {
     "cim-dev" = {

@@ -76,24 +76,5 @@
   boot.enableContainers = true;
   containers = (import ./containers.nix);
 
-
-  system.activationScripts.copyConfigFiles = {
-    text = ''
-      # Ensure the target directory exists
-      mkdir -p /etc/nixos/dev /etc/nixos/dns /etc/nixos/nats
-
-      # build an inventory file (we will extend and clean this soon)
-      servicetag=$(cat /sys/class/dmi/id/product_serial)
-      echo "servicetag: '$servicetag'" >> /etc/nixos/inventory.yaml
-
-      # Copy files to the target directory
-      cp -r ${./vhost-dev}/* /etc/nixos/
-      cp ${../../compute/dev/configuration.nix} /etc/nixos/dev/configuration.nix
-      cp ${../../compute/dns/configuration.nix} /etc/nixos/dns/configuration.nix
-      cp ${../../compute/nats/configuration.nix} /etc/nixos/nats/configuration.nix
-    '';
-    deps = [ "users" ];  # Run after the 'users' activation script
-  };
-
   system.stateVersion = "23.11";
 }

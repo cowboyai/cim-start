@@ -6,7 +6,7 @@
       nixosConfigurations.vhost-dev = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./vhost-dev/configuration.nix
+          ./configuration.nix
         ];
       };
     };

@@ -10,7 +10,6 @@
 	 ./hardware-configuration.nix
    ./network.nix
    ./gnome.nix
-   #./nmconn.nix
   ];
 
 	nix = {

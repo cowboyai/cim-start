@@ -23,7 +23,7 @@
       #benthos
       go
     ];
-    initialPassword = "cim";
+    hashedPassword = "$y$j9T$67lOar4UwWjRxaTypZV1W0$dPrgYqUJppfVUf/ugSTwVp5brl2y94B.2h060m495sC";
     openssh.authorizedKeys.keys = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDgGW4Y7S8YO3Se/1AK1ZuIaAtxa+sakK4SBv/nixRyJ cim@thecowboy.ai"];    
   };
 
@@ -35,6 +35,7 @@
         graphics = false;
         diskSize = 32768; #set this to however big you want your object store for now... we move it to S3 later
       };
+      # we can also mount volumes here
     };
   };
 

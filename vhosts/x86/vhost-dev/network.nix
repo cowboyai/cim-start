@@ -1,7 +1,16 @@
 # network.nix
 {...}: {
+	networking.wireless.enable = true; # Enable wireless networking
+  networking.wireless.networks = {
+    "cim-dev" = {
+      psk = "Unsecure!";
+    };
+  };
+
+	networking.networkmanager.unmanaged = [
+    "*" "except:type:wwan"
+	];
   networking.networkmanager.enable = true;
-  networking.wireless.networks."cim-dev" = { psk = "Unsecure!"; };
   
   networking.hostName = "vhost-dev";
   
@@ -13,10 +22,14 @@
 	# network #x for isolated containers
 
 	# this machine has 5 network interfaces
-	# 
+	# 4 wired and 1 wireless
 
-	# networking.interfaces.wl0.useDHCP = false;
-	# networking.interfaces.wl0.ipv4.addresses = [
+	# dhcp or enable settings below
+
+	# networking.defaultGateway = "192.168.1.1"; 
+
+	# networking.interfaces.wlp101s0.useDHCP = false;
+	# networking.interfaces.wlp101s0.ipv4.addresses = [
 	# 	{
 	# 		address = "192.168.1.102";
 	# 		prefixLength = 24;
@@ -31,6 +44,9 @@
 	# 	}
 	# ];
 
+
+	# the network relies on time...
+	
   # TIME
   time.timeZone = "America/Phoenix";
   

@@ -8,9 +8,9 @@
     } + "/module.nix")
    ./disk-config.nix
 	 ./hardware-configuration.nix
-   ./nmconn.nix
    ./network.nix
    ./gnome.nix
+   #./nmconn.nix
   ];
 
 	nix = {

@@ -1,12 +1,10 @@
 { config, pkgs, ... }: {
-  boot.kernelModules = [ "kvm-intel" ];
-
   # allow qemu/kvm
   virtualisation.libvirtd.enable = true;
 
   boot.initrd = {
-    availableKernelModules = [ "ahci" "xhci_pci" "vmd" "nvme" "usbhid" "usb_storage" "sd_mod" "sr_mod" "iwlwifi" ];
-    kernelModules = [ "kvm-intel" ];
+    availableKernelModules = [ "ahci" "xhci_pci" "vmd" "nvme" "usbhid" "usb_storage" "sd_mod" "sr_mod" ];
+    kernelModules = [ "kvm-intel" "iwlwifi" ];
     systemd.enable = true;
   };
   
@@ -17,6 +15,9 @@
   };
 
   zramSwap.enable = true;
+
+  # 2nd stage modules
+  boot.kernelModules = [ ];
 
   # mostly for network support
   hardware.enableRedistributableFirmware = true;

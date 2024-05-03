@@ -4,4 +4,4 @@
 # you obviously need to be connected to this network on a different IP
 # we recommend <you machine on some IP>... the target being a different IP 
 # and maybe your router the only other thing on this network during initial configuration
-nix run github:nix-community/nixos-anywhere -- --flake .#vhost-dev root@192.168.1.23 -i ~/.ssh/id_cim_thecowboyai
+nix run github:nix-community/nixos-anywhere -- --flake .#vhost-dev root@192.168.1.23 -i ~/.ssh/id_cim_thecowboyai --debug

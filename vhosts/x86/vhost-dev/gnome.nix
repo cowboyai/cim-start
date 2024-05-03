@@ -1,0 +1,61 @@
+{ config, pkgs, ... }:
+{
+  services.xserver = {
+    enable = true;
+    displayManager.gdm.enable = true;
+    displayManager.gdm.wayland = false;
+    desktopManager.gnome.enable = true;
+    libinput.enable = true;
+    videoDrivers = [ "nvidia" ];
+  };
+
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
+  environment.systemPackages = with pkgs; [ 
+    gnome.adwaita-icon-theme
+    gnomeExtensions.appindicator 
+    gnome.gnome-remote-desktop
+    remmina
+    spice
+    spice-gtk
+    spice-protocol
+    virt-manager
+    virt-viewer
+    telegram-desktop
+  ];
+
+  # remove bloatware
+  environment.gnome.excludePackages = (with pkgs; [
+    gnome-photos
+    gnome-tour
+    xterm
+    ]) ++ (with pkgs.gnome; [
+    gnome-music
+    gnome-terminal
+    gnome-contacts
+    gnome-initial-setup
+    epiphany # web browser
+    geary # email reader
+    evince # document viewer
+    totem # video player
+    tali # poker game
+    iagno # go game
+    hitori # sudoku game
+    atomix # puzzle game
+  ]);
+
+  services = {
+    gnome.gnome-keyring.enable = true;
+    upower.enable = true;
+    dbus.packages = [pkgs.gcr];
+    power-profiles-daemon.enable = true;
+    geoclue2.enable = true;
+    udev = {
+      packages = with pkgs; [gnome.gnome-settings-daemon];
+    };
+    printing.enable = true;
+  };
+
+}
+
+

@@ -17,4 +17,8 @@
 	# 		prefixLength = 29;
 	# 	}
 	# ];
+
+  # TIME
+  time.timeZone = "America/Phoenix";
+  
 }

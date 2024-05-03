@@ -7,6 +7,14 @@
   
   networking.firewall.allowedTCPPorts = [ 22 443 ];
 
+	# we have at least 2 networks to manage...
+	# network #1 the LAN
+	# network #2 the containers
+	# network #x for isolated containers
+
+	# this machine has 5 network interfaces
+	# 
+
 	# networking.interfaces.wl0.useDHCP = false;
 	# networking.interfaces.wl0.ipv4.addresses = [
 	# 	{

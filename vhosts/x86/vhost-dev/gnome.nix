@@ -45,7 +45,6 @@
   ]);
 
   services = {
-    gnome.gnome-keyring.enable = true;
     upower.enable = true;
     dbus.packages = [pkgs.gcr];
     power-profiles-daemon.enable = true;
@@ -56,6 +55,10 @@
     printing.enable = true;
   };
 
+  services.gnome = {
+    gnome-keyring.enable = true;
+  };
+  # turn off power management for this server
 }
 
 

@@ -5,7 +5,7 @@
   virtualisation.libvirtd.enable = true;
 
   boot.initrd = {
-    availableKernelModules = [ "ahci" "xhci_pci" "vmd" "nvme" "usbhid" "usb_storage" "sd_mod" "sr_mod" ];
+    availableKernelModules = [ "ahci" "xhci_pci" "vmd" "nvme" "usbhid" "usb_storage" "sd_mod" "sr_mod" "iwlwifi" ];
     kernelModules = [ "kvm-intel" ];
     systemd.enable = true;
   };
@@ -17,5 +17,8 @@
   };
 
   zramSwap.enable = true;
+
+  # mostly for network support
+  hardware.enableRedistributableFirmware = true;
 
 }

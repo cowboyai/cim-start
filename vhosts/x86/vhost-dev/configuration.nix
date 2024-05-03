@@ -9,6 +9,7 @@
    ./disk-config.nix
 	 ./hardware-configuration.nix
    ./network.nix
+   ./gnome.nix
   ];
 
 	nix = {

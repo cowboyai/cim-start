@@ -5,7 +5,7 @@
   virtualisation.libvirtd.enable = true;
 
   boot.initrd = {
-    availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
+    availableKernelModules = [ "ahci" "xhci_pci" "vmd" "nvme" "usbhid" "usb_storage" "sd_mod" "sr_mod" ];
     kernelModules = [ "kvm-intel" ];
     systemd.enable = true;
   };

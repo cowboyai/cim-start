@@ -8,9 +8,7 @@ let
   getFileName = stringAsChars (x: if x == " " then "-" else x);
 
   createWifi = ssid: opt: {
-    name = ''
-      NetworkManager/system-connections/${getFileName ssid}.nmconnection
-    '';
+    name = ''NetworkManager/system-connections/${getFileName ssid}.nmconnection'';
     value = {
       mode = "0400";
       source = pkgs.writeText "${ssid}.nmconnection" ''

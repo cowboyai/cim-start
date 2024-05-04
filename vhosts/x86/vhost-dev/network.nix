@@ -5,23 +5,27 @@
   networking.networkmanager.enable = true;
   
   networking.hostName = "vhost-dev";
-  
-  networking.firewall.allowedTCPPorts = [ 22 443 ];
+	
+	networking.defaultGateway = "192.168.1.1";
 
-	networking.interfaces.enp2s0.useDHCP = false;
-	networking.interfaces.enp2s0.ipv4.addresses = [
-		{
-			# mac: 74:86:e2:10:9f:6d
-			address = "192.168.1.101";
-			prefixLength = 24;
-		}
-	];
+	networking.nameservers = [ "192.168.1.1" "1.1.1.1" ];
+
+  networking.firewall.allowedTCPPorts = [ 22 443 ];
 
 	networking.interfaces.enp0s31f6.useDHCP = false;
 	networking.interfaces.enp0s31f6.ipv4.addresses = [
 		{
 			# mac: 74:86:e2:10:a1:fa
 			address = "192.168.1.100";
+			prefixLength = 24;
+		}
+	];
+
+	networking.interfaces.enp2s0.useDHCP = false;
+	networking.interfaces.enp2s0.ipv4.addresses = [
+		{
+			# mac: 74:86:e2:10:9f:6d
+			address = "192.168.1.101";
 			prefixLength = 24;
 		}
 	];

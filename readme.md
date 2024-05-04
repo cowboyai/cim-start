@@ -47,28 +47,25 @@ Forms, Really??? How 19th Century.
 
 Cowboy AI moves beyond this notion to focus on state machines and relationships.
 
-```graphviz
-digraph MealyStateMachine {
-    rankdir=LR;
-    node [shape = circle];
-    
-    // Define states
-    Waiting [label="Waiting"];
-    Executing [label="Executing"];
-    Finished [label="Finished"];
-    
-    // Transitions with events as edges
-    Waiting -> Executing [label="Cmd: Execute / Evt: Started"];
-    Executing -> Finished [label="Cmd: Complete / Evt: Completed"];
-    
-    // Optional: style for starting state
-    node [shape = plaintext];
-    start [label=""];
-    start -> Waiting;
-    
-    // Style for end state
-    Finished [shape = doublecircle];
-}
+```mermaid
+stateDiagram-v2
+    [*] --> Waiting
+
+    state Waiting {
+        [*] --> Waiting
+    }
+    state Executing {
+        [*] --> Executing
+    }
+    state Finished {
+        [*] --> Finished
+    }
+
+    Waiting --> Executing: [Cmd: Execute : Evt: Started]
+    Executing --> Finished: [Cmd: Complete : Evt: Completed]
+
+    Finished --> [*]
+
 ```
 #### Moving things around
 Information should be portable, accessible and flexible.

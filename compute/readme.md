@@ -55,13 +55,8 @@ Deploy to Digital Ocean
 
 All will have slightly different meanings and we want to be able to have a consistent, abstracted configuration that doesn't know about where it is deployed, only that you CAN deploy it.
 
-## NixOps
-Note: NixOps is currenltly stable at version 1.7, but is undergoing a complete rewrtite as [NixOps4](https://github.com/NixOps4/NixOps4). We will convert to NixOps4 when it reaches a stable version.
-
-NixOps is our tool for building multiple systems that deploy together.
-We casn also use [terraform](https://github.com/terranix/terranix), but for now we are sticking with NixOps.
-
-While this could deploy entire Domain at once and propably should until it reaches a certain size, we want to make our configurations in a way they can stand alone and be reused.
+## Nixos-anywhere
+While this could deploy entire Domain at once and should until it reaches a certain size, we want to make our configurations in a way they can stand alone and be reused.
 
 Reuse may only mean Development Environment and Production Environment, but that is indeed reuse and we need to be able to determine what was approved in Dev is exactly what we deploy to Prod.
 
@@ -71,11 +66,11 @@ Local Metal can be just about any machine you can make run as it is for developm
 
 For Nixos, it really just means we also have a hardware-configuration.nix to add to our flake.nix.
 
-This can be created automatically, or we can use some manual steps to install from iso.
+This can be created automatically, or we can use some manual steps to install from iso or a network.
 
 Ultimately, we want a system that can detect something is plugged in to the network and configures itself, but that will come later.
 
-Right now we have to establish a Domain, this means at least one machine running and supports a developer environment, dns and nats.
+Right now we have to establish a Domain, this means a network with at least one machine running and supports a developer environment, dns and nats.
 
 ## Inventory
 Every resource, whether it be hardware or service contract is available through Inventory. This is a Bounded Context of anything we have use of as a resource.
@@ -98,3 +93,4 @@ We have two choices now:
 - boot from network
 
 making media is a simple redirection of the configuration we already have.
+networking requires us to at least have one.

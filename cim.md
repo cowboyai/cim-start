@@ -193,3 +193,120 @@ Organizations
 Inventory starts at domain.yaml and proceeds to the git repository created with this template.
 
 Let's get the template and get started with real information:
+
+Here is our destination:
+
+![cim network](./doc/cim-start%20network.svg)
+
+Inventory:
+  Dell Precision 7750 Laptop: extenally managed (in a different git repo)
+  Dell 7920 Workstation
+    ServiceTag: xxxxxxx
+    128G Ram
+    0.5T nvme /dev/nvme0n1
+    1T   nvme /dev/nvme1n1
+    Network:
+      enp0s31f6: 1G
+      enp2s0: 1G
+      enp23s0f0: 10G
+      enp23s0F1: 10G
+    GPU:
+      nvidia RTX 3080
+
+This is our VHost, it will pass thru the resources needed for any virtual machine or container running on the vhost and broadcast statistics
+It's configuration is in [vhost-dev flake](vhosts/x86/vhost-dev/flake.nix)
+
+This has a single NixOS configuration, "vhost-dev".
+
+so we already have an issue... how do I name these things without generic conflicts?
+That is a convention we need to establish and document, we have done this in [./example](./example)
+
+People:
+who is running this circus?
+the yaml files are simple key value pairs of a name and a uuid.
+
+This is acting like a database until we actually have one.
+
+We need to know who is involved and what they do.
+
+even if it's all a single person, we still neeed that reference.
+To avoid naming conflicts, we use a name/uuid pair to associate them.
+We will create a convention for the domain to use in rezolving conflicts by context.
+We can certainly deal with two "Jane Smith"s even if they are both used in the same context.
+uuid is simply a convention. We are in actuality creating axioms for our domain:
+
+Domain is our overall container, it is described by a name, fqdn and uuid.
+Domain consists of relationships between People, Organizations and Inventory.
+
+Domain is the thing that holds all our rules for information.
+We can recreate the Domain with these rules which we will call Policies.
+
+![Domain](./doc/Domain.svg)
+
+People, Organizations and an Inventory relate into a Domain to serve a specific purpose.
+Our information Machine is a reflection of those relationships and events.
+
+We need to populate our base information, then this information generates the information machine we wish to interact with.
+
+Domain.yaml becomes
+```yaml
+domain:
+  name: Sebastion
+  fqdn: cim.sebastion.org
+  uuid: 016ada85-7dda-4464-817b-5ebcb4874ea5
+```
+get the uuids from [online uuid generator](https://www.uuidgenerator.net/) or any other suitable tool.
+
+Add some people with name/uuid pairs as well as the organizations you interact with in this cim.
+
+People:
+  You
+  Others
+
+Organizations:
+  Your CIM
+  Your Business
+  Your Domain Registrar
+  Let's Encrypt
+  Cloudflare
+  Starlink
+  Other Vendors and Providers
+
+We have to have a basis for these even before we start adding databases, because databases need to get populated and we need a relationship that leads back to the Domain at all steps.
+
+People and organizations should be simple, name/uuid, done.
+Inventory starts getting more messy... now I have hardware vendors and other relationships to add.
+Like Dell... we said this is eqipment from Dell, I want to add that organization and setup my warranty accounts.
+Same with Starlink and billing.
+These all need to get added somewhere and if we don't plan it, it gets lost.
+
+Accounts all get linked to the Organization, we don't care what you use to actually hold the account information.
+We will be creating some of these o a password vault so we don't want to setup accounts and things like that yet, just an identifier we will use to link these and a way to add more of them.
+
+Before we can really *DO* any of this we need a place to do it and that is the Inventory, so to avoid our "catch-22" zand circular dependencies, we make some identifiers for our information categories.
+
+Well, that got complex fast... yes, and now we dive into the giant rabit hole of Inventory.
+Inventory is *ANY* resource the Domain has access to.
+When the Domain is asked to search for something, who made the request, how is it all delivered, that sort of thing.
+
+"Computers" already do this, but *where* they do it is usually not managed, we are left spelunking log files on many machines trying to figure out what happened?
+
+A "Composable Information Machine" by contrast, knows all about itself and how to "self-assemble".
+
+This is why we are making all this low level text information. It is going to become the equivalent of DNA. A pattern to follow to generate something useful.
+When I need to assemble a "leg" with DNA, I get instruction and those instructions are variable based on environment. That is the methodology we are after with information construction.
+
+Right now, all our information is text and git is managing all the changes.
+
+From the time we instatiate the template we are assembling our Domain.
+
+We cloned the repository.
+That was our first event as a Domain.
+Next we make some changes and commit the repository.
+This makes some entries in git that track what is happening.
+We simply continue this methodology forever.
+We have a starting "state" we make changes and the changes are committed.
+We have arrived at a new state.
+
+Managing that state is what we are doing, guiding it to be able to provide our information goals.
+

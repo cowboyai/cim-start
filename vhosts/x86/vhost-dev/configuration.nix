@@ -25,7 +25,7 @@
   security.sudo.wheelNeedsPassword = false;
   security.polkit.enable = true;
 
-  users.mutableUsers = true;
+  users.mutableUsers = false;
 
   users.users.root = {
     hashedPassword = "$y$j9T$67lOar4UwWjRxaTypZV1W0$dPrgYqUJppfVUf/ugSTwVp5brl2y94B.2h060m495sC";
@@ -34,7 +34,7 @@
 
   users.users.cim = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" ];
+    extraGroups = [ "wheel" "networkmanager" "libvirt"];
     useDefaultShell = false;
     shell = pkgs.zsh;
     hashedPassword = "$y$j9T$67lOar4UwWjRxaTypZV1W0$dPrgYqUJppfVUf/ugSTwVp5brl2y94B.2h060m495sC";
@@ -50,9 +50,12 @@
 		publish = { enable = true; domain = true; addresses = true; };
 	};
 
+  powerManagement.enable = false;
+
   # we remove this in prod...
   services.openssh = {
     enable = true;
+    settings.PermitRootLogin = "yes";
     settings.PasswordAuthentication = true;
   };
 
@@ -75,7 +78,7 @@
 ];
 
   boot.enableContainers = true;
-  containers = (import ./containers.nix);
+  containers = import ./containers.nix;
 
   system.stateVersion = "23.11";
 }

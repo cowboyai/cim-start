@@ -6,7 +6,7 @@
     config = {
       ROCKET_ADDRESS = "127.0.0.1";
       ROCKET_PORT = 8222;
-      DOMAIN = "https://vault.cim.local";
+      DOMAIN = "https://vault.domain.cim";
       SIGNUPS_ALLOWED = false;
     };
   };

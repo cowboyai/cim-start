@@ -28,7 +28,7 @@ Accounts=(
 
 # init a fresh instance
 nsc init -d ./nsc/stores
-nsc add operator --generate-signing-key --sys --name CIM-start
+nsc add operator --generate-signing-key --sys --name cowboyai
 
 nsc edit operator --sk generate
 
@@ -63,40 +63,41 @@ nsc add user --account Agents neo4j
 nsc add user --account Agents nats
 
 #people
-mkdir ./secrets/cim-start/
-nsc generate creds -a CIM -n cim > ./secrets/cim-start/CIM.cim.creds
-nsc generate creds -a Administrators -n admin > ./secrets/cim-start.administrators.admin.creds
-nsc generate creds -a Marketing -n lane > ./secrets/cim-start.inventory.inventoryAgent.creds
-nsc generate creds -a Accounting -n janet > ./secrets/cim-start.accounting.accountingAgent.creds
-nsc generate creds -a delivery -n deliveryAgent > ./secrets/cim-start.delivery.deliveryAgent.creds
+mkdir ./secrets/cowboyai/
+nsc generate creds -a CIM -n cim > ./secrets/cowboyai/CIM.cim.creds
+nsc generate creds -a Administrators -n admin > ./secrets/cowboyai.administrators.admin.creds
+nsc generate creds -a Development -n steele > ./secrets/cowboyai.development.steele.creds
+nsc generate creds -a Marketing -n jacob > ./secrets/cowboyai.marketing.jacob.creds
+nsc generate creds -a Accounting -n david > ./secrets/cowboyai.accounting.david.creds
+nsc generate creds -a delivery -n deliveryAgent > ./secrets/cowboyai.delivery.deliveryAgent.creds
 
 # orgs
-nsc generate creds -a Config -n read > ./secrets/cim-start.config.read.creds
-nsc generate creds -a Config -n write > ./secrets/cim-start.config.write.creds
-nsc generate creds -a Metadata -n read > ./secrets/cim-start.metadata.read.creds
-nsc generate creds -a Metadata -n write > ./secrets/cim-start.metadata.write.creds
-nsc generate creds -a Projections -n read > ./secrets/cim-start.projections.read.creds
-nsc generate creds -a Projections -n write > ./secrets/cim-start.projections.write.creds
-nsc generate creds -a Objects -n read > ./secrets/cim-start.objects.read.creds
-nsc generate creds -a Objects -n write > ./secrets/cim-start.objects.write.creds
-nsc generate creds -a Database -n read > ./secrets/cim-start.database.read.creds
-nsc generate creds -a Database -n write > ./secrets/cim-start.database.write.creds
-nsc generate creds -a Services -n cmd > ./secrets/cim-start.services.cmd.creds
-nsc generate creds -a Services -n qry > ./secrets/cim-start.services.qry.creds
-nsc generate creds -a Services -n event > ./secrets/cim-start.services.event.creds
-nsc generate creds -a Agents -n ollama > ./secrets/cim-start.agents.ollama.creds
-nsc generate creds -a Agents -n neo4j > ./secrets/cim-start.agents.neo4j.creds
-nsc generate creds -a Agents -n nats > ./secrets/cim-start.agents.nats.creds
+nsc generate creds -a Config -n read > ./secrets/cowboyai.config.read.creds
+nsc generate creds -a Config -n write > ./secrets/cowboyai.config.write.creds
+nsc generate creds -a Metadata -n read > ./secrets/cowboyai.metadata.read.creds
+nsc generate creds -a Metadata -n write > ./secrets/cowboyai.metadata.write.creds
+nsc generate creds -a Projections -n read > ./secrets/cowboyai.projections.read.creds
+nsc generate creds -a Projections -n write > ./secrets/cowboyai.projections.write.creds
+nsc generate creds -a Objects -n read > ./secrets/cowboyai.objects.read.creds
+nsc generate creds -a Objects -n write > ./secrets/cowboyai.objects.write.creds
+nsc generate creds -a Database -n read > ./secrets/cowboyai.database.read.creds
+nsc generate creds -a Database -n write > ./secrets/cowboyai.database.write.creds
+nsc generate creds -a Services -n cmd > ./secrets/cowboyai.services.cmd.creds
+nsc generate creds -a Services -n qry > ./secrets/cowboyai.services.qry.creds
+nsc generate creds -a Services -n event > ./secrets/cowboyai.services.event.creds
+nsc generate creds -a Agents -n ollama > ./secrets/cowboyai.agents.ollama.creds
+nsc generate creds -a Agents -n neo4j > ./secrets/cowboyai.agents.neo4j.creds
+nsc generate creds -a Agents -n nats > ./secrets/cowboyai.agents.nats.creds
 
-nsc generate config --nats-resolver --sys-account SYS > ./secrets/cim-start-resolver.conf
+nsc generate config --nats-resolver --sys-account SYS > ./secrets/cowboyai-resolver.conf
 
-#nats-server -c ./secrets/cim-start-resolver.conf
+#nats-server -c ./secrets/cowboyai-resolver.conf
 #nsc push -A
 
 # smoke test
-# nats-server -c ./secrets/cim-start-resolver.conf   
+# nats-server -c ./secrets/cowboyai-resolver.conf   
 # cargo run
-# nats context add localhost --creds secrets/cim-start.agents.nats.creds --server localhost:4222 --description "CIM-NATS" --select
+# nats context add localhost --creds secrets/cowboyai.agents.nats.creds --server localhost:4222 --description "CIM-NATS" --select
 # nats pub agents.nats.qry "status"
 
 # This should respond with an event saying: "We have just started a conversation... 

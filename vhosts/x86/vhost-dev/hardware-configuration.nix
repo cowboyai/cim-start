@@ -2,6 +2,8 @@
   # allow qemu/kvm
   virtualisation.libvirtd.enable = true;
 
+  boot.kernel.sysctl."net.ipv4.ip_forward" = 1;
+
   boot.initrd = {
     availableKernelModules = [ "ahci" "xhci_pci" "vmd" "nvme" "usbhid" "usb_storage" "sd_mod" "sr_mod" ];
     kernelModules = [ "kvm-intel" "iwlwifi" ];

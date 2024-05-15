@@ -1,15 +1,17 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 {
   services.xserver = {
     enable = true;
     displayManager.gdm.enable = true;
     displayManager.gdm.wayland = false;
     desktopManager.gnome.enable = true;
-    libinput.enable = true;
     videoDrivers = [ "nvidia" ];
   };
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
+  services.gnome.gnome-remote-desktop.enable = true;
+  services.libinput.enable = true;
 
   environment.systemPackages = with pkgs; [ 
     gnome.adwaita-icon-theme
@@ -45,7 +47,7 @@
   ]);
 
   services = {
-    upower.enable = true;
+    upower.enable = lib.mkForce false;
     dbus.packages = [pkgs.gcr];
     power-profiles-daemon.enable = true;
     geoclue2.enable = true;
@@ -59,6 +61,8 @@
     gnome-keyring.enable = true;
   };
   # turn off power management for this server
+  services.xserver.displayManager.gdm.autoSuspend = false;
+  
 }
 
 

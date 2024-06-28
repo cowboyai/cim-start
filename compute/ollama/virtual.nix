@@ -1,12 +1,15 @@
-  { config, pkgs, ... }:
-  {
-    virtualisation = {
+{
+  config,
+  pkgs,
+  ...
+}: {
+  virtualisation = {
     vmVariant = {
       virtualisation = {
-        memorySize = 8192;
+        memorySize = 32768;
         cores = 2;
         graphics = false;
-        diskSize = 32768; #set this to however big you want your dev store.
+        diskSize = 65535; #set this to however big you want your dev store.
       };
     };
   };

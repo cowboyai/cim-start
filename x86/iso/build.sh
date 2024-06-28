@@ -1,0 +1,1 @@
+nix build .#nixosConfigurations.vhostiso.config.system.build.isoImage --impure

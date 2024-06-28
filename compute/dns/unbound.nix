@@ -6,39 +6,45 @@
     do-udp = "yes";
     do-tcp = "yes";
     server = {
-      interface = [ "0.0.0.0" ];
+      interface = ["0.0.0.0"];
       access-control = [
-        "192.168.0.0/21 allow"
+        "192.168.1.0/24 allow"
       ];
 
       local-zone = ''"cim.thecowboy.ai." static'';
 
       local-data = [
-        ''"cim.thecowboy.ai.           IN A 98.97.118.240"'' #100.96.142.78
+        ''"cim.thecowboy.ai.           IN A 100.96.142.78"''
         ''"gw.cim.thecowboy.ai.        IN A 192.168.1.1"''
-        ''"nats.cim.thecowboy.ai.      IN A 192.168.1.2"''
-        ''"ollama.cim.thecowboy.ai.    IN A 192.168.1.53"''
+        ''"nats.cim.thecowboy.ai.      IN A 192.168.1.253"''
+        ''"ollama.cim.thecowboy.ai.    IN A 192.168.1.128"''
+        ''"wash.cim.thecowboy.ai.      IN A 192.168.1.32"''
         ''"neo4j.cim.thecowboy.ai.     IN A 192.168.1.54"''
-        ''"dev.cim.thecowboy.ai.       IN A 192.168.1.55"''
-        ''"apis.cim.thecowboy.ai.      IN A 192.168.1.56"''
-        ''"web.cim.thecowboy.ai.       IN A 192.168.1.57"''
+        ''"vault.cim.thecowboy.ai.     IN A 192.168.1.66"''
+        ''"agents.cim.thecowboy.ai.    IN A 192.168.1.64"''
+        ''"web.cim.thecowboy.ai.       IN A 192.168.1.101"''
         ''"vhost-dev.cim.thecowboy.ai. IN A 192.168.1.100"''
         ''"cim-dev.cim.thecowboy.ai.   IN A 192.168.1.81"''
-        ''"cloudkey.cim.thecowboy.ai.  IN A 192.168.1.130"''
+        ''"router1.cim.thecowboy.ai.   IN A 192.168.1.130"''
         ''"ns.cim.thecowboy.ai.        IN A 192.168.1.254"''
+        ''"ipa.cim.thecowboy.ai.       IN A 192.168.1.252"''
+        ''"gateway1.cim.thecowboy.ai.  IN CNAME gw.cim.thecowboy.ai"''
       ];
 
       local-data-ptr = [
         ''"192.168.1.1    gw.cim.thecowboy.ai"''
-        ''"192.168.1.2    nats.cim.thecowboy.ai"''
-        ''"192.168.1.53   ollama.cim.thecowboy.ai"''
+        ''"192.168.1.253  nats.cim.thecowboy.ai"''
+        ''"192.168.1.128  ollama.cim.thecowboy.ai"''
         ''"192.168.1.54   neo4j.cim.thecowboy.ai"''
-        ''"192.168.1.55   dev.cim.thecowboy.ai"''
-        ''"192.168.1.56   apis.cim.thecowboy.ai"''
-        ''"192.168.1.57   web.cim.thecowboy.ai"''
+        ''"192.168.1.66   vault.cim.thecowboy.ai"''
+        ''"192.168.1.64   agents.cim.thecowboy.ai"''
+        ''"192.168.1.81   cim-dev.cim.thecowboy.ai"''
+        ''"192.168.1.32   wash.cim.thecowboy.ai"''
+        ''"192.168.1.101  web.cim.thecowboy.ai"''
         ''"192.168.1.100  vhost-dev.cim.thecowboy.ai"''
         ''"192.168.1.81   cim-dev.cim.thecowboy.ai"''
-        ''"192.168.1.130  cloudkey.cim.thecowboy.ai"''
+        ''"192.168.1.130  router1.cim.thecowboy.ai"''
+        ''"192.168.1.252  ipa.cim.thecowboy.ai"''
         ''"192.168.1.254  ns.cim.thecowboy.ai"''
       ];
     };

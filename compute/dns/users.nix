@@ -1,8 +1,12 @@
-{ config, pkgs, ... }:{
+{
+  config,
+  pkgs,
+  ...
+}: {
   users.mutableUsers = true;
   users.users.cim = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
+    extraGroups = ["wheel" "networkmanager"]; # Enable ‘sudo’ for the user.
     useDefaultShell = false;
     shell = pkgs.zsh;
     packages = with pkgs; [

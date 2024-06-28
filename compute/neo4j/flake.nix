@@ -7,16 +7,18 @@
     };
   };
 
-  outputs = { self, nixpkgs }: 
-  let 
+  outputs = {
+    self,
+    nixpkgs,
+  }: let
     system = "x86_64-linux";
-  in 
-  {
+  in {
     nixosConfigurations = {
       neo4j = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
           ./configuration.nix
+          ./virtual.nix
         ];
       };
     };

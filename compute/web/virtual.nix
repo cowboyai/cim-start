@@ -1,6 +1,9 @@
-  { config, pkgs, ... }:
-  {
-    virtualisation = {
+{
+  config,
+  pkgs,
+  ...
+}: {
+  virtualisation = {
     vmVariant = {
       virtualisation = {
         memorySize = 8192;

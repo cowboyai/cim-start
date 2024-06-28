@@ -1,11 +1,14 @@
-{ config, pkgs, ... }:
 {
+  config,
+  pkgs,
+  ...
+}: {
   programs = {
     zsh.enable = true;
     direnv.enable = true;
     starship.enable = true;
   };
-  
+
   environment.systemPackages = with pkgs; [
     htop
     just
@@ -23,5 +26,4 @@
   ];
 
   system.stateVersion = "24.05";
-
 }

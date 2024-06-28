@@ -11,7 +11,7 @@ You are free to change the size of the drive in [configuration.nix](./configurat
 | Model |	Parameters |	Size |	Download|
 |-------|------------|-------|----------|
 | Code Llama 	        |7B 	|3.8GB 	  | pull codellama|
-| Llava      	        |7B 	|4.1GB 	  | pull openchat|
+| Llava      	        |7B 	|4.1GB 	  | pull llava|
 | Open Chat 	        |7B 	|4.1GB 	  | pull openchat|
 | Mistral 	          |7B 	|4.1GB 	  | pull mistral|
 | Llama 2 	          |7B 	|3.8GB 	  | pull llama2|

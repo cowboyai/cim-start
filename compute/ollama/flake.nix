@@ -7,11 +7,12 @@
     };
   };
 
-  outputs = { self, nixpkgs }: 
-  let 
+  outputs = {
+    self,
+    nixpkgs,
+  }: let
     system = "x86_64-linux";
-  in 
-  {
+  in {
     nixosConfigurations = {
       ollama = nixpkgs.lib.nixosSystem {
         inherit system;

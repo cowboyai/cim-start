@@ -1,14 +1,39 @@
-{ config, pkgs, ... }:
 {
+  config,
+  pkgs,
+  ...
+}: let
+  testScript = ''
+    import time
+
+    # Check if the SSH service is running
+    assert machine.succeed("systemctl is-active sshd")
+
+    # Check that unbound can run
+    assert machine.succeed("systemctl is-active unbound")
+
+
+    # Add more health checks as needed
+    print("All health checks passed!")
+  '';
+in {
   imports = [
     ./users.nix
     ./programs.nix
   ];
 
+  nix.extraOptions = ''
+    experimental-features = nix-command flakes
+  '';
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "ns";
+  networking = {
+    hostName = "ns";
+    search = ["cim.thecowboy.ai"];
+    firewall.allowedTCPPorts = [22 53 853];
+  };
 
   security.sudo.wheelNeedsPassword = false;
   security.polkit.enable = true;
@@ -28,5 +53,4 @@
 
     unbound = import ./unbound.nix;
   };
-
 }

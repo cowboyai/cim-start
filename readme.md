@@ -1,173 +1,111 @@
-### Introducing CIM: The Future of Information Automation
+# Information Machine
+A system or device designed to handle the processing, storage, and communication of information.
 
-#### Composable Information Machine by Cowboy AI
+# Composable Intelligence Machine
+CIM is indeed such a system, composed of many devices. Composition is a way to assemble multiple parts into a greater whole.
 
-#### The Vision Behind CIM
-Designing "information systems" reflects the evolution of technology into more integrated, user-focused, and data-driven architectures. This transition encompasses systems design, data science, security, and user interface design, among others.
+We want a "machine" that I can configure from scratch, deploy anywhere I need it, and self-partitions, scales and heals.
 
-Think about what information is as opposed to the things that allow the information to operate. 
+# Communication implies language
+If we are responsible for communicating, then we are responsible for language.
+No two human beings speak the exact same language, though they are able to communicate.
+There is an underlying notion of charades that allows human beings to have a back and forth exchange of symbols, sounds, gestures and actions that point to understanding.
 
-- **Intuitive & Private Information System**: I want an universal information system that prioritizes user intuition, sensory reflection, and data privacy.
-- **Business and AI**: With AI's ability to quickly extract information and produce fully tested code, businesses can accelerate their digital transformation, integrate diverse systems more efficiently, and harness the full potential of their existing applications in conjunction with AI Agents, and AI-driven self-improvement models.
-- **Redefining Data Organization**: Moving beyond traditional applications, APIs and databases to a fully distributed and connected system that adapts and evolves like a living organism, offering a new DNA for information architecture.
+We can teach that to an AI. Large Language Models are only a part of the solution.
+While being able to interpret and generate well-formed communication, it is a general tool.
+It is similar to trying to have a conversation while looking up the words and phrases in a dictionary.
 
-Typically, this is delivered as bottom-up approach where we start defining the Networks, Operating Systems and Programs we use and how to set them all up.
+We have created a framework for language to accomplish this in the modern information technology world.
+While utilizing the best capabilities of LLMs, we must provide proper Context for the conversation to have any meaning.
 
-This is a very manual approach to something we can finally automate in a realistic way.
+Have you ever sat in a meeting where you where not well versed on a subject and they were talking and you heard the english, but occassionally  term came into a sentence and it just made no sense.
 
-CIM is the pattern we have developed to accomplish this.
+This is usually how we talk to computers.
 
-<img style="background:white;width:12rem;height:12rem;padding:3px;" alt="Cowboy AI Logo" src="./doc/logo.svg"/>
-<p>*Cowboy AI streamlines information integration and management.*</p>
+We have no mutual context and either the machine is directed through programming to work with the human through an API or "interface to humans" or it has a very limited structure to allow the input of data.
+Every "program" we use has a different "interface" and there is no consistent way to consolidate all this.
 
-<h1>*** CAUTION ***</h1>
-<p>This repository is transitional, HIGHLY unstable and incomplete.</p>
-<p>Version: 0.7.0</p>
+There are many "frameworks" available to make all this happen nicely, some you may like, some you may hate, but they are all very opinionated on what you do and how you do it.
 
-<p>Please don't let this discourage you. This repository is rapidly changing, we are just issuing a word of caution that you may not want to use this in a production system without a great deal of testing and validation.</p>
+Unfortunately, these all come at a very steep learning curve and usually have some flavor of proprietary language associated with them that we must learn and conform to.
 
-<p>We have issued this repository in it's current state intentionally to invite community submissions and involvement in the MIT Licensed version of CIM.</p>
+# LLMs are not AI
+OK,  this is an opinion, but here is our reasoning:
 
-<p>There is a great deal of proven mathematics and computer science involved in this architecture and it is a challenging set of rabit-holes for you to explore. This is a very deep and philosophical model that truly takes a while to totally comprehend.</p>
+  1. LLMs have no memory
+  2. LLMs do not reason, they imply based on statistics
+  3. Parameters may be biased
+  4. Enunciation and Inflection is lost (omni models help tremendously)
+  5. Knowledge is very generic
+  6. Context can be focused, but other context is lost unless specified
+  7. LLMs do not function like brains
 
-<p>The difference out-of-the-box here is not a revolution in how we setup computers or infrastructure, but rather how what we wish to accomplish with these devices can be constructed in a reliable, repeatable, evolutionary way.</p>
+LLMs process and generate text by understanding the relationships between words and phrases in large datasets. While admirable, and indeed cracks modeling languages and translating between them accurately.
 
-<p>Information Systems by their very nature should be able to immediately tell you about themselves... Try that on any "command line interface" and you will find it quite challenging without already "knowing" where things are. Sorry, `manpages` are not intuitive at all.</p>
+This does not infer that the model "knows" what a duck actually is.
+The model can describe a duck in the same way other humans have described a duck in the past, but it cannot intuitively tell you that is a creature with conciousness, the ability to make it's own decisions, can self-heal most damage, and has the ability to reproduce. It cannot tell you anything it does not already know. Ask it how a duck obtains conciousness.  While humans have no decicive conclusion to this question, we do have theories we can regurgitate and we can also speculate.
 
-#### A New Way to See
-- **Challenge the Status Quo**: Traditional information such as spreadsheets and word processing documents have limitations in flexibility and connectivity.
-- **A New Paradigm with CIM**: Introducing a dynamic, interconnected approach.
-  
-<img style="background:white;width:12rem;height:12rem;padding:3px;" alt="spreadsheet" src="./doc/spreadsheet.svg"/>
-<p>*Most of us are familiar with a spreadsheet.*</p>
+# LLM Text Generation is not Speculation.
+Ask an LLM to tell you a story. It will do exactly that. These are not creations of it's "brain", but rather the most likely series of words to convey an idea.
 
-THis is a paper paradigm...
-Why are we still using paper paradigms on digital screens?
-Forms, Really??? How 19th Century.
+# Where do LLM's form those ideas?
+We must add this capability for "understanding" to our AI.  The AI is a different thing, it has Memory, Domains, Bounded Contexts and a Ubiquitous Language.
 
-Cowboy AI moves beyond this notion to focus on state machines and relationships.
+Your "Ubiquitous Language" is the way you talk to yourself. This is similar, but different to the way you talk to others. Your business is the same, it has it's own language. If you are like most of the populkation, you haven't defined it, it's just "there".  Maybe you have a dictionary of terms, and some taxonomies, but is the language something you can teach someone else?
 
-```mermaid
-stateDiagram-v2
-    [*] --> Waiting
+AI is something we must build individually. Artificial General Intelligence is not the purpose of an LLM. LLMs are just similar to a part of a human that processes language... It must not only associate words, but it also must generate commands from that interpretation to move your mouth, tongue, vocal chords, and breathe in just the right way to form audible symbolic representations of those interpretations.
 
-    state Waiting {
-        [*] --> Waiting
-    }
-    state Executing {
-        [*] --> Executing
-    }
-    state Finished {
-        [*] --> Finished
-    }
+LLMs don't do that, we need some sort of processor to do that.
 
-    Waiting --> Executing: [Cmd: Execute : Evt: Started]
-    Executing --> Finished: [Cmd: Complete : Evt: Completed]
+We chose to make a virtual von Nuemann arcitecture as the overall idea.
 
-    Finished --> [*]
+CIM treats the entire system the way we normally think of a single computer to date.
 
-```
-#### Moving things around
-Information should be portable, accessible and flexible.
-Storing information shouldn't require my personal, proper allocation into a library system complete with personal "tagging" to hopefully add sematics to my ability to find things. That is where "information systems" differ from "computer systems".
+I have a general notion of working with information, I need to assemble the structures and functionality that will produce that information. This means adding software to a computer, operating systems, programs, display capabilities, etc.
 
-Computer systems are now commodity systems we can obtain and use with off-the-shelf components.
+Generally, there is some way of dealing with this, but it is usually a very manual process.
 
-Information systems on the other hand, will always be tied directly to one or more Domains. They are concerned with what information "is" and how it is related and sequenced rather than where it is and how we compute it.
+We have many ways of doing this with many machines today, we have ideas like docker and kubernetes and virtual machines and simple storage services (S3) and ubiquitous broadband.
 
-#### Scalability and Simplicity
-- **Start Simple, Scale Smartly**: We begin with a basic setup, designed to grow and adapt to your needs.
-- **Maintaining Core Simplicity**: Despite its complexity, CIM remains accessible and manageable.
+Just a few years ago, the inroduction to "information machines" meant go get a laptop and connect it to the internet. Or do everything on your smartphone and cloud services.
 
-```mermaid
-graph LR
-A("A") -- "transforms_into" --> B("B")
-```
---- OR ---
+These methods work, and they place YOU as the central coordinator.
 
-```mermaid
-graph LR
-A("A") -- "relates_to" --> B("B")
-```
->*This is the entire idea.*
+We want a central coordinator for all our information, a concierge for information.
 
-It absolutely does not matter what A or B are, we just want to know they are related. Many relationships will appear and they will become overwhelming quickly.
+One thing we know with certainty. Information and our interpretation of it will change... constantly.
 
-We have a very clean solution to this with graphs.
+How do I deal with storing it and the scaling growth of the equipment required to process it.
 
-```mermaid
-graph LR
-A("Configuration") -- "transforms_into" --> B("Compute Device") -- "resource_of" --> C("Domain")
-```
+This is part of the intent of a CIM.
 
-#### A Diverse Ecosystem Within Nodes
-- **Rich Data Representation**: Nodes can embody anything from complex systems to simple data types, offering a versatile foundation for information processing.
-- **Language and Semantics**: Focus us on the importance of context and meaning in information, transcending traditional data dump storage methods into live, semantic construction on a running Domain.
+Create the thing that can bring all this information together no matter how I create it or where it lives.
 
-![CIM Example](./doc/CIM.svg) 
-*CIM represented as a microservice*
+Extract a language for me so that I can better understand what I am doing, but also be able to communcate and teach those ideas to others, including what we want to call AI. 
 
-While this is not the *typical* architecture, it shows a representation most people who have seen some type of microservice can comprehend.
+# LLMs provide generic information
+Most LLMs are trained across the entire scope of human knowledge. This is great to have billions of cross-references and could be considered the equivalent of going to high school. I get enough general knowledge to function in the world, but to "good" at anything, I will need to improve these techniques and specialize in a few areas.
 
-#### The Core of CIM: Dynamic Data Interaction
-- **Foundation in Flexibility**: Coordinating with workfloes, static databases, web-based telemetry, and live interaction: we transform our view through through a dynamic, eventsourced, graph-based model.
-- **Seamless Information Interconnection**: Aiming for a future where data is effortlessly linked, understood and processable.
+This is the idea of "Agents".
 
-![CIM Architecture](doc/cim-start.svg) 
+# Agents
+Agents are LLM Specialists. They a way to add focused information to the generalized knowledge of an LLM so it will understand more semantic knowledge for a secific subject.
 
-*CIM Default Architecture*
+As we build our "Information Machine" we will see many patterns emerge. Those patterns are what we want to capture and place into proper contextual boundaries to be useful.
 
-The CIM Default architecture is a starting point to develop a Domain that will have it's own Ecosystem and Language.
+Agents will become the tools we use over "programs" or "apps" in the near future.
 
-Language is developed through relationships and vector transformations as events occur. New concepts become immediately accessible for review and testing in the domain.
+We see the worlds of programming and data structuring significantly changing in the next few years.
 
-#### Simplicity Amidst Complexity
-- **Focusing on What Matters**: Prioritizes essential information over technological intricacies.
-- **Core Functions**:
-  - **Command**: Modify the CIM state.
-  - **Query**: Access the current state.
-  - **Event**: Notify changes within the system.
+We will still need developers, but mostly to verify code and test it rather than to write it.
+The Code Generation od LLMs is phenomenal when properly trained to produce structured code according to rules of the language instead of just past usage. 
 
-*Understanding and leveraging data through straightforward yet powerful interactions.*
+# Code Generation
+For most of my career, "code generation" really meant "string replacement".
+We would create templates for code as scaffolding, then have automation insert names and values into the template.
 
-*See worflows in straight-forward businss terms.*
+Later it got better with tools to actually cause a compiler to produce code, but this turned into a new language to produce the code that was in yet a different language. Yikes.
 
-#### Semantic Processing: Bringing Meaning to Data
-- **Beyond Numbers**: Recognizing the semantic depth and potential in your tools.
-- **A Graph of Understanding**: Simplifying the complex loop of command, query, and event for clear, meaningful interactions. Isolate a single transaction and branch from there when exploring your information.
+Yes, as "developers" we are really linguists who work to translate a human idea into a machine executable language.
 
-```mermaid
-graph LR
-    Me(Me) -->|command/query| UOI(The Universe of Information)
-```
-*Clarifying the flow of information for intuitive system navigation.*
-
----
-
-#### Integrating Technologies with CIM
-- **Learning and Adaptation**: Built-in AI assists and guides you through the system, making it accessible regardless of technological proficiency. No more long training sessions, ask question as you work.
-- **Technology Agnostic**: Supports various technologies, enhancing rather than replacing your current systems. Whether it is "legacy" technology, or some "special case" we can adapt to it and bring it into a logical, reactive part of your ecosystem.
-
-*Making advanced technologies approachable and useful for everyone.*
-
-#### CIM's Foundational Concepts
-- **Domain and Environment**: Defining the scope and workspace for your information system.
-- **From Zettelkasten to AI**: Automating domain-specific and human language creation and interaction, enhancing communication and efficiency.
----
-
-#### Get Started with CIM
-- **Explore and Expand**: Begin by cloning this template repository and discover how CIM can transform your domain.
-
-```bash
-git clone https://github.com/thecowboyai/cim-start
-```
-
-### Expanded CIM Structure
-![CIM Language Structure](doc/CIM-Language.svg) 
-
-### Contributions
-Code Contributions will be accepted through Pull Requests.
-We don't have a guide up yet, but it is forthcoming.
-
-*Copyright 2024 Cowboy AI, LLC*
-MIT License
+That is exactly what LLMs do, and do very well.

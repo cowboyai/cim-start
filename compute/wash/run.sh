@@ -1,0 +1,1 @@
+result/bin/run-wash-vm

@@ -7,13 +7,14 @@
     };
   };
 
-  outputs = { self, nixpkgs }: 
-  let 
+  outputs = {
+    self,
+    nixpkgs,
+  }: let
     system = "x86_64-linux";
-  in 
-  {
+  in {
     nixosConfigurations = {
-      cim-dev = nixpkgs.lib.nixosSystem {
+      web = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
           ./configuration.nix

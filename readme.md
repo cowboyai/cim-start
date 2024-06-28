@@ -1,7 +1,7 @@
 # Information Machine
 A system or device designed to handle the processing, storage, and communication of information.
 
-# Composable Intelligence Machine
+# Composable Information Machine
 CIM is indeed such a system, composed of many devices. Composition is a way to assemble multiple parts into a greater whole.
 
 We want a "machine" that I can configure from scratch, deploy anywhere I need it, and self-partitions, scales and heals.

@@ -109,3 +109,7 @@ Later it got better with tools to actually cause a compiler to produce code, but
 Yes, as "developers" we are really linguists who work to translate a human idea into a machine executable language.
 
 That is exactly what LLMs do, and do very well.
+
+We use LLMs along with a [Domain](./doc/Domain.md) to compose a [CIM](./cim.readme.md)
+
+[Our Tech Stack](./techstack.md)

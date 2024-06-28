@@ -138,52 +138,51 @@ Vault Warden provides secure secrets management with a friendly interface.
 - [Leptos Book](https://book.leptos.dev/getting_started/index.html)
 - [Video](https://youtu.be/GWB3vTWeLd4)
 
-
-
 ## Other Training Material 
 
 ### NixOS
--[Script in any language](https://youtu.be/qRE6kf30u4g?si=qceqJ95RdFpQpSmi)
--[Nixos-anywhere](https://youtu.be/U_UwzMhixr8?si=4WrK3w7c85F-vzEi)
--[Deploying NixOS](https://youtu.be/vm-Sj1V529I?si=qH5_cx36joaMdXgs)
--[Nix Language](https://youtu.be/x-9bBPbsZwc?si=G-LgvrIoifDKo5rM)
+- [Script in any language](https://youtu.be/qRE6kf30u4g?si=qceqJ95RdFpQpSmi)
+- [Nixos-anywhere](https://youtu.be/U_UwzMhixr8?si=4WrK3w7c85F-vzEi)
+- [Deploying NixOS](https://youtu.be/vm-Sj1V529I?si=qH5_cx36joaMdXgs)
+- [Nix Language](https://youtu.be/x-9bBPbsZwc?si=G-LgvrIoifDKo5rM)
 
 #### DDD
--[Ubiquitous Language](https://youtu.be/yWDaBdV-SL8?si=5m04Kg0jcEKbKU19)
--[Bounded Contexts and Sub Domains](https://youtu.be/NvBsEnDgA4o?si=gcaIxE1YmmZdCI3b)
--[EventStorming](https://www.youtube.com/live/v4xLxmpAFdI?si=45pXJBAi6KQFYGlW)
+- [Ubiquitous Language](https://youtu.be/yWDaBdV-SL8?si=5m04Kg0jcEKbKU19)
+- [Bounded Contexts and Sub Domains](https://youtu.be/NvBsEnDgA4o?si=gcaIxE1YmmZdCI3b)
+- [EventStorming](https://www.youtube.com/live/v4xLxmpAFdI?si=45pXJBAi6KQFYGlW)
 
 #### NATS
--[Message Sending Toolkit](https://youtu.be/5NXvU17a-iU?si=lp4PdwBchDoWNYJs)
--[Connect ANY Auth System](https://youtu.be/VvGxrT-jv64?si=lWktD03kJUVvd5uT)
--[Leaf Nodes](https://youtu.be/WH55czo1BNk?si=wEAM6cL5IJrvoRDd)
--[Stream Processing](https://youtu.be/EA2Pco3EvpU?si=jSXVz45HCNBY0poy)
+- [Message Sending Toolkit](https://youtu.be/5NXvU17a-iU?si=lp4PdwBchDoWNYJs)
+- [Connect ANY Auth System](https://youtu.be/VvGxrT-jv64?si=lWktD03kJUVvd5uT)
+- [Leaf Nodes](https://youtu.be/WH55czo1BNk?si=wEAM6cL5IJrvoRDd)
+- [Stream Processing](https://youtu.be/EA2Pco3EvpU?si=jSXVz45HCNBY0poy)
 
 #### Conceptual Spaces
--[The Geometry of Thinking](https://youtu.be/Y3_zlm9DrYk?si=EXaCz4E2xOUuYcD9)
--[The Geometry of Meaning](https://youtu.be/L0X9mEe9aY0?si=UWrBkWgMI8K-jmgr)
--[The Shape of Language](https://youtu.be/0PbaEvm22G0?si=nesSqFOm4RUQQqQO)
--[A Thousand Brains](https://youtu.be/XK-Vksr3IT8?si=vJIthdJ419bVfl6_)
--[Conceptual Spaces and Social Interactions](https://youtu.be/XK-Vksr3IT8?si=vJIthdJ419bVfl6_)
--[Conceptual Blending](https://youtu.be/53QRyH3mVVM?si=aZhasguPEQvFVzMf)
+- [The Geometry of Thinking](https://youtu.be/Y3_zlm9DrYk?si=EXaCz4E2xOUuYcD9)
+- [The Geometry of Meaning](https://youtu.be/L0X9mEe9aY0?si=UWrBkWgMI8K-jmgr)
+- [The Shape of Language](https://youtu.be/0PbaEvm22G0?si=nesSqFOm4RUQQqQO)
+- [A Thousand Brains](https://youtu.be/XK-Vksr3IT8?si=vJIthdJ419bVfl6_)
+- [Conceptual Spaces and Social Interactions](https://youtu.be/XK-Vksr3IT8?si=vJIthdJ419bVfl6_)
+- [Conceptual Blending](https://youtu.be/53QRyH3mVVM?si=aZhasguPEQvFVzMf)
 
 #### Category Theory
--[Category Theory for the working Programmer](https://youtube.com/playlist?list=PLbgaMIhjbmEnaH_LTkxLI7FMa2HsnawM_&si=us29wC4bq3Pn_Zse)
--[Graph Data Models](https://youtu.be/SmOExZx9TaU?si=A-MEe1nbv1caQ33m)
--[Interface Based Design](https://youtu.be/JMP6gI5mLHc?si=dSf0pSmBRoQ6Gio9)
+- [Category Theory for the working Programmer](https://youtube.com/playlist?list=PLbgaMIhjbmEnaH_LTkxLI7FMa2HsnawM_&si=us29wC4bq3Pn_Zse)
+- [Graph Data Models](https://youtu.be/SmOExZx9TaU?si=A-MEe1nbv1caQ33m)
+- [Interface Based Design](https://youtu.be/JMP6gI5mLHc?si=dSf0pSmBRoQ6Gio9)
 
 #### AI
--[Agents as MicroServices](https://youtu.be/_aTEI3ISkQA?si=moD3HZOpe3tEIW4A)
--[Llama3 Fine-tuning](https://youtu.be/pK8u4QfdLx0?si=fnwTCyebryT8fhRG)
--[AI = Language](https://youtu.be/7m1x66psgqA?si=8xl9BDon42gbTuMZ)
--[LangGraph](https://youtu.be/v9fkbTxPzs0?si=8zh692Un8cMmAvsV)
--[Long Term Memory and Self Improvement](https://youtu.be/7LWTZqksmSg?si=X6i4kITRNUYWeIby)
+- [Agents as MicroServices](https://youtu.be/_aTEI3ISkQA?si=moD3HZOpe3tEIW4A)
+- [Llama3 Fine-tuning](https://youtu.be/pK8u4QfdLx0?si=fnwTCyebryT8fhRG)
+- [AI = Language](https://youtu.be/7m1x66psgqA?si=8xl9BDon42gbTuMZ)
+- [LangGraph](https://youtu.be/v9fkbTxPzs0?si=8zh692Un8cMmAvsV)
+- [Long Term Memory and Self Improvement](https://youtu.be/7LWTZqksmSg?si=X6i4kITRNUYWeIby)
 
 #### Programming
--[Graph Visualization](https://youtu.be/4x3sK-URLF4?si=c1LVRmTqGzNNeHOh)
--[Visualizing Data](https://youtu.be/5pCdw-PV0Js?si=EDkiIzjGK1XZJM7R)
--[Building WASM Apps with Rust](https://youtu.be/ie13kswrWu4?si=rnln5PxRjQMiui5j)
--[Build a reactive system](https://youtu.be/GWB3vTWeLd4?si=_KUYHYwJt_YmD_v4)
+- [Graph Visualization](https://youtu.be/4x3sK-URLF4?si=c1LVRmTqGzNNeHOh)
+- [Visualizing Data](https://youtu.be/5pCdw-PV0Js?si=EDkiIzjGK1XZJM7R)
+- [Building WASM Apps with Rust](https://youtu.be/ie13kswrWu4?si=rnln5PxRjQMiui5j)
+- [Build a reactive system](https://youtu.be/GWB3vTWeLd4?si=_KUYHYwJt_YmD_v4)
 
 #### Business Models
--[Mastering Value Propositions](https://youtu.be/35ST-37PPXc?si=eSR88qxEbHCeAqV0)
+- [Mastering Value Propositions](https://youtu.be/35ST-37PPXc?si=eSR88qxEbHCeAqV0)
+- [Testing before building is the key to success](https://youtu.be/LRGkWhjZfd4?si=iKqXdxdQE6oPsP94)

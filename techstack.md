@@ -32,8 +32,8 @@ We can also call out to tools like docker, kubernetes, wireguard, terraform, ans
 
 ### Training
 
-- [Nix Pills]((https://nixos.org/guides/nix-pills/))
-- [Nix Dev]((https://nix.dev/))
+- [Nix Pills](https://nixos.org/guides/nix-pills/)
+- [Nix Dev](https://nix.dev/)
 - [Learning Nix](https://github.com/spacekookie/learning-nix)
 - [The Nix Hour](https://github.com/tweag/nix-hour)
 - [Continuous Integration](https://nix.dev/tutorials/nixos/continuous-integration-github-actions)

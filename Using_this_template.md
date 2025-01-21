@@ -13,4 +13,6 @@ The first step is cloning this repository and establishing an environment. We'll
 
 Let's dive into a `flake.nix` based configuration to gain a clear understanding of its role and functionalities. This initial setup is crucial for ensuring a solid grasp of how your CIM operates.
 
+[tl;dr;](./flake.nix)
+
 [Configurations](doc/Configuration.md)

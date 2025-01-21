@@ -1,1 +1,0 @@
-result/bin/run-cim-neo4j-vm

@@ -4,11 +4,33 @@
 A CIM is a self-assembling, self-replicating, self-improving, self-aware, inteligence system.
 We manage this by creating a Domain that encapsulates all the knowedge the machine cares about, incuding itself.
 
+Everything in a CIM is Modular, made from smaller components. These components are in packages.  Packages are used to create environments and configurations, these become "pod based services" or "wasi based services".
+
+### Pod based services 
+These are similar in concept to a kubernetes pods, but run in a Nix Configuration instead of helm charts.
+Often these are endpoints or traditional micro-services that require a UI or converged configuration.
+
+### WASI based services
+These are deployed into an environment that is connected solely by Message Bus... In this configuration, services don't talk to anything but nats.
+
+### Event sourcing
+Everything is intended to be Event sourced in a CIM. We will create many Domain Events to track relevant detail.
+
+### Development friendly
+Nix, Containers, Modules, DevShells, Overlays, Derivations... that sounds seriously steep.
+This is precisely why we have a solid path to understand how all this works.
+We have a genesis template that will walk you through everything from a blank slate.
+
+Development should not be difficult... 
+Following rigid instructions usually is, so is learn your own path.
+While we use mostly Rust, any language can be used.
+
+A guided approach with absolutely clears separation of concerns and a ubiquitous language are our destination.
+
 # [git](https://git-scm.com)
 git is our starting point for a reason. A git repository is simply a portable collection of files that have the ability to track their changes. git accomplishes this with a Content Identifier for each commit that we use reactively to perform actions based on committed changes.
 
-### Training
-[Examples](https://www.atlassian.com/git/tutorials/advanced-overview)
+The very first thing to create a cim is to make the repository in which its configuration lives.
 
 # [NixOS](https://nixos.org)
 Nix and NixOS specifically give us the ability to perform the actions of the following tools in a single environment:
@@ -29,6 +51,9 @@ Nix and NixOS specifically give us the ability to perform the actions of the fol
   - Immutable Content IDs
 
 We can also call out to tools like docker, kubernetes, wireguard, terraform, ansible, or any other infrastructure tools you may already use... several have conversions to nix already available. Calling to a tool is fully testable and can be sandboxed in any way required.
+
+We have a very opinionated way of structuring our nix environment, this is because we rely on a Domain.
+Computing is a general tool, adapting it to your needs is where the Domain comes in, the Domain holds a lot of decision data and knowledge graphs.
 
 ### Training
 
@@ -62,14 +87,6 @@ Anything with an API can be quickly and easily redirected to NATS messaging, eve
 - [Videos](https://www.youtube.com/c/nats_messaging/videos)
 
 
-
-# [Red Panda](https://redpanda.com/what-is-redpanda)
-[Redpanda Connect](https://redpanda.com/connect) is our go to tool for Stream Processing.
-Subscribe to any stream and process the messages to make projections, more messages, or self-introspection.
-
-#### Training
-[University](https://university.redpanda.com/)
-
 # [neo4j](https://neo4j.com)
 neo4j provides a robust graph database capability that we use to make relationships and manage graphs of the CIM.
 
@@ -102,7 +119,7 @@ and a methodology already tuned to follow [Functional Reactive Programming](http
 - [Hello Universe](https://wasmcloud.com/docs/tour/why-wasmcloud)
 
 # DNS
-DNS is responsible for managing the Domain Naming System, Internet Domain Names, Object Names, indexing, and forwarding those names to external providers such as Cloudflare.
+DNS is responsible for managing the Domain Naming System, Realms, Internet Domain Names, Object Names, indexing, and forwarding those names to external providers such as Cloudflare.
 
   - Domain Objects all have names
   - Network connected hosts all have names

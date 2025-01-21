@@ -1,93 +1,24 @@
 {
-  description = "Rust devshell for developing a CIM";
-  # This Flake is for developing everything from this git repo, not an actual install
-  #
+  description = "CIM - Composable Information Machine";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    rust-overlay.url = "github:oxalica/rust-overlay";
-    flake-utils.url = "github:numtide/flake-utils";
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
+    systems.url = "github:nix-systems/default";
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    rust-overlay,
-    flake-utils,
-    ...
-  }:
-    flake-utils.lib.eachDefaultSystem (
-      system: let
-        overlays = [(import rust-overlay)];
-        pkgs = import nixpkgs {
-          inherit system overlays;
-          config.allowUnfree = true;
-        };
-        rustToolchain = pkgs.pkgsBuildHost.rust-bin.fromRustupToolchainFile ./rust-toolchain.toml;
-      in
-        with pkgs; {
-          # start ollama with systemd (as a user service)
-          services.ollama.enable = true;
-          systemd.user.services.ollama = {
-            enable = true;
-            description = "ollama server instance";
-            unitConfig = {
-              Type = "simple";
-              # ...
-            };
-            serviceConfig = {
-              ExecStart = "${pkgs.ollama}/bin/ollama serve";
-            };
-            wantedBy = ["default.target"];
-          };
-          devShells.default = mkShell {
-            buildInputs = [
-              nix-index
-              nixfmt
-              rustToolchain
-              cargo-generate
-              cargo-make
-              cargo-edit
-              pkg-config
-              just
-              cmake
-              gnumake
-              llvmPackages.bintools
-              clang
-              clang-tools
-              llvmPackages.libclang.lib
-              cacert
-              openssl
-              openssl.dev
-              zlib.dev
-              clangStdenv
-              graphviz
-              jq
-              #ciscoPacketTracer8
-              wasm-tools
-              wasmtime
-            ];
+  outputs = inputs:
+    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
+      # we debug things in a single system first, or we get a bunch of noise.
+      systems = [ "x86_64-linux" ];
+      #systems = import inputs.systems;
 
-            LIBCLANG_PATH = "${pkgs.llvmPackages.libclang.lib}/lib";
-            RUST_SRC_PATH = "${pkgs.rustPlatform.rustLibSrc}";
+      # Import all modules from ./nix/modules/*.nix
+      imports = with builtins;
+        map
+          (fn: ./nix/modules/${fn})
+          (attrNames (readDir ./nix/modules));
 
-            shellHook = ''
-              # load .env
-              if [ -f .env ]; then
-                export $(grep -v '^#' .env | xargs)
-              fi
-
-              # For rust-analyzer 'hover' tooltips to work.
-              export RUST_SRC_PATH=${pkgs.rustPlatform.rustLibSrc}
-              export LIBCLANG_PATH=${pkgs.llvmPackages.libclang.lib}/lib
-
-              # support cargo installs
-              export PATH=$PATH:~/.cargo/bin
-
-              # wasm support
-              export BINDGEN_EXTRA_CLANG_ARGS="-isystem ${pkgs.clang}/resource-root/include $NIX_CFLAGS_COMPILE"
-            '';
-          };
-        }
-    );
+    };
 }

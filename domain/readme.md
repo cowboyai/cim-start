@@ -13,6 +13,16 @@ A set of YAML files describes our initial operation.
 
 The uuids can be left empty and we will apply a policy to it to construct the working results.
 
+## Machines
+
+## Network
+
+## Modules
+
+## Configurations
+
+## Derivations
+
 ## People
 - People require a relationship to a user.
 - Organizations require a relationship to an Account

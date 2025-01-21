@@ -5,14 +5,17 @@
 body {
 	border: #F00 solid 0;
 	border-radius: .25rem;
-	background-color: #000000;
+	background-image: url(/cim-bg.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 	margin: .25rem;
 }
 
 #main {
 	display: flex;
 	gap: .5rem;
-	min-height: calc(100vh - 17vh);
+	min-height: calc(100vh - 16vh);
 }
 
 nav {
@@ -47,15 +50,20 @@ article {
 
 header, footer, article, nav, aside {
 	padding: 1em;
+	opacity: 50%;
+}
+header:hover, footer:hover, article:hover, nav:hover, aside:hover {
+	opacity: 100%;
 }
 
 header {
 	border: #F00 solid 0rem;
 	border-radius: .25rem;
 	background: #2b619e;
-	height: 10vh;
+	height: 8vh;
 	margin-bottom: .25rem;
 }
+
 
 footer {
 	margin-top: .375rem;
@@ -67,3 +75,16 @@ footer {
 	height: 5vh;
 }
 
+.logo {
+	border: #F00 solid 0rem;
+	border-radius: 50%;
+	background: radial-gradient(ellipse at center, rgba(255,255,255,1) 25%,rgba(255,255,255,1) 50%,rgba(255,255,255,0.12) 75%,rgba(255,255,255,0) 75%);
+	height: 3rem;
+	width: 3rem;
+}
+	
+.logo > img {
+	padding: .25rem;
+	height: 3rem;
+	width: 3rem;
+}

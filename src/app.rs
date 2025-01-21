@@ -106,6 +106,8 @@ fn Header() -> impl IntoView {
 #[component]
 fn Logo() -> impl IntoView {
     view! {
-        <img src="./public/logo.svg" />
+        <div id="logo" class="logo">
+            <img src="/logo.svg" />
+        </div>
     }
 }

@@ -51,6 +51,7 @@ article {
 header, footer, article, nav, aside {
 	padding: 1em;
 	opacity: 50%;
+	transition: all 1s ease;
 }
 header:hover, footer:hover, article:hover, nav:hover, aside:hover {
 	opacity: 100%;

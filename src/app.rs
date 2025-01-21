@@ -34,7 +34,7 @@ pub fn App() -> impl IntoView {
         <Stylesheet id="leptos" href="/pkg/cim.css"/>
 
         // sets the document title
-        <Title text="Welcome to Leptos"/>
+        <Title text="cim"/>
 
         // content for this welcome page
         <Router>
@@ -51,9 +51,61 @@ pub fn App() -> impl IntoView {
 #[component]
 fn HomePage() -> impl IntoView {
     view! {
-        <div class="container">
-        <h1>"CIM"</h1>
-        <button on:click=on_click>"Start"</button>
-    </div>
+          <Header/>
+          <div id="main">
+            <Article>
+                <h1>"Welcome to Cowboy AI"</h1>
+                <p>"The future is now."</p>
+            </Article>
+            <Nav/>
+            <Aside>
+                <a href="#">"Contextual Links"</a>
+            </Aside>
+          </div>
+          <footer>"Copyright (c) 2025 - Cowboy AI"</footer>
+    }
+}
+
+#[component]
+fn Nav() -> impl IntoView {
+    view! {
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </nav>
+    }
+}
+
+#[component]
+fn Aside(children: Children) -> impl IntoView {
+    view! {
+        <aside>
+            {children()}
+        </aside>
+    }
+}
+
+#[component]
+fn Article(children: Children) -> impl IntoView {
+    view! {
+        <article>
+            {children()}
+        </article>
+    }
+}
+
+#[component]
+fn Header() -> impl IntoView {
+    view! {
+    <header><Logo/></header>    }
+}
+
+#[component]
+fn Logo() -> impl IntoView {
+    view! {
+        <img src="./public/logo.svg" />
     }
 }

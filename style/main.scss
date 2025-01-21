@@ -1,8 +1,69 @@
-body {
-	font-family: sans-serif;
-	text-align: center;
+* {
+ box-sizing: border-box; 
+}
 
-	background: #000428;  /* fallback for old browsers */
-	background: -webkit-linear-gradient(to top, #004e92, #000428);  /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to top, #004e92, #000428); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-	}
+body {
+	border: #F00 solid 0;
+	border-radius: .25rem;
+	background-color: #000000;
+	margin: .25rem;
+}
+
+#main {
+	display: flex;
+	gap: .5rem;
+	min-height: calc(100vh - 17vh);
+}
+
+nav {
+	border: #F00 solid 0rem;
+	border-radius: .25rem;
+}
+
+aside {
+	border: #F00 solid 0rem;
+	border-radius: .25rem;
+}
+
+article {
+	border: #F00 solid 0;
+	border-radius: .25rem;
+	background-color: white;
+}
+
+#main > article {
+	flex: 1;
+}
+
+#main > nav, 
+#main > aside {
+	flex: 0 0 20vw;
+	background: beige;
+}
+
+#main > nav {
+	order: -1;
+}
+
+header, footer, article, nav, aside {
+	padding: 1em;
+}
+
+header {
+	border: #F00 solid 0rem;
+	border-radius: .25rem;
+	background: #2b619e;
+	height: 10vh;
+	margin-bottom: .25rem;
+}
+
+footer {
+	margin-top: .375rem;
+	border: #F00 solid 0rem;
+	border-radius: .25rem;
+	background: black;
+	background-image: linear-gradient(to right top, #000000, #1a1a1a, #2c2c2c, #404040, #555555);
+	color: #ccc;
+	height: 5vh;
+}
+

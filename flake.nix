@@ -2,23 +2,26 @@
   description = "CIM - Composable Information Machine";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    flake-parts.url = "github:hercules-ci/flake-parts";
-    flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
-    systems.url = "github:nix-systems/default";
+    dream2nix.url = "github:nix-community/dream2nix";
+    nixpkgs.follows = "dream2nix/nixpkgs";
   };
 
-  outputs = inputs:
-    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
-      # we debug things in a single system first, or we get a bunch of noise.
-      systems = [ "x86_64-linux" ];
-      #systems = import inputs.systems;
+  outputs = { self, dream2nix, nixpkgs, ... }:
+    let
+      eachSystem = nixpkgs.lib.genAttrs [
+        "x86_64-linux"
+      ];
+    in
+    {
 
-      # Import all modules from ./nix/modules/*.nix
-      imports = with builtins;
-        map
-          (fn: ./nix/modules/${fn})
-          (attrNames (readDir ./nix/modules));
+      packages = eachSystem (system:
+        dream2nix.lib.importPackages {
+          projectRoot = "./.";
+          projectRootFile = "flake.nix";
+          packagesDir = ./packages;
+          packageSets.nixpkgs = nixpkgs.legacyPackages.${system};
+        }
+      );
 
     };
 }

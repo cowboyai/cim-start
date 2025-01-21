@@ -2,7 +2,7 @@
 {
   perSystem = { config, self', pkgs, lib, ... }: {
     devShells = {
-      default = import ./defaultshell.nix { inherit pkgs; };
+      default = pkgs.mkShell (import ./shells/defaultshell.nix { inherit pkgs; });
     };
 
   };

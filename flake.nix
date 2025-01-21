@@ -1,27 +1,28 @@
 {
-  description = "CIM - Composable Information Machine";
+  description = "My CIM flake";
 
   inputs = {
-    dream2nix.url = "github:nix-community/dream2nix";
-    nixpkgs.follows = "dream2nix/nixpkgs";
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
+    systems.url = "github:nix-systems/default";
+    rust-flake.url = "github:thecowboyai/rust-flake";
+    rust-flake.inputs.nixpkgs.follows = "nixpkgs";
+    process-compose-flake.url = "github:Platonic-Systems/process-compose-flake";
+    cargo-doc-live.url = "github:srid/cargo-doc-live";
+
+    git-hooks.url = "github:cachix/git-hooks.nix";
+    git-hooks.flake = false;
   };
 
-  outputs = { self, dream2nix, nixpkgs, ... }:
-    let
-      eachSystem = nixpkgs.lib.genAttrs [
-        "x86_64-linux"
-      ];
-    in
-    {
+  outputs = inputs:
+    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
+      systems = import inputs.systems;
 
-      packages = eachSystem (system:
-        dream2nix.lib.importPackages {
-          projectRoot = "./.";
-          projectRootFile = "flake.nix";
-          packagesDir = ./packages;
-          packageSets.nixpkgs = nixpkgs.legacyPackages.${system};
-        }
-      );
-
+      # See ./nix/modules/*.nix for the modules that are imported here.
+      imports = with builtins;
+        map
+          (fn: ./nix/modules/${fn})
+          (attrNames (readDir ./nix/modules));
     };
 }

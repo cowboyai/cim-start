@@ -12,7 +12,7 @@
         nixd # Nix language server
         cargo-leptos
         cargo-generate
-        rustfmt
+        dart-sass
         config.process-compose.cargo-doc-live.outputs.package
       ];
     };

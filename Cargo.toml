@@ -2,6 +2,7 @@
 name = "cim"
 version = "0.1.0"
 edition = "2021"
+description = "cim"
 
 [lib]
 crate-type = ["cdylib", "rlib"]
@@ -16,7 +17,7 @@ leptos_meta = { version = "0.7.0" }
 tokio = { version = "1", features = ["rt-multi-thread"], optional = true }
 tower = { version = "0.4", optional = true }
 tower-http = { version = "0.5", features = ["fs"], optional = true }
-wasm-bindgen = "=0.2.100"
+wasm-bindgen = "=0.2.99"
 thiserror = "1"
 http = "1"
 
@@ -61,10 +62,10 @@ style-file = "style/main.scss"
 assets-dir = "public"
 
 # The IP and port (ex: 127.0.0.1:3000) where the server serves the content. Use it in your server setup.
-site-addr = "127.0.0.1:3000"
+site-addr = "127.0.0.1:4200"
 
 # The port to use for automatic reload monitoring
-reload-port = 3001
+reload-port = 4201
 
 # [Optional] Command to use when running end2end tests. It will run in the end2end dir.
 #   [Windows] for non-WSL use "npx.cmd playwright test"

@@ -18,6 +18,7 @@ pub fn shell(options: LeptosOptions) -> impl IntoView {
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
                 <link href="https://fonts.googleapis.com/css2?family=Lexend+Giga:wght@100..900&display=swap" rel="stylesheet" />
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
             </head>
             <body>
                 <App/>
@@ -57,7 +58,7 @@ fn HomePage() -> impl IntoView {
           <Header/>
           <div id="main">
             <Article>
-                <input type="button" value="Go"/>
+                <TextIn/>
             </Article>
             <Nav/>
             <Aside>
@@ -73,9 +74,24 @@ fn Nav() -> impl IntoView {
     view! {
         <nav>
             <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/contact">Contact</a></li>
+                <li>
+                    <a href="/">
+                        <i class="fa-solid fa-home"></i>
+                        "home"
+                    </a>
+                </li>
+                <li>
+                    <a href="/">
+                        <i class="fa-solid fa-rocket"></i>
+                        "about"
+                    </a>
+                </li>
+                <li>
+                    <a href="/">
+                        <i class="fa-solid fa-envelope"></i>
+                        "contact"
+                    </a>
+                </li>
             </ul>
         </nav>
     }
@@ -102,9 +118,55 @@ fn Article(children: Children) -> impl IntoView {
 }
 
 #[component]
+fn Masthead() -> impl IntoView {
+    view! {
+        <div class="masthead">
+            "CIM - Cowboy AI"
+        </div>
+    }
+}
+
+#[component]
+fn HamburgerMenu(children: Children) -> impl IntoView {
+    view! {
+        <div class="menu hamburger">
+            <nav>
+                <ul>
+                    {children()}
+                </ul>
+            </nav>
+        </div>
+    }
+}
+
+#[component]
 fn Header() -> impl IntoView {
     view! {
-    <header><Logo/></header>    }
+        <header>
+            <Logo/>
+            <Masthead/>
+            <HamburgerMenu>
+                <li>
+                    <a href="/">
+                        <i class="fa-solid fa-home"></i>
+                        "home"
+                    </a>
+                </li>
+                <li>
+                    <a href="/">
+                        <i class="fa-solid fa-rocket"></i>
+                        "about"
+                    </a>
+                </li>
+                <li>
+                    <a href="/">
+                        <i class="fa-solid fa-envelope"></i>
+                        "contact"
+                    </a>
+                </li>
+            </HamburgerMenu>
+        </header>
+    }
 }
 
 #[component]
@@ -121,6 +183,18 @@ fn Foo() -> impl IntoView {
     view! {
         <div class="foo">
             "foo"
+        </div>
+    }
+}
+
+#[component]
+fn TextIn() -> impl IntoView {
+    view! {
+        <div class="typing">
+            <input type="text" placeholder="Discover something" value="Go" />
+            <button>
+                <i class="fa-solid fa-circle-up"/>
+            </button>
         </div>
     }
 }

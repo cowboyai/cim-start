@@ -2,6 +2,16 @@
  box-sizing: border-box; 
 }
 
+// <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 100 to 900
+
+.lexend-giga-web {
+  font-family: "Lexend Giga", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
 body {
 	border: #F00 solid 0;
 	border-radius: .25rem;
@@ -9,7 +19,11 @@ body {
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
+	background-color: #000000;
 	margin: .25rem;
+
+	font-family: "FiraCode Nerd Font", monospace;
+	
 }
 
 #main {
@@ -54,7 +68,7 @@ header, footer, article, nav, aside {
 	transition: all 1s ease;
 }
 header:hover, footer:hover, article:hover, nav:hover, aside:hover {
-	opacity: 100%;
+	opacity: 90%;
 }
 
 header {
@@ -88,4 +102,52 @@ footer {
 	padding: .25rem;
 	height: 3rem;
 	width: 3rem;
+}
+
+.nav-toggle {
+	border: #000 solid .1rem;
+	border-radius: .25rem;
+	position: absolute;
+	left: .5rem;
+	top: 5.7rem;
+	background-color: #2b619e;
+	height: 2rem;
+	width: 2rem;
+}
+.nav-toggle img {
+	padding-right: 10px;
+	height: 2rem;
+	width: 2rem;
+}
+
+.aside-toggle {
+	border: #000 solid .1rem;
+	border-radius: .25rem;
+	position: absolute;
+	right: .5rem;
+	top: 5.7rem;
+	background-color: #2b619e;
+	height: 2rem;
+	width: 2rem;
+	opacity: 50%;
+}
+.aside-toggle:hover {
+	opacity: 90%;
+}
+.aside-toggle img {
+	padding-right: 10px;
+	height: 2rem;
+	width: 2rem;
+}
+
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.4s;
 }

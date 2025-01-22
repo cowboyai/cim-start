@@ -15,6 +15,9 @@ pub fn shell(options: LeptosOptions) -> impl IntoView {
                 <AutoReload options=options.clone() />
                 <HydrationScripts options/>
                 <MetaTags/>
+                <link rel="preconnect" href="https://fonts.googleapis.com" />
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+                <link href="https://fonts.googleapis.com/css2?family=Lexend+Giga:wght@100..900&display=swap" rel="stylesheet" />
             </head>
             <body>
                 <App/>
@@ -54,8 +57,7 @@ fn HomePage() -> impl IntoView {
           <Header/>
           <div id="main">
             <Article>
-                <h1>"Welcome to Cowboy AI"</h1>
-                <p>"The future is now."</p>
+                <input type="button" value="Go"/>
             </Article>
             <Nav/>
             <Aside>
@@ -83,7 +85,9 @@ fn Nav() -> impl IntoView {
 fn Aside(children: Children) -> impl IntoView {
     view! {
         <aside>
+            <ul>
             {children()}
+            </ul>
         </aside>
     }
 }
@@ -108,6 +112,15 @@ fn Logo() -> impl IntoView {
     view! {
         <div id="logo" class="logo">
             <img src="/logo.svg" />
+        </div>
+    }
+}
+
+#[component]
+fn Foo() -> impl IntoView {
+    view! {
+        <div class="foo">
+            "foo"
         </div>
     }
 }

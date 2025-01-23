@@ -56,9 +56,16 @@ h1, h2, h3, h4, h5, h6 {
   font-style: normal;
 }
 
+.space-grotesk-web {
+  font-family: "Space Grotesk", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
 body {
 	margin: .25rem;
-	font-family: "FiraCode Nerd Font", monospace;	
+	font-family: "Space Grotesk", sans-serif;	
 	border: #F00 solid 0;
 	border-radius: .5rem;
 	background-image: url(/cim-bg.png);
@@ -236,7 +243,7 @@ header {
 }
 .typing > input {
 	flex: 1;
-	border: #000 solid .1rem;
+	border: #081754 solid .1rem;
 	border-radius: .5rem;	
 }
 .typing > button {
@@ -245,8 +252,12 @@ header {
 	width: 2rem;
 	height: 2rem;
 	background-color:#2386ee ;
-	border: #000 solid .1rem;
+	border: #081754 solid .1rem;
 	border-radius: .5rem;
+	color: #fff;
+}
+.typing > button:hover {
+
 }
 
 footer {

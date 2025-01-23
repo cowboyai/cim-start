@@ -32,6 +32,7 @@ pub fn shell(options: LeptosOptions) -> impl IntoView {
 pub fn App() -> impl IntoView {
     // Provides context that manages stylesheets, titles, meta tags, etc.
     provide_meta_context();
+    let title = "cim";
 
     view! {
         // injects a stylesheet into the document <head>
@@ -39,7 +40,7 @@ pub fn App() -> impl IntoView {
         <Stylesheet id="leptos" href="/pkg/cim.css"/>
 
         // sets the document title
-        <Title text="cim"/>
+        <Title text={title}/>
 
         // content for this welcome page
         <Router>

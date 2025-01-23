@@ -49,14 +49,14 @@ h1, h2, h3, h4, h5, h6 {
 // <uniquifier>: Use a unique and descriptive class name
 // <weight>: Use a value from 100 to 900
 
-.lexend-giga-web {
+.font-lexend {
   font-family: "Lexend Giga", serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
 }
 
-.space-grotesk-web {
+.font-space {
   font-family: "Space Grotesk", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
@@ -76,10 +76,11 @@ body {
 }
 
 a { text-decoration: none; }
-a:link { color: #ccc }
-a:visited { color: #ccc }
+a:link { color: #fff }
+a:visited { color: #fff }
 a:hover { color: #2386ee }
 a:active { color: #2386ee }
+a:focus { color: #2386ee }
 
 #main {
 	display: flex;
@@ -95,12 +96,13 @@ a:active { color: #2386ee }
 #main > aside {
 	flex: 0 0 20vw;
 	background: #081754;
-	color: #ccc;
+	color: #fff;
 }
 
 #main > nav:hover, 
 #main > aside:hover {
 	color: #2386ee;
+  box-shadow: 0 0 5px #2386ee;
 }
 
 #main > nav {
@@ -129,7 +131,7 @@ nav > ul > li {
   border: 1px solid #fff;
 }
 nav > ul > li:hover {
-	background-color: #eee;	
+	background-color: #fff;	
   box-shadow: 0 0 5px #2386ee;
   padding: 3px 0px 3px 3px;
   margin: 5px 1px 3px 0px;
@@ -168,7 +170,7 @@ aside > ul > li {
   border: 1px solid #fff;
 }
 aside > ul > li:hover {
-	background-color: #eee;	
+	background-color: #fff;	
   box-shadow: 0 0 5px #2386ee;
   padding: 3px 0px 3px 3px;
   margin: 5px 1px 3px 0px;
@@ -211,12 +213,12 @@ header {
  flex: 1;
  align-items: center;
  text-align: center;
- font-size:larger;
+ font-size: xx-large;
  font-weight: bold;
 }
 
 .menu.hamburger {
-	font-size: large;
+	font-size: x-large;
 }
 .menu.hamburger > nav {
 	font-size: small;
@@ -257,7 +259,10 @@ header {
 	color: #fff;
 }
 .typing > button:hover {
-
+	background-color:#fff ;
+	border: #081754 solid .1rem;
+	color: #2386ee;
+  box-shadow: 0 0 5px #2386ee;
 }
 
 footer {

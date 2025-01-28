@@ -2,8 +2,10 @@
 {
   perSystem = { config, self', pkgs, lib, ... }: {
     devShells.default = pkgs.mkShell rec {
-      name = "cim-devShell";
-
+      name = "iced-devShell";
+      # inputsFrom = [
+      #   config.pre-commit.devShell # Implement ./nix/modules/pre-commit.nix
+      # ];
       buildInputs = with pkgs; [
         expat
         fontconfig

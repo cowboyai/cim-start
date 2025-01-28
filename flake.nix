@@ -14,6 +14,7 @@
 
       imports = [
         ./modules/devshell.nix
+        ./modules/rust.nix
       ];
     };
 }

@@ -4,17 +4,44 @@
 A CIM is a self-assembling, self-replicating, self-improving, self-aware, inteligence system.
 We manage this by creating a Domain that encapsulates all the knowedge the machine cares about, incuding itself.
 
-Everything in a CIM is Modular, made from smaller components. These components are in packages.  Packages are used to create environments and configurations, these become "pod based services" or "wasi based services".
+Everything in a CIM is Modular, made from smaller components. These components are in packages.  Packages are used to create modules, environments and configurations, these become "pod based services" or "wasi based services".
 
 ### Pod based services 
-These are similar in concept to a kubernetes pods, but run in a Nix Configuration instead of helm charts.
+These are similar in concept to a kubernetes pods, but run in a Nix Configuration instead of helm charts. 
+You *CAN* use kubernetes, but you are not *forced to*, nix can run a helm chart.
 Often these are endpoints or traditional micro-services that require a UI or converged configuration.
+These services bundle a `bridge to nats`.
+Many of these are legacy code, waiting for conversion to wasi.
+
+Say I have a Web Service that uses ollama.
+I use `services.ollama = {};` to configure ollama...
+I create a nixosConfiguration for the service
+Then I run it in a container.
+
+I may have to setup web proxies and a bunch of other stuff to run this traditionally.
+Instead, we simply redirect all the inputs and outputs to nats.
+a nats SERVER runs locally as a `leaf node` and may connect to any other nats server.
+We have a bridge to convert nats messages into http or tcp or quic
+
+It's literally the same thing wasi+nats does, just in a more traditional wrapper.
+
+Many "services" won't run in wasi yet, or they can't compile to wasm.
+We use oci+wasm to achieve most of our goals in this bridge scenario.
+The rest we have to improvise and redirect some messages we know we can trust.
+These containers build from `scratch` and only contain the service they provide.
+If we need a custom kernel, then a vm is appropriate.
+
+We still look at these with a `capability` and `provider` packaging scenario.
+
+This is our *I need this today* scenario.
 
 ### WASI based services
-These are deployed into an environment that is connected solely by Message Bus... In this configuration, services don't talk to anything but nats.
+These are deployed into an environment that is connected solely by Message Bus... In this configuration, services don't talk to anything but nats.  WASI itself has some limitations and is still in beta. We need to get there, but do work now. When we can't do what we want to do with wasi (like filesystem and networking) then we need a bridge.
+see: [why we need oci+wasm for now...](./oci+wasm.md)
 
 ### Event sourcing
-Everything is intended to be Event sourced in a CIM. We will create many Domain Events to track relevant detail.
+Everything in Domains is intended to be Event sourced in a CIM. We will create many Domain Events to track relevant detail.
+We will be working with more than one `Event Store`, they do orchestrate themselves within nats.
 
 ### Development friendly
 Nix, Containers, Modules, DevShells, Overlays, Derivations... that sounds seriously steep.
@@ -25,7 +52,7 @@ Development should not be difficult...
 Following rigid instructions usually is, so is learn your own path.
 While we use mostly Rust, any language can be used.
 
-A guided approach with absolutely clears separation of concerns and a ubiquitous language are our destination.
+A guided approach with absolutely clear separation of concerns and a ubiquitous language are our destination.
 
 # [git](https://git-scm.com)
 git is our starting point for a reason. A git repository is simply a portable collection of files that have the ability to track their changes. git accomplishes this with a Content Identifier for each commit that we use reactively to perform actions based on committed changes.
@@ -53,7 +80,8 @@ Nix and NixOS specifically give us the ability to perform the actions of the fol
 We can also call out to tools like docker, kubernetes, wireguard, terraform, ansible, or any other infrastructure tools you may already use... several have conversions to nix already available. Calling to a tool is fully testable and can be sandboxed in any way required.
 
 We have a very opinionated way of structuring our nix environment, this is because we rely on a Domain.
-Computing is a general tool, adapting it to your needs is where the Domain comes in, the Domain holds a lot of decision data and knowledge graphs.
+If you think we are doing it `wrong`, please tell us, maybe we are.
+Computing is a general tool, adapting it to your needs is where the Domain comes in, the Domain holds a lot of decision data and knowledge graphs. We really already know how to make a `computer` work, this is about applying that to a Domain.
 
 ### Training
 
@@ -82,6 +110,8 @@ This enables us to have direct request/response interactions with Agents and API
 
 Anything with an API can be quickly and easily redirected to NATS messaging, even automated through AI.
 
+Subjects are a language, and it has a structure.
+
 ### Training
 - [Examples](https://natsbyexample.com/)
 - [Videos](https://www.youtube.com/c/nats_messaging/videos)
@@ -101,7 +131,7 @@ Ollama provides a capability to use many LLM Models in a common way. It also giv
 - [Rust Ollama By Example](https://youtu.be/OcH-zT5VNgM)
 
 # [wasmCloud](https://wasmcloud.com/docs/concepts/)
-wasmCloud is the component system we use for Agents.
+wasmCloud is an optional component system for supplying additional capabilities and providers.
 
 this allows us:
   - [Components](https://wasmcloud.com/docs/concepts/components)
@@ -123,13 +153,22 @@ DNS is responsible for managing the Domain Naming System, Realms, Internet Domai
 
   - Domain Objects all have names
   - Network connected hosts all have names
-  - Objects in Object Stores all have CID (ContentIdentifiers)
-  - Subjects in NATS are managed names from here
+  - Objects in Object Stores all have names and a CID (ContentIdentifiers)
+  - Subjects in NATS are managed names
+
+Naming therefore, is a Domain...
+If you work with `names` use the `name` domain.
+
+This becomes a domain on it's own that lets you work with names.
+translate them, map them, list them, relate them, identify them, cache them, format them...
+all this is done in a single domain with it's own contained tooling.
 
 ### Training
-[Tutorial](https://calomel.org/unbound_dns.html)
+[Tutorial](https://www.isc.org/blogs/bind-management-webinar-series-2021/)
 
 # IPA
+We recommend using [KeyNode](https://github.com/thecowboyai/keynode), an offline Certificate of Authority root manager and PKI management module.
+
 Identity, Policy and Audit is where we manage people.
 
   - Single Sign On
@@ -149,11 +188,15 @@ Vault Warden provides secure secrets management with a friendly interface.
 - [Wiki](https://github.com/dani-garcia/vaultwarden/wiki)
 
 # Web
-[Leptos](https://leptos.dev/) provides capabilities for Portal and Projection access (such as dashboards).
+[Iced](https://book.iced.rs/) provides capabilities for Native UIs as well as Web Based. Follows our Messaging model architecture more closely.
+[Leptos](https://leptos.dev/) provides capabilities for Web based Reactive Projections (such as dashboards or social interaction).
 
 ### Training
+- [Moder Gui in Rist & Iced](https://www.youtube.com/watch?v=72PyU1EIGY8)
+- [Iced Book](https://book.iced.rs/)
+- [Iced tutorial](https://leafheap.com/articles/iced-tutorial-version-0-12)
 - [Leptos Book](https://book.leptos.dev/getting_started/index.html)
-- [Video](https://youtu.be/GWB3vTWeLd4)
+- [Leptos Video](https://youtu.be/GWB3vTWeLd4)
 
 ## Other Training Material 
 

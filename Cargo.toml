@@ -5,4 +5,5 @@ edition = "2021"
 description = "My cim for `some purpose`"
 
 [dependencies]
-iced = { version = "0.13.1", features = ["settings"] }
+iced = { version = "0.13.1", features = ["system", "canvas", "tokio", "debug"] }
+bytesize = "1.1"

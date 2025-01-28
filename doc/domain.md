@@ -4,9 +4,13 @@ A **Domain** in this context refers to a conceptual structure that supports reas
 
 Domains are not necessarily hierarchical; they are "topological spaces," meaning they have a shape or structure, but it's not constrained to a tree-like form. In computer science, we often default to hierarchical sets like filesystems, hosts, and programs. However, we aim to break free from this limitation and think in terms of **graphs**, specifically **Merkle Directed Acyclic Graphs (Merkle DAGs)**. These graphs allow us to represent relationships more flexibly and avoid the pitfalls of rigid hierarchies.
 
-For example, if users are organized under hosts in a hierarchy, you must repeat user data for every host. By linking them as modules, you effectively break the hierarchy because the user domain exists outside the host domain. This approach emphasizes that domains are related but not confined to tree structures. Instead, we see domains as interconnected graphs that can consume and interact with other domains without enforcing a strict hierarchy.
+For example, if users are organized under hosts in a hierarchy, you must repeat user data for every host. By linking them as modules, you effectively break the hierarchy because the user domain exists outside the host domain. A User is actually a relationship in this graph.
 
-Merkle DAGs play a crucial role here because they allow us to organize "blocks" of data (specific sets of bits) into structures where every block can be uniquely identified by a **Content Identifier (CID)**. This is foundational for distributed systems like NixOS, which generates immutable derivations with distinct CIDs. By combining these CIDs into larger structures, we can describe entire systems or datasets with a single CID using methodologies like **IPLD (InterPlanetary Linked Data)**. CIM leverages IPLD to manage its object store and event store, starting with Git as both an object repository and an event store.
+```username -[is-user-in]-> organization```
+
+This approach emphasizes that domains are related but not confined to tree structures. Instead, we see domains as interconnected graphs that can consume and interact with other domains without enforcing a strict hierarchy.
+
+Merkle DAGs play a crucial role here because they allow us to organize "blocks" of data (specific sets of bits) into structures where every block can be uniquely identified by a **Content Identifier (CID)**. This is foundational for distributed systems like a CIM, which generates immutable derivations with distinct CIDs. By combining these CIDs into larger structures, we can describe entire systems or datasets with a single CID using methodologies like **IPLD (InterPlanetary Linked Data)**. CIM leverages IPLD to manage its object store and event store, starting with Git as both an object repository and an event store. A CID and a git-commit-hash are very similar, a CID further describes the expected contents.
 
 ---
 
@@ -17,6 +21,9 @@ An **event** is anything that has already happened and can be described. A **Dom
 Event stores and log files share similarities—they both represent sequential logs of transactions—but event stores are designed for structured reactivity. Git serves as an excellent example of an event store because it records changes (commits) in an immutable, append-only log. Each commit represents a snapshot of the repository at a specific time, containing metadata such as the author, timestamp, and description of changes. This aligns with event sourcing principles by capturing every change as an event in chronological order within Git's Directed Acyclic Graph (DAG).
 
 NixOS also integrates this concept by recommending that every `flake.nix` resides at the root of a Git repository. This is because Git commits serve as Nix's event store, enabling reproducibility and traceability across system states. While Git provides an initial implementation for events in CIM, additional message buses and dedicated event stores will be introduced over time to build a complete ecosystem driven by events.
+
+Nix's store: /nix/store, contains every derivation for any given system.
+Containerized systems can even share this store reducing unnecessary duplication.
 
 ---
 

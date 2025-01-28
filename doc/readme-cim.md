@@ -6,7 +6,11 @@ A CIM is an "information machine" built from multiple interconnected components.
 
 The goal is to create a "machine" that can be configured from the ground up, deployed wherever it's needed, and designed to self-partition, scale seamlessly, and recover autonomously.
 
+For this, we use Event Sourcing... Every component here is designed to use Event Sourcing, CQRS and Projections.
+
 In today’s world, we no longer build standalone servers—we build distributed systems. These systems are dynamic, adaptable, and designed to function as a unified network.
+
+Event Sourcing and focusing on Domain Events allows us to do this in a practical, deterministic way.
 
 # Communication Implies Language  
 If we are responsible for communication, we are inherently responsible for language. While no two people speak the exact same language, humans rely on shared symbols, gestures, and sounds—a kind of *charades*—to exchange understanding.  
@@ -25,7 +29,7 @@ This is part of the intent of a CIM.
 
 Create the thing that can bring all this information together no matter how I create it or where it lives.
 
-Extract a language for me so that I can better understand what I am doing, but also be able to communcate and teach those ideas to others, including what we want to call AI. 
+Extract a language for me so that I can better understand what I am doing, but also be able to communicate and teach those ideas to others, including what we want to call AI. 
 
 # Code Generation
 For much of my career, "code generation" was essentially glorified string replacement: we built templates as scaffolding and automated the insertion of names and values. Over time, tools improved, enabling compilers to generate code. However, this often introduced yet another layer of abstraction—a new language to generate code in a different language—adding unnecessary complexity. 

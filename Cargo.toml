@@ -1,8 +1,14 @@
 [package]
-name = "MyCim"
+name = "cim-start"
 version = "0.1.0"
+authors = ["Steele Price <steele@thecowboy.ai>"]
 edition = "2021"
-description = "My cim for `some purpose`"
+publish = false
 
 [dependencies]
-iced = { version = "0.13.1", features = ["settings"] }
+iced = { version = "0.13", features = ["debug", "tokio"] }
+tokio = { version = "1.42.0", features = ["time"] }
+warp = "0.3"
+async-tungstenite = { version = "0.28.2", features = [
+  "tokio-rustls-webpki-roots",
+] }

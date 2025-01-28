@@ -12,8 +12,9 @@
     inputs.flake-parts.lib.mkFlake { inherit inputs; } {
       systems = import inputs.systems;
 
-      imports = with builtins; [
+      imports = [
         ./modules/devshell.nix
+        ./modules/rust.nix
       ];
     };
 }

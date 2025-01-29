@@ -10,11 +10,12 @@
 
   outputs = inputs:
     inputs.flake-parts.lib.mkFlake { inherit inputs; } {
-      systems = import inputs.systems;
+      systems = [ "x86_64-linux" ]; #import inputs.systems;
 
       imports = [
         ./modules/devshell.nix
         ./modules/rust.nix
+        ./modules/buildimage.nix
       ];
     };
 }

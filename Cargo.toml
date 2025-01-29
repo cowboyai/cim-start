@@ -1,5 +1,5 @@
 [package]
-name = "cim-start"
+name = "cim"
 version = "0.1.0"
 authors = ["Steele Price <steele@thecowboy.ai>"]
 edition = "2021"

@@ -1,0 +1,20 @@
+default:
+    @just --list
+
+build:
+  nix build .#dockerImage
+
+load:
+  docker load < result
+
+loadnew:
+  docker load < $(just build)
+
+tag-latest:
+  docker tag cim-start:latest thecowboyai/cim-start:latest
+
+push:
+  docker push thecowboyai/cim-start:latest
+
+run:
+  docker run --rm -it cim-start:latest -v "../src:/src"

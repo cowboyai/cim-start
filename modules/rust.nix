@@ -1,8 +1,5 @@
 { inputs, ... }:
 {
-  imports = [
-  ];
-
   perSystem = { config, self', pkgs, lib, ... }:
     let
       inherit (lib.importTOML (inputs.self + "/Cargo.toml")) package;
@@ -15,7 +12,6 @@
 
           pname = package.name;
           src = inputs.self;
-
         };
 
         default = config.packages.${package.name};

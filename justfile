@@ -12,4 +12,7 @@ start:
     bacon run
 
 build:
-    nix build
+    nix build .#cim
+
+bin:
+  result/bin/cim

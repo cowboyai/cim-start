@@ -28,21 +28,24 @@ If all you’re doing is piecing together pre-built software components without 
 This guide exists to help you implement *your* vision. Sure, we could dive into technical jargon and programming concepts, but that’s not how we naturally communicate. I don’t talk to my colleagues in “for loops,” and I certainly don’t think in them either. We communicate in abstract, contextual terms—and that’s exactly how we’ll approach building your CIM.
 
 ## Start the CIM...
-if you've cloned this repo, open a terminal type:
+if you've cloned this repo and you are [in a Nix environment](./a-devcontainer.md), open a terminal and type:
 
 ```bash
 just start
 ```
-This will launch ```cargo leptos watch```
-and you will have a web app at [http://localhost:4200]
+This will launch ```bacon watch```
+and the app will open.
 
-If you prefer, you can just edit the yaml.
+If you prefer, you can just edit the nix.
 
-```yaml
-domain:
-  - name: "CIM"
-  - id: <some-uuid-v7>
-  - purpose: "Integrate AI into my business workflows"
+```nix
+{
+  domain = {
+    name = "Workflow - CIM";
+    id = "<some-uuid-v7>";
+    purpose = "Integrate AI into my business workflows";
+  };
+}
 ```
 
 This lives in the git repo. Yes, it's data. Yes, it's structure. So is all this nix stuff. 
@@ -52,3 +55,8 @@ A "flake" is a way to package a "configuration".
 I have no idea where this will run, or how it will evolve yet, I just know I am starting here. in this git repository, everything I do begins, and is tracked, from here.
 
 We have a ton of freedom...
+
+Our starting point is a dialog to enter the above...
+
+If you edited the nix file, it skips it...
+We already have our Domain Context.

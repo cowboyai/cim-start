@@ -22,6 +22,9 @@
       # for the running shell
       packages = with pkgs; [
         just
+        nix
+        bash
+        zsh
 
         # Nix        
         nix-index

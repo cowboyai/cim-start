@@ -32,7 +32,7 @@ The base configuration provides a working system with all necessary source code 
 
 This is and isn't an "IDE", the system can work on itself... But you can also just work in your favorite `editor`.
 
-This is a VERY different approach. If you have followed the work of MakePad we have a similar `evolutionary, dog-fooding` approach.
+This is a VERY different approach. If you have followed the work of [MakePad](https://github.com/makepad/makepad) we have a similar `evolutionary`, `dog-fooding` approach.
 
 This is a `Rust` base. We intend several other languages later. If you think our rust syntax could be better, please school us.
 
@@ -40,7 +40,7 @@ This is a `Rust` base. We intend several other languages later. If you think our
 The development shell is where active source code work happens. It integrates seamlessly with tools like `direnv` to automate environment setup. This shell provides all the tools and dependencies needed for development without polluting the host system.
 
 #### Reactive Systems
-The CIM architecture incorporates principles from *The Reactive Manifesto* to ensure that systems are:
+The CIM architecture incorporates principles from [The Reactive Manifesto](https://www.reactivemanifesto.org/) to ensure that systems are:
 - **Responsive**: Deliver consistent performance under varying workloads.
 - **Resilient**: Handle failures gracefully through replication, isolation, and delegation.
 - **Elastic**: Scale dynamically based on demand.

@@ -26,7 +26,7 @@
 
   # Configure shell environment for Nix
   programs.bash = {
-    enableCompletion = true;
+    completion.enable = true;
     shellInit = ''
       export NIX_PATH=nixpkgs=${pkgs.path}
       export SSL_CERT_FILE=${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt

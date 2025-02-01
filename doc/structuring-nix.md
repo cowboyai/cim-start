@@ -31,6 +31,8 @@ A **flake** refers to a file-system tree (usually a Git repository) whose root d
 
 In the context of DDD, Flakes can be seen as modular representations of domain boundaries. Each flake encapsulates a specific aspect of a domain, making it easier to manage dependencies, configurations, and behaviors across distributed systems.
 
+Often we see really large flakes... This is not terrible, it does effect performance. However, by making flakes *domain* specific, we encapsulate dependencies better and can reduce flake size through modular reference.
+
 ---
 
 ## **Inputs**
@@ -44,6 +46,8 @@ inputs = {
 - These dependencies can be local or remote (e.g., from GitHub).
 
 In DDD terms, inputs represent external services or bounded contexts that interact with our domain. By explicitly defining these dependencies, we ensure clear boundaries and maintain modularity.
+
+Flakes do not have to be large if components are created in the intended "flake" design.
 
 ---
 

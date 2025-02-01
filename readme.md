@@ -1,6 +1,6 @@
 ## **Introduction to Building a CIM with NixOS**
 
-This guide introduces a template for creating a **Composable Information Machine (CIM)** client using [NixOS](https://nixos.org). CIM is designed for developers who want to build systems based on **Domain-Driven Design (DDD)** and **Event Sourcing**. If these paradigms are not part of your goals, this structure may not be suitable for you.
+This guide introduces a template for creating a **Composable Information Machine (CIM)** using [NixOS](https://nixos.org). CIM is designed for developers who want to build systems based on **Domain-Driven Design (DDD)** and **Event Sourcing**. If these paradigms are not part of your goals, this structure may not be suitable for you.
 
 NONE of this belongs in Nix or NixOS proper.
 We DO want it all to be a specific group of modules, based on NixOS, used in a special way to achieve something specific: A CIM.
@@ -60,9 +60,9 @@ Every version can be `pinned` or `locked` in Nix and we will take advantage of t
 We are going to be very opinionated about what goes where and how... Even how you name things, after all we are building languages.
 
 If you have 5 machines, don't do this.
-If you have 50... or 500... please continue.
+If you have 50... or 500... or 5000... please continue.
 
-This isn't about [ricing a desktop](https://www.reddit.com/r/unixporn/), it's about managing a distributed system. A distributed system by nature means it has a purpose and it is made from "parts" on separate "machines" connected to make a whole.
+This isn't about [ricing a desktop](https://www.reddit.com/r/unixporn/), it's about managing a distributed system and building real-world business software. A distributed system by nature means it has a purpose and it is made from "parts" on separate "machines" connected to make a whole.
 
 >"Distributed system management refers to the process of overseeing and controlling the operation, configuration, and performance of distributed systems. It involves managing the various components, nodes, and resources that make up the distributed system to ensure its reliable, efficient, and secure operation." [geeks for geeks](https://www.geeksforgeeks.org/distributed-system-management/)
 
@@ -79,12 +79,21 @@ Many CIMs are orchestrated to communicate with each other to compose bigger info
 
 ### **What is CIM?**
 CIM is an architectural approach that reimagines how distributed systems are built. It emphasizes:
+
 - **Domain-Driven Design (DDD):** A methodology that aligns software design with the core business domain by modeling its concepts explicitly[2].
+We use the definitions as described by Eric Evans.
+[What is Domain Driven Design?](https://www.youtube.com/watch?v=pMuiVlnGqjk)
+
 - **Event Sourcing:** A pattern that records all changes in the system as a series of immutable events, providing a complete history of state changes[8].
+We use the definitions as described by [Greg Young](https://github.com/gregoryyoung).
+[What is Event Sourcing?](https://youtu.be/8JKjvY4etTY?si=Mqy47CZrH8QACK3U)
+Additionally, we heavily use the [CQRS](https://www.youtube.com/watch?v=LDW0QWie21s) pattern as described by Greg Young.
+
 - **Modular Construction**
 At its core, CIM leverages NixOS's unique capabilities to create deterministic, reproducible, and modular systems. 
+[Flake Schemas](https://youtu.be/ChaJY0V4ElM?si=JhDplvBRxeWNqWom)
 
-Our CIM approach introduces a structured way to use **Nix Flakes**,packages, and modules - organizing everything around the concept of *domains*.
+Our CIM approach introduces a structured way to use just **Nix Flakes** - organizing everything around the concept of *domains*.
 
 We will talk about things like how to manage applications we build, applications we use, and applications we serve.
 
@@ -290,6 +299,12 @@ direnv allow
 This will build the devshell.
 
 Now we can initialize a system. 
+
+We initialize, by starting it.
+
+```bash
+`just run`
+```
 
 >"You are free to use any part of the system, or even replace it. Your mileage may vary, depending on how tightly you adhere to these principles."
 

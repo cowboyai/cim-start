@@ -5,6 +5,7 @@
       name = "cim-devShell";
 
       buildInputs = with pkgs; [
+        # wayland
         expat
         fontconfig
         freetype
@@ -15,8 +16,9 @@
         xorg.libXcursor
         xorg.libXi
         xorg.libXrandr
-        wayland
         libxkbcommon
+        vulkan-loader
+        wayland
       ];
 
       # for the running shell

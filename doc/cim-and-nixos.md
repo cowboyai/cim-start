@@ -4,9 +4,9 @@ The architecture of NixOS, particularly when using Flakes, revolves around modul
 ## **Key Components in NixOS with Flakes**
 
 ### **1. Flakes**
-A flake is a structured way to define Nix configurations. It includes:
+A flake is a structured way to orchestrate everything in nix. It includes:
 - **Inputs**: Dependencies such as `nixpkgs` or other flakes. These are version-pinned in a `flake.lock` file for reproducibility.
-- **Outputs**: The results of evaluating the flake, such as system configurations, packages, or development shells.
+- **Outputs**: The results of evaluating the flake, such as system configurations, packages, modules, or development shells.
 
 A typical `flake.nix` file defines inputs and outputs. For example:
 ```nix
@@ -32,18 +32,20 @@ Here:
 ### **2. Packages (pkg)**
 Packages in NixOS are defined using derivations in the Nix language. When using flakes:
 - Packages can be included in the `outputs.packages` section of a flake.
-- They are typically defined in a separate file (e.g., `package.nix`) and imported into the flake.
+- They are typically defined in a separate file (e.g., `my-package-name.nix`) and imported into the flake.
 
 Example of adding a package:
 ```nix
 outputs = { self, nixpkgs }: {
-  packages.x86_64-linux.myPackage = import ./package.nix;
-};
+  packages.x86_64-linux.my-package-name = (import ./my-package-name.nix)
+}
 ```
 This allows you to build and share custom packages easily.
 
 ### **3. Modules**
-Modules are the building blocks for configuring NixOS systems. They define options and settings that can be composed together. A module typically looks like this:
+Modules are the building blocks for configuring NixOS systems. They define options and settings that can be composed together, the flake is where you assemble them. 
+
+A module typically looks like this:
 ```nix
 { config, pkgs, ... }:
 {
@@ -51,6 +53,7 @@ Modules are the building blocks for configuring NixOS systems. They define optio
   services.sshd.enable = true;
 }
 ```
+
 In the context of flakes:
 - Modules are included in the `modules` list within `nixosConfigurations`.
 - They allow for flexible customization of system behavior.
@@ -65,7 +68,7 @@ outputs = { self, nixpkgs }: {
       ./custom-module.nix
     ];
   };
-};
+}
 ```
 
 ## **How These Components Work Together**

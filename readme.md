@@ -92,6 +92,8 @@ There are many other ways to do this, and unless you really want to work with Do
 
 From instatiation, we are using DDD and Eventsourcing.
 
+[Structuring with Nix](./doc/structuring-nix.md)
+
 ---
 
 ## **Key Concepts**
@@ -108,9 +110,9 @@ A *domain* represents a specific area of concern or functionality in your system
 # Discovery
 
 By injecting domains into the Nix ecosystem, we can relate all aspects of configuration and infrastructure directly to the domain they belong to. This creates a clean separation between:
-- The **Nix Domain:** The foundational tools and abstractions provided by Nix.
-- Your **Application Domain:** The specific logic and configurations you define for your system.
-- Your **Business Domain:** The specific logic and configurations you define for your business.
+- The **Nix Domain:** The foundational tools and abstractions provided by Nix. i.e. nixosConfiguration
+- Your **Application Domain:** The specific logic and configurations you define for your system. i.e. Website
+- Your **Business Domain:** The specific logic and configurations you define for your business. i.e. Employees
 
 There are others, but we start here.
 
@@ -118,9 +120,11 @@ This separation ensures clarity and modularity while enabling seamless interacti
 
 Deciding what goes where is something we want to determine, and not tell our programmers (including ourselves) to go look it up at [nixos.org]
 
-Nix does really care how you write a flake.nix other than "put them in inputs and outputs"
+Nix doesn't really care how you write a flake.nix other than "put them in inputs and outputs"
 
-We are going to provide a structure for them, how do I get a pckage, how do I configure it, where do I edit things, why can't I put a hard string here, and all that sort of guidance.
+How you `slice and dice` a flake is totally up to you.
+
+We are going to provide a structure for them, how do I get a package, how do I configure it, where do I edit things, why shouldn't I put a hard string here, *how in the heck to I access this attribute!* and all that sort of guidance.
 
 We aren't taking your freedom away, we want to make it much easier to *choose* your own approach and be able to make it easier to implement.
 
@@ -134,25 +138,39 @@ We aren't taking your freedom away, we want to make it much easier to *choose* y
 
 In the context of CIM:
 1. The **flake.nix** file becomes the root of a system hierarchy.
-2. Domains are explicitly defined and partitioned into directories like `hosts`, `users`, `networks`, etc., rather than being in one giant file, or scattered across arbitrary unstructured files.
+2. Domains are explicitly defined and partitioned, rather than being in one giant file, or scattered across arbitrary semi-structured files, they are `modularized`.
 
 We further use [flake-parts](./doc/parts.nix) to enhance our modular approach. you should be familiar with [https://flake.parts/best-practices-for-module-writing]
 
 We have an opinionated way we interpret Nix and NixOS into Domains. This opinion closely follows the work of "Domain Experts" and we document that where appropriate.
 
-This is painstakingly modeled around our interpretation of the the intent of Nix.
+We aren't changing anything about Nix or NixOS, we are simply declaring how we intend to use them in a specific way.
 
-Nix is often refered to as a "package manager" but it's actually a Language and there is also a package manager called "nixpkgs".
+This is painstakingly modeled around our interpretation of the the intent of Nix as proposed here:
+-[Official Nix Reference Manual](https://nix.dev/manual/nix/2.24/command-ref/new-cli/nix3-flake)
+-[Writing Modules](https://nixos.org/manual/nixos/stable/#sec-writing-modules)
 
-nix (the language) is the glue that holds this architecture together.
+In other words, the official recommendations.
+
+`nix` is often refered to as a "package manager" but it's actually a Language and there is also a package manager called "nixpkgs" which uses nix.
+
+`nix` (the language) is the glue that holds this all together.
 
 ### Nix Architecture:
 git repo
-Package
-Module
-Flake
+flake
+  - modules
+  - overlays
+  - packages
+  - configurations
+  - ci/cd
 
-We aren't changing anything about Nix or NixOS, we are simply declaring how we intend to use them in a specific way.
+Flakes now hold everything, in modules.
+
+So is a flake a module or do I put modules in a flake?
+Yes.
+
+Flakes are recursive ways of looking at a git repo.
 
 See [How we use NixOS](cim-and-nixos.md) for even more details.
 ---
@@ -203,6 +221,11 @@ You are surely going to expand these, this is the base of what a CIM needs to fu
 
 You don't have to fill this all out at once (and we won't), everything but a few basic options all have defaults. The more you fill out, the more we can use with Nix.
 
+NOW, take out all those folders, and put them in their own flakes.
+
+That's right, flakes are just assemblies of other flakes.
+You can put them together in git-submodules too.
+
 This is an evolutionary system, we expect it to:
 1. start with an empty base
 2. allow you to just add config files and rebuild
@@ -211,21 +234,26 @@ This is an evolutionary system, we expect it to:
 5. help understand what we just built
 6. help us build more things
 
-Each directory corresponds to a specific domain:
-- **domain/**: Core domain logic.
-- **homes/**: User-specific configurations (e.g., home-manager setups).
-- **hosts/**: Host-specific configurations for local or remote machines.
-- **networks/**: Network-related settings (e.g., DNS, firewall rules).
-- **modules/**: Modular reusable configurations.
-- **shells/**: Development environments or shell configurations.
-- **users/**: User accounts and permissions.
+Each flake corresponds to a specific domain:
+- **domain**: Core domain logic.
+- **homes**: User-specific configurations (e.g., home-manager setups).
+- **hosts**: Host-specific configurations for local or remote machines.
+- **nodes**: Specific configurations without an implied host.
+- **networks**: Network-related settings (e.g., DNS, firewall rules).
+- **modules**: Modular reusable configurations.
+- **shells**: Development environments or shell configurations.
+- **users**: User accounts and permissions.
 
 These are all going to cross communicate like spaghetti.
 Domain single-responsibility keeps it straight.
 
+They all live in their own git repo and have boundaries.
+
 Each Sub-domain should be as generic as possible while still being a specific category. Hierarchy becomes very important.
 
 This structure ensures that configurations are logically grouped by their purpose, making it easier to manage complex systems.
+
+`Atomization` by `git repo` ensures code clarity and boundaries. Flakes treat these as independent modules.
 
 ---
 
@@ -242,9 +270,9 @@ This structure ensures that configurations are logically grouped by their purpos
 ## **Getting Started**
 To begin building your CIM with this structure, create a new git repository then:
 1. Generate this template: `nix flake init --template github:thecowboyai/templates#cim` then, 
-2. `just generate` This will generate an initial NixOS configuration using `nixos-generate-config` if you are using hardware. (you can run this in a virtual environment and control other systems that don't need hardware, a.k.a. the cloud.)
-2.a. automation coming soon.
-3. Your `flake.nix` file is the entry point for managing these domains. You start with a devshell, to actually make a NixOS configuration, you will need to complete a few more steps, like adding hardware settings. 
+2. If you are targetting metal, use `just generate` This will generate an initial NixOS configuration using `nixos-generate-config` if you are using hardware. (you can run this in a virtual environment and control other systems that don't need hardware, a.k.a. the cloud.)
+2.a. better automation coming soon.
+3. Your `flake.nix` file is the entry point for managing these domains. You start with a devshell... to actually make a NixOS configuration, you will need to complete a few more steps, like adding your preferred settings. 
 
 This approach is not about replacing tools like `home-manager` but about extending them with domain-driven organization tailored for distributed systems.
 
@@ -265,7 +293,8 @@ Now we can initialize a system.
 
 >"You are free to use any part of the system, or even replace it. Your mileage may vary, depending on how tightly you adhere to these principles."
 
-If you hate our UI, replace it. You have a model to work with to make it a module.
+You have a model to work with to make it a module and use it.
+
 ---
 
 By adopting this methodology, you’re not just configuring a Linux system—you’re creating a robust framework for building scalable, maintainable distributed systems with NixOS at its core.

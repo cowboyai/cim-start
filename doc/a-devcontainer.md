@@ -1,7 +1,7 @@
 # Development Container
 I don't have NixOS...
 
-Fear not, we can just start a container.
+Fear not, we can just start a container. or a vm.
 You do need somewhere you can run an [OCI Container](https://opencontainers.org/).
 
 This flake can import a container... 
